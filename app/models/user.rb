@@ -8,9 +8,9 @@ class User < ApplicationRecord
   has_many :experiences
   has_many :user_bookings, dependent: :destroy
   has_many :user_categories, dependent: :destroy
-  has_many :categories, through: :user_categories
+  has_and_belongs_to_many :categories, through: :user_categories
   has_many :experience_categories, through: :experiences, source: :categories
-  
+
     def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)
     user_params.merge! auth.info.slice(:email, :first_name, :last_name)
