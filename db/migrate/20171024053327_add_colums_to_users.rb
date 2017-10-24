@@ -5,4 +5,5 @@ class AddColumsToUsers < ActiveRecord::Migration[5.1]
     add_column :users, :bio, :text
     add_column :users, :hobbies, :text
   end
+
 end
