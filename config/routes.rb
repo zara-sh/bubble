@@ -6,8 +6,7 @@ Rails.application.routes.draw do
   get 'profile', to: 'pages#profile'
   get 'profile/edit', to: 'users#edit'
   patch "profile/edit", to: "users#update"
-  resources :experiences, only: [:show, :new, :create, :edit, :update, :destroy]
-  resources :experiences do
+  resources :experiences, only: [:show, :new, :create, :edit, :update, :destroy] do
     resources :bookings, only: [:new, :create]
   end
   # resources :bookings, only: [:show]
