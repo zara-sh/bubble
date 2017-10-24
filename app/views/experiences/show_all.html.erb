@@ -1,0 +1,5 @@
+<% @experiences.each do |experience| %>
+<%= experience.title %>
+<%= experience.incentive %>
+<%= link_to 'show', experience_path(experience) %>
+<% end %>
