@@ -25,6 +25,12 @@ class PagesController < ApplicationController
     end
   end
 
+  def destroy
+    @user = current_user
+    @user.destroy
+    redirect_to root
+  end
+
   private
 
   def user_params
