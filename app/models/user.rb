@@ -6,8 +6,8 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: [:facebook]
 
   has_many :experiences, dependent: :destroy
-  has_many :user_bookings, dependent: :destroy
-  has_many :user_categories, dependent: :destroy
+  has_many :bookings, dependent: :destroy
+  # has_many :user_categories, dependent: :destroy
   has_and_belongs_to_many :categories
   # has_many :experience_categories, through: :experiences, source: :categories
 
