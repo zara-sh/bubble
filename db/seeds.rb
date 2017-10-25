@@ -22,7 +22,7 @@ hobby =["Yoga", "Pet", "Dance", "Video game", "Air sport", "Flying", "Swimming",
   hobbies: hobby.sample
    )
 end
-category = ["The best latte around", "Happy hours", "Tourism spot in  the town", "the best workouts around"]
+category = ["stress relief / relaxation","The best latte around", "Happy hours", "Tourism spot in  the town", "the best workouts around"]
 20.times do
 Category.create(
   name:category.sample,
