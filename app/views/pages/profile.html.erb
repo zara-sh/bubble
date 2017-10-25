@@ -1,0 +1,10 @@
+
+<%= current_user.name %>
+<%= current_user.phone %>
+<%= current_user.bio %>
+<%= current_user.hobbies %>
+
+<%= link_to "edit profile", profile_edit_path %>
+<%= link_to "Delete", profile_delete_path,
+      method: :delete, data: {confirm: "are you sure?"} %>
+

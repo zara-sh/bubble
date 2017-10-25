@@ -1,0 +1,15 @@
+<%= @experience.title %>
+<%= @experience.description %>
+<%= @experience.incentive %>
+<%= @experience.location %>
+<%= @experience.availability %>
+<%= @experience.category.name %>
+
+
+<%= simple_form_for([@experience, @booking]) do |f| %>
+  <%= f.error_notification %>
+<%= f.input :date, collection: Experience::AVABILITY %>
+<%= f.hidden_field :user_id, value: current_user.id %>
+<%= f.hidden_field :experience_id, value: @experience.id %>
+<%= f.submit %>
+<% end %>

@@ -10,11 +10,13 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:facebook]
 
-  has_many :experiences
-  has_many :user_bookings, dependent: :destroy
-  has_many :user_categories, dependent: :destroy
-  has_many :categories, through: :user_categories
-  has_many :experience_categories, through: :experiences, source: :categories
+
+  has_many :experiences, dependent: :destroy
+  has_many :bookings, dependent: :destroy
+  # has_many :user_categories, dependent: :destroy
+  has_and_belongs_to_many :categories
+  # has_many :experience_categories, through: :experiences, source: :categories
+
 
     def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)
