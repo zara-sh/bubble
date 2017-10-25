@@ -22,7 +22,7 @@ hobby =["Yoga", "Pet", "Dance", "Video game", "Air sport", "Flying", "Swimming",
   hobbies: hobby.sample
    )
 end
-category = ["coffeshop", "restuarant", "tourism land mark", "workout places"]
+category = ["The best latte around", "Happy hours", "Tourism spot in  the town", "the best workouts around"]
 20.times do
 Category.create(
   name:category.sample,
@@ -30,8 +30,8 @@ Category.create(
 end
 weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
 incentive = ["Make friend", "Know neighbourhood","Have free coffe", "For 1000$", "For free"]
-title = ["I konw cool place around", "I know cool coffeshop",""]
-category =["coffeshop", "restuarant", "tourism land mark", "workout"]
+title = ["I konw cool place around", "I know cool coffeshop"]
+
 place = ["Meguro", "Harajuku", "shibuya", "shinjuku","Hikarigaoka" ]
 description = ["Blue Bottle Coffee is on the ground floor and is accessible from the outside of the building.  I got lost trying to find it, but if you go outside and look up the address on Google maps, make your way toward the pin from the outdoors, you should find it.
 I was delighted to see that there’s a Blue Bottle location in Shinjuku.  You can expect the same quality here as you would at any other location.  The staff is friendly and quick.  The craftsmanship is excellent, just what you’d expect from Blue Bottle.  I got a New Orleans drink here, and it tasted just like the one from their New York City shops.  The lines can get long, and there is not much seating available, but there are some benches outside.  The shop indoors across from Blue Bottle has fun culinary accouterments to look at if you’d like to take a small stroll inside.
