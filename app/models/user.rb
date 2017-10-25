@@ -16,6 +16,8 @@ class User < ApplicationRecord
   # has_many :user_categories, dependent: :destroy
   has_and_belongs_to_many :categories
   # has_many :experience_categories, through: :experiences, source: :categories
+  after_create :send_welcome_email
+
 
 
     def self.find_for_facebook_oauth(auth)
