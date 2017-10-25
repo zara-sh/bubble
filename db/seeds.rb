@@ -22,7 +22,7 @@ hobby =["Yoga", "Pet", "Dance", "Video game", "Air sport", "Flying", "Swimming",
   hobbies: hobby.sample
    )
 end
-category = ["coffeshop", "restuarant", "tourism land mark", "workout places"]
+category = ["The best latte around", "Happy hours", "Tourism spot in  the town", "the best workouts around"]
 20.times do
 Category.create(
   name:category.sample,
@@ -30,15 +30,24 @@ Category.create(
 end
 weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
 incentive = ["Make friend", "Know neighbourhood","Have free coffe", "For 1000$", "For free"]
-title = ["I konw cool place around", "I know cool coffeshop",""]
-category =["coffeshop", "restuarant", "tourism land mark", "workout"]
+title = ["I konw cool place around", "I know cool coffeshop"]
+
 place = ["Meguro", "Harajuku", "shibuya", "shinjuku","Hikarigaoka" ]
 description = ["Blue Bottle Coffee is on the ground floor and is accessible from the outside of the building.  I got lost trying to find it, but if you go outside and look up the address on Google maps, make your way toward the pin from the outdoors, you should find it.
 I was delighted to see that there’s a Blue Bottle location in Shinjuku.  You can expect the same quality here as you would at any other location.  The staff is friendly and quick.  The craftsmanship is excellent, just what you’d expect from Blue Bottle.  I got a New Orleans drink here, and it tasted just like the one from their New York City shops.  The lines can get long, and there is not much seating available, but there are some benches outside.  The shop indoors across from Blue Bottle has fun culinary accouterments to look at if you’d like to take a small stroll inside.
 Enjoy!", "howa Memorial Park is a 165 hectare National Government Park about a 40 minute train ride from Shinjuku Station. The park is great to visit year round with seasonal flowers adding some colour even through the winter months. Noteworthy is the crisscrossed network of cycling paths and bikes including tandem’s are available for hire. In addition the park includes several playgrounds including a Children’s Forest and rainbow pool, BBQ facilities and for couples looking for something quieter there is always pedal boating on the artificial lake.
  Access: From Shinjuku take a Chuo Line train bound for Ome and get off at Nishi Tachikawa Station which closest to the park. Entry fee adults 410 yen / children 80 yen."]
+
+
+urls = [
+  'https://gaijinpot.scdn3.secure.raxcdn.com/wp-content/uploads/sites/6/2016/05/Meguro-streets.jpg'
+  'https://resources.realestate.co.jp/wp-content/uploads/2015/10/Nakameguro-Izakya.jpg'
+  'https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Meguro_River_Spring_2014%282%29.jpg/1200px-Meguro_River_Spring_2014%282%29.jpg'
+]
+
+
 20.times do
-  Experience.create(
+  exp = Experience.create(
     title: title.sample,
     description: description.sample,
     incentive: incentive.sample,
@@ -47,7 +56,10 @@ Enjoy!", "howa Memorial Park is a 165 hectare National Government Park about a 4
     user_id: User.order("RANDOM()").first.id,
     category_id: Category.order("RANDOM()").first.id
     )
+  exp.save!
+  exp.photo_urls = urls
 end
+
 20.times do
 Booking.create(
   date: weekdays.sample,
@@ -55,6 +67,7 @@ Booking.create(
   experience_id: Experience.order("RANDOM()").first.id
   )
 end
+
 20.times do
 UserCategory.create(
   user_id: User.order("RANDOM()").first.id,

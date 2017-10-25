@@ -36,8 +36,7 @@ group :development, :test do
   # [...]
 end
 
-gem "letter_opener", group: :development
-gem 'cloudinary'
+gem 'cloudinary', '1.1.7'
 gem 'attachinary', github: 'assembler/attachinary'
 gem 'jquery-fileupload-rails'
 gem 'coffee-rails'
