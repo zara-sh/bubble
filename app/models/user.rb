@@ -5,13 +5,8 @@ class User < ApplicationRecord
     # redirect_to edit_user_registration_path
     :send_welcome_email
   end
-  # after_create do
-  #   redirect_to user_edit_path
-  #   :send_welcome_email
-  # end
 
-
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:facebook]
 
@@ -49,4 +44,11 @@ class User < ApplicationRecord
   def send_welcome_email
     UserMailer.welcome(self).deliver_now
   end
+
+  # below in case we need to skip confirmation
+  # protected
+
+  # def confirmation_required?
+  #   false
+  # end
 end
