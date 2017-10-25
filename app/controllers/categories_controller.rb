@@ -1,5 +1,7 @@
 class CategoriesController < ApplicationController
   def show
-       @experiences = Experience.where(category_id: params[:id])
+    @category= Category.find(params[:id])
+    @experiences = @category.experiences.where("availability ILIKE ?", "%#{params[:search]}%")
+
   end
 end

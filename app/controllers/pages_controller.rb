@@ -7,6 +7,7 @@ class PagesController < ApplicationController
     @categorie_workout = Category.where(name: 'the best workouts around').first
     @categorie_relax = Category.where(name: 'stress relief relaxation').first
     @categorie_tourism = Category.where(name: 'Tourism spot in  the town').first
+
   end
 
   def search
