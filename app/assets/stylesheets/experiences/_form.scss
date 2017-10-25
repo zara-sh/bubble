@@ -2,3 +2,31 @@
   padding: 0 0 100px 0;
   // background-color: white;
 }
+
+.attachinary_container ul{
+
+    min-width: 696px;
+  list-style: none;
+  padding-top: 20px;
+
+    li {
+      // a {
+      //   display: list-item;
+      // }
+      // img {
+      //   display: inline;
+      // }
+      display: inline;
+    }
+
+}
+
+
+// ul#horizontal-list {
+//   min-width: 696px;
+//   list-style: none;
+//   padding-top: 20px;
+//   }
+//   ul#horizontal-list li {
+//     display: inline;
+//   }
