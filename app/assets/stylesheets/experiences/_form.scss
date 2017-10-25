@@ -8,15 +8,11 @@
     min-width: 696px;
   list-style: none;
   padding-top: 20px;
-
+  display: flex;
     li {
-      // a {
-      //   display: list-item;
-      // }
-      // img {
-      //   display: inline;
-      // }
-      display: inline;
+      a {
+        display: list-item;
+      }
     }
 
 }
