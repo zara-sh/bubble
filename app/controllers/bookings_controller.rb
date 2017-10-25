@@ -19,7 +19,8 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     if @booking.save
       # redirect_to  @booking
-      redirect_to  experience_booking_path(experience_id: @booking.experience_id, id: @booking.id)
+      redirect_to  bookings_path
+      # (experience_id: @booking.experience_id, id: @booking.id)
     else
       render :new
     end

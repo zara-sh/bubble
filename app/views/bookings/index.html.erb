@@ -1,0 +1,7 @@
+ <% @bookings.each do |booking| %>
+  <%= booking.experience.title %>
+  <%= booking.experience.incentive %>
+  <%= booking.date %>
+  <%= link_to 'view', booking_path(booking) %>
+
+ <% end %>

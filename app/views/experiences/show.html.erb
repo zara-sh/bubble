@@ -1,0 +1,11 @@
+<%= @experience.title %>
+<%= @experience.description %>
+<%= @experience.incentive %>
+<%= @experience.location %>
+<%= @experience.availability %>
+<%= @experience.category.name %>
+
+<%= link_to "edit", edit_experience_path %>
+<%= link_to "Delete", experience_path(@experience),
+      method: :delete, data: {confirm: "are you sure?"} %>
+
