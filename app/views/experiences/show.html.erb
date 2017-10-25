@@ -8,7 +8,15 @@
   <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
 <% end %>
 
+<% unless @experience.bookings.nil? %>
+  <% @experience.bookings.each do |booking| %>
+    on <%= booking.date %>
+    by <%= booking.user.name %>
+    <%= link_to 'show booking', booking_path(booking) %>
+  <% end %>
+<% end %>
+            
 <%= link_to "edit", edit_experience_path %>
-<%= link_to "Delete", experience_path(@experience),
+<%= link_to "delete", experience_path(@experience),
       method: :delete, data: {confirm: "are you sure?"} %>
 

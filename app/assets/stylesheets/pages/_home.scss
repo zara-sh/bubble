@@ -8,9 +8,10 @@
 
 }
 .banner-content {
+
   text-align: center;
   position: absolute;
-  top: 50%;
+  top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
@@ -19,5 +20,9 @@
 }
 
 i {
-  padding: 30px;
+  padding: 50px;
+}
+
+.fas {
+  padding-top: 50px;
 }

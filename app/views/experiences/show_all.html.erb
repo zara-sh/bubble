@@ -1,5 +1,5 @@
 <% @experiences.each do |experience| %>
 <%= experience.title %>
 <%= experience.incentive %>
-<%= link_to 'show', experience_path(experience) %>
+<%= link_to 'book', new_experience_booking_path(experience_id: experience.id) %>
 <% end %>

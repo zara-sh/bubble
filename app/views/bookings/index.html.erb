@@ -1,7 +1,29 @@
+
+
+<h2>My Bookings</h2>
  <% @bookings.each do |booking| %>
   <%= booking.experience.title %>
   <%= booking.experience.incentive %>
   <%= booking.date %>
   <%= link_to 'view', booking_path(booking) %>
-
  <% end %>
+
+<h2>My Experiences</h2>
+<% if current_user.experiences.nil? %>
+  <h3>You have no Experiences posted</h3>
+<% else %>
+ <% current_user.experiences.each do |experience| %>
+  <%= experience.title %>
+  <%= experience.incentive %>
+  <%= link_to 'edit', edit_experience_path(experience) %>
+  <%= link_to 'show', experience_path(experience) %>
+  <%= link_to 'delete', experience_path(experience), method: :delete, data: {confirm: 'are you sure?'} %>
+  <% if experience.bookings.nil? %>
+    <p>there are currently no bookings for this experience</p>
+  <% else %>
+    <% experience.bookings.each do |booking| %>
+      <%= booking.date %>
+    <% end %>
+  <% end %>
+ <% end %>
+<% end %>
