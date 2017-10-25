@@ -1,15 +1,27 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+  after_create do
+    # redirect_to edit_user_registration_path
+    :send_welcome_email
+  end
+  # after_create do
+  #   redirect_to user_edit_path
+  #   :send_welcome_email
+  # end
+
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:facebook]
+
 
   has_many :experiences, dependent: :destroy
   has_many :bookings, dependent: :destroy
   # has_many :user_categories, dependent: :destroy
   has_and_belongs_to_many :categories
   # has_many :experience_categories, through: :experiences, source: :categories
+
 
     def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)
@@ -30,5 +42,11 @@ class User < ApplicationRecord
     end
 
     return user
+  end
+
+  private
+
+  def send_welcome_email
+    UserMailer.welcome(self).deliver_now
   end
 end

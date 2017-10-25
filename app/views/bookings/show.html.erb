@@ -1,3 +1,5 @@
+<h3>Status: </h3>
+
 <%= @booking.experience.title %>
 <%= @booking.experience.description %>
 <%= @booking.experience.incentive %>
@@ -6,3 +8,5 @@ on: <%= @booking.date %>
 <%= @booking.experience.category.name %>
 guide: <%= @booking.experience.user.name %>
 neightbor: <%= @booking.user.name %>
+
+<%= link_to 'book another experience!', root_path %>
