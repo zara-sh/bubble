@@ -10,6 +10,8 @@ Experience.delete_all
 UserCategory.delete_all
 Category.delete_all
 User.delete_all
+
+puts "Deleted crap"
 hobby =["Yoga", "Pet", "Dance", "Video game", "Air sport", "Flying", "Swimming", "Book collevting"]
 20.times do
   User.create(
@@ -22,6 +24,8 @@ hobby =["Yoga", "Pet", "Dance", "Video game", "Air sport", "Flying", "Swimming",
   hobbies: hobby.sample
    )
 end
+
+puts "Created hobbies"
 category = ["The best latte around", "Happy hours", "Tourism spot in  the town", "the best workouts around"]
 20.times do
 Category.create(
@@ -46,8 +50,10 @@ urls = [
 ]
 
 
-20.times do
-  exp = Experience.create(
+
+puts 'Created categories'
+2.times do
+  exp = Experience.new(
     title: title.sample,
     description: description.sample,
     incentive: incentive.sample,
@@ -60,6 +66,8 @@ urls = [
   exp.photo_urls = urls
 end
 
+puts 'created experiences'
+
 20.times do
 Booking.create(
   date: weekdays.sample,
@@ -68,9 +76,11 @@ Booking.create(
   )
 end
 
-20.times do
-UserCategory.create(
-  user_id: User.order("RANDOM()").first.id,
- category_id: Category.order("RANDOM()").first.id
-  )
-end
+puts 'created bookings'
+
+# 20.times do
+# UserCategory.create(
+#   user_id: User.order("RANDOM()").first.id,
+#  category_id: Category.order("RANDOM()").first.id
+#   )
+# end
