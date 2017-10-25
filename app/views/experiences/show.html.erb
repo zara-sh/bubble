@@ -1,22 +1,35 @@
-<%= @experience.title %>
-<%= @experience.description %>
-<%= @experience.incentive %>
-<%= @experience.location %>
-<%= @experience.availability %>
-<%= @experience.category.name %>
-<% @experience.photos.each do |photo| %>
-  <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-4">
+      <div class= "form_padding">
 
-<% unless @experience.bookings.nil? %>
-  <% @experience.bookings.each do |booking| %>
-    on <%= booking.date %>
-    by <%= booking.user.name %>
-    <%= link_to 'show booking', booking_path(booking) %>
-  <% end %>
-<% end %>
-            
-<%= link_to "edit", edit_experience_path %>
-<%= link_to "delete", experience_path(@experience),
-      method: :delete, data: {confirm: "are you sure?"} %>
+        <h3>Status: unbooked</h3>
+        <h1><%= @experience.title %></h1>
+
+        <% @experience.photos.each do |photo| %>
+          <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill, style: 'margin: 20px 0; border-radius:5px;' %>
+        <% end %>
+
+        <p>Description: <%= @experience.description %></p>
+        <p>Your Reward: <%= @experience.incentive %></p>
+        <p>Place: <%= @experience.location %></p>
+        <p>Availability: <%= @experience.availability %></p>
+        <p>Category: <%= @experience.category.name %>
+
+        <% unless @experience.bookings.nil? %>
+          <% @experience.bookings.each do |booking| %>
+            on <%= booking.date %>
+            by <%= booking.user.name %>
+            <%= link_to 'show booking', booking_path(booking) %>
+          <% end %>
+        <% end %>
+
+        <p><%= link_to "edit", edit_experience_path %></p>
+        <p><%= link_to "See my bookings", bookings_path %></p>
+        <p><%= link_to "delete", experience_path(@experience),
+              method: :delete, data: {confirm: "are you sure?"} %></p>
+      </div>
+    </div>
+  </div>
+</div>
 

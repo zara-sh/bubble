@@ -1,15 +1,35 @@
-<%= @experience.title %>
-<%= @experience.description %>
-<%= @experience.incentive %>
-<%= @experience.location %>
-<%= @experience.availability %>
-<%= @experience.category.name %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-4">
 
+      <h2>Try this experience!</h2>
+      <% @experience.photos.each do |photo| %>
+        <div style="display: flex; justify-content: center; margin: 30px;">
+          <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill, style: "border-radius: 5px;" %>
+        </div>
+      <% end %>
 
-<%= simple_form_for([@experience, @booking]) do |f| %>
-  <%= f.error_notification %>
-<%= f.input :date, collection: Experience::AVABILITY %>
-<%= f.hidden_field :user_id, value: current_user.id %>
-<%= f.hidden_field :experience_id, value: @experience.id %>
-<%= f.submit %>
-<% end %>
+      <p><%= @experience.title %></p>
+      <p><%= @experience.description %></p>
+      <p><%= @experience.incentive %></p>
+      <p><%= @experience.location %></p>
+      <p><%= @experience.availability %></p>
+      <p><%= @experience.category.name %></p>
+      <%= @experience.title %>
+      <%= @experience.description %>
+      <%= @experience.incentive %>
+      <%= @experience.location %>
+      <%= @experience.availability %>
+      <%= @experience.category.name %>
+
+      <div class= "form_padding">
+        <%= simple_form_for([@experience, @booking]) do |f| %>
+        <%= f.input :date, collection: Experience::AVABILITY %>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+        <%= f.hidden_field :experience_id, value: @experience.id %>
+        <%= f.submit "book", style: "width: 100%", class: "btn btn-success" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
