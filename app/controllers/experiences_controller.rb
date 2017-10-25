@@ -53,8 +53,9 @@ class ExperiencesController < ApplicationController
 
   private
 
-  def experience_params # TODO: check to see if this works
-    params.require(:experience).permit(:category_id, :title, :description, :incentive, :location, :availability, photos: [])
+  def experience_params
+    #makes sure photo is last or else it breaks
+    params.require(:experience).permit(:category_id, :title, :description, :incentive, :location, :availability, :query, :photos => [])
   end
 
 end
