@@ -1,11 +1,15 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-4">
+      <%= current_user.name %>
+      <%= current_user.phone %>
+      <%= current_user.bio %>
+      <%= current_user.hobbies %>
 
-<%= current_user.name %>
-<%= current_user.phone %>
-<%= current_user.bio %>
-<%= current_user.hobbies %>
-
-<%= link_to "edit profile", profile_edit_path %>
-<%= link_to "Delete", profile_delete_path,
-      method: :delete, data: {confirm: "are you sure?"} %>
-<%= link_to "all my bookings", bookings_path %>
-
+      <%= link_to "edit profile", profile_edit_path %>
+      <%= link_to "Delete", profile_delete_path,
+            method: :delete, data: {confirm: "are you sure?"} %>
+      <%= link_to "all my bookings", bookings_path %>
+    </div>
+  </div>
+</div>

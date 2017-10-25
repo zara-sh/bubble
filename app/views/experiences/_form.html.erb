@@ -1,10 +1,20 @@
-<%= simple_form_for(@experience) do |f| %>
-  <%= f.error_notification %>
-<%= f.input :title %>
-<%= f.input :description %>
-<%= f.input :location %>
-<%= f.input :availability, collection: Experience::AVABILITY %>
-<%= f.association :category  %>
-<%= f.input :photos, as: :attachinary %>
-<%= f.submit %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-4">
+      <div class= "form_padding">
+        <h2>Share your experience!</h2>
+        <%= simple_form_for(@experience) do |f| %>
+          <%= f.error_notification %>
+        <%= f.input :title %>
+        <%= f.input :description %>
+        <%= f.input :location %>
+        <%= f.input :availability, collection: Experience::AVABILITY %>
+        <%= f.association :category  %>
+        <%= f.input :photos, as: :attachinary %>
+        <!-- <ul class="list-inline"></ul> -->
+        <%= f.submit %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,8 +1,15 @@
-<%= simple_form_for @user, url:profile_edit_path do |f| %>
-  <%= f.input :name %>
-  <%= f.input :bio %>
-  <%= f.input :phone %>
-  <%= f.input :hobbies %>
-  <%= f.submit %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-4">
+
+      <%= simple_form_for @user, url:profile_edit_path do |f| %>
+        <%= f.input :name %>
+        <%= f.input :bio %>
+        <%= f.input :phone %>
+        <%= f.input :hobbies %>
+        <%= f.submit %>
+      <% end %>
+    </div>
+  </div>
+</div>
 
