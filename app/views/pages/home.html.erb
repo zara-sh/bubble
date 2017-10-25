@@ -7,27 +7,13 @@
 
     <div class="fas">
 
-      <%= link_to category_path(@categorie_latte) do %>
-        <i class="fa fa-coffee fa-5x" aria-hidden="true"></i>
+      <% @categories.each do  |c|  %>
+        <%= link_to category_path(c) do %>
+          <!-- link_to category icon -->
+        <i class="fa <%=c.icon%> fa-5x" aria-hidden="true"></i>
+        <% end %>
       <% end %>
 
-      <%= link_to category_path(@categorie_happy) do %>
-        <i class="fa fa-glass fa-5x" aria-hidden="true"></i>
-      <% end %>
-
-      <%= link_to category_path(@categorie_workout) do %>
-        <i class="fa fa-bolt fa-5x" aria-hidden="true"></i>
-      <% end %>
-
-      <%= link_to category_path(@categorie_relax) do %>
-        <i class="fa fa-tint fa-5x" aria-hidden="true"></i>
-      <% end %>
-
-      <%= link_to category_path(@categorie_tourism) do %>
-        <i class="fa fa-flag fa-5x" aria-hidden="true"></i>
-      <% end %>
-
-    </div>
 
   </div>
 </div>
