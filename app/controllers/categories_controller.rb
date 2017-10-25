@@ -1,6 +1,5 @@
 class CategoriesController < ApplicationController
   def show
-    @categories = Category.find(params[:id])
+       @experiences = Experience.where(category_id: params[:id])
   end
-
 end

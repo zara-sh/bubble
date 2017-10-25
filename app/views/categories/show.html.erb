@@ -1,2 +1,8 @@
 <h1>Categories#show</h1>
 <p>Find me in app/views/categories/show.html.erb</p>
+
+<% @experiences.each do |experience| %>
+  <h3>
+    <%= experience.category.name%>
+  </h3>
+<% end %>
