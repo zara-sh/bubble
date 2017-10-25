@@ -10,7 +10,7 @@ def show
       current_user.phone.nil? ||
       current_user.photo.nil?)
       $error_message = "Must have profile completely set up before making a experience post or reservation"
-      redirect_to root_path
+      redirect_to profile_path
       else
       $error_message = ""
       @experience = Experience.new

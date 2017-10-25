@@ -19,7 +19,7 @@ class PagesController < ApplicationController
     @user = current_user
 
     if @user.update(user_params)
-      redirect_to profile_path
+      redirect_to user_edit_path
     else
       render :edit
     end

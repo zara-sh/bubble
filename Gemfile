@@ -34,3 +34,9 @@ group :development, :test do
   gem 'minitest-reporters'
   # [...]
 end
+
+gem "letter_opener", group: :development
+gem 'cloudinary'
+gem 'attachinary', github: 'assembler/attachinary'
+gem 'jquery-fileupload-rails'
+gem 'coffee-rails'
