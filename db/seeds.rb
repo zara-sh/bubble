@@ -40,8 +40,8 @@ Enjoy!", "howa Memorial Park is a 165 hectare National Government Park about a 4
 
 
 urls = [
-  'https://gaijinpot.scdn3.secure.raxcdn.com/wp-content/uploads/sites/6/2016/05/Meguro-streets.jpg'
-  'https://resources.realestate.co.jp/wp-content/uploads/2015/10/Nakameguro-Izakya.jpg'
+  'https://gaijinpot.scdn3.secure.raxcdn.com/wp-content/uploads/sites/6/2016/05/Meguro-streets.jpg',
+  'https://resources.realestate.co.jp/wp-content/uploads/2015/10/Nakameguro-Izakya.jpg',
   'https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Meguro_River_Spring_2014%282%29.jpg/1200px-Meguro_River_Spring_2014%282%29.jpg'
 ]
 

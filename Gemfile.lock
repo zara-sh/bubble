@@ -284,13 +284,8 @@ DEPENDENCIES
   autoprefixer-rails
   bootstrap-sass
   capybara
-<<<<<<< HEAD
-  carrierwave (~> 0.11.2)
-  cloudinary
-=======
   cloudinary (= 1.1.7)
   coffee-rails
->>>>>>> 3b59ccab7a8b6230fe1dda56ac4743be8267c362
   devise
   faker
   figaro
