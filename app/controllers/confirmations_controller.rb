@@ -1,8 +1,12 @@
 class ConfirmationsController < ApplicationController
+skip_before_action :authenticate_user!
+def show
+
+end
 
 private
   def after_confirmation_path_for(resource_name, resource)
-    edit_user_registration_path
+    root_path
   end
 
 end

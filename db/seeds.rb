@@ -21,11 +21,13 @@ hobby =["Yoga", "Pet", "Dance", "Video game", "Air sport", "Flying", "Swimming",
   phone: "12355667",
   password: "123456",
   bio: Faker::Lorem.word,
-  hobbies: hobby.sample
+  hobbies: hobby.sample,
+  confirmed_at: Time.now
    )
 end
 
 
+puts "Users created!"
 
 category1 = Category.create(
   name: 'The best latte around'
@@ -78,7 +80,7 @@ puts 'Created categories'
     category: categories_array.sample
     )
   exp.save!
-  # exp.photo_urls = urls
+  exp.photo_urls = urls
 end
 
 puts 'created experiences'

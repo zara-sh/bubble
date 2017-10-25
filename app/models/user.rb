@@ -1,10 +1,6 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  after_create do
-    # redirect_to edit_user_registration_path
-    :send_welcome_email
-  end
 
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable,
@@ -16,7 +12,6 @@ class User < ApplicationRecord
   # has_many :user_categories, dependent: :destroy
   has_and_belongs_to_many :categories
   # has_many :experience_categories, through: :experiences, source: :categories
-  after_create :send_welcome_email
 
 
 
@@ -41,11 +36,7 @@ class User < ApplicationRecord
     return user
   end
 
-  private
 
-  def send_welcome_email
-    UserMailer.welcome(self).deliver_now
-  end
 
   # below in case we need to skip confirmation
   # protected
