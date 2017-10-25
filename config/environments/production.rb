@@ -1,7 +1,7 @@
 Rails.application.configure do
 
   config.action_mailer.delivery_method     = :sendgrid
-  config.action_mailer.postmark_settings   = { api_key: ENV['SENDGRID_API_KEY'] }
+  # config.action_mailer.sendgrid_settings   = { api_key: ENV['SENDGRID_API_KEY'] }
   config.action_mailer.default_url_options = { host: "http://aroundthecorner.me" }
 
 
