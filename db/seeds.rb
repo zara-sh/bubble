@@ -25,16 +25,29 @@ hobby =["Yoga", "Pet", "Dance", "Video game", "Air sport", "Flying", "Swimming",
    )
 end
 
-puts "Created hobbies"
-category = ["The best latte around", "Happy hours", "Tourism spot in  the town", "the best workouts around"]
-20.times do
-Category.create(
-  name:category.sample,
+
+
+category1 = Category.create(
+  name: 'The best latte around'
 )
-end
+category2 = Category.create(
+  name: "Happy hours"
+)
+category3 = Category.create(
+  name: 'Tourism spot in  the town'
+)
+category4 = Category.create(
+  name: 'the best workouts around'
+)
+category5 = Category.create(
+  name: 'stress relief relaxation'
+)
+categories_array = [category1, category2, category3, category4, category5]
+
+
 weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
 incentive = ["Make friend", "Know neighbourhood","Have free coffe", "For 1000$", "For free"]
-title = ["I konw cool place around", "I know cool coffeshop"]
+title = ["I konw cool place around", "I know cool coffeshop", "I know cool gym", "I know cool spa"]
 
 place = ["Meguro", "Harajuku", "shibuya", "shinjuku","Hikarigaoka" ]
 description = ["Blue Bottle Coffee is on the ground floor and is accessible from the outside of the building.  I got lost trying to find it, but if you go outside and look up the address on Google maps, make your way toward the pin from the outdoors, you should find it.
@@ -43,11 +56,13 @@ Enjoy!", "howa Memorial Park is a 165 hectare National Government Park about a 4
  Access: From Shinjuku take a Chuo Line train bound for Ome and get off at Nishi Tachikawa Station which closest to the park. Entry fee adults 410 yen / children 80 yen."]
 
 
+
 urls = [
   'https://gaijinpot.scdn3.secure.raxcdn.com/wp-content/uploads/sites/6/2016/05/Meguro-streets.jpg',
   'https://resources.realestate.co.jp/wp-content/uploads/2015/10/Nakameguro-Izakya.jpg',
   'https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Meguro_River_Spring_2014%282%29.jpg/1200px-Meguro_River_Spring_2014%282%29.jpg'
 ]
+
 
 
 
@@ -60,10 +75,10 @@ puts 'Created categories'
     location: place.sample,
     availability: weekdays.sample,
     user_id: User.order("RANDOM()").first.id,
-    category_id: Category.order("RANDOM()").first.id
+    category: categories_array.sample
     )
   exp.save!
-  exp.photo_urls = urls
+  # exp.photo_urls = urls
 end
 
 puts 'created experiences'
@@ -77,10 +92,12 @@ Booking.create(
 end
 
 puts 'created bookings'
+20.times do
+UserCategory.create(
+  user_id: User.order("RANDOM()").first.id,
+ category: categories_array.sample
+  )
+end
 
-# 20.times do
-# UserCategory.create(
-#   user_id: User.order("RANDOM()").first.id,
-#  category_id: Category.order("RANDOM()").first.id
-#   )
-# end
+
+

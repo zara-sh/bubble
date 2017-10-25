@@ -1,10 +1,15 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+  after_create do
+    # redirect_to edit_user_registration_path
+    :send_welcome_email
+  end
   # after_create do
   #   redirect_to user_edit_path
   #   :send_welcome_email
   # end
+
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
