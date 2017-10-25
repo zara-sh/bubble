@@ -10,6 +10,8 @@ Experience.delete_all
 UserCategory.delete_all
 Category.delete_all
 User.delete_all
+
+puts "Deleted crap"
 hobby =["Yoga", "Pet", "Dance", "Video game", "Air sport", "Flying", "Swimming", "Book collevting"]
 20.times do
   User.create(
@@ -22,7 +24,8 @@ hobby =["Yoga", "Pet", "Dance", "Video game", "Air sport", "Flying", "Swimming",
   hobbies: hobby.sample
    )
 end
-# category = ["The best latte around", "Happy hours", "Tourism spot in  the town", "the best workouts around"]
+
+
 
 category1 = Category.create(
   name: 'The best latte around'
@@ -53,15 +56,19 @@ Enjoy!", "howa Memorial Park is a 165 hectare National Government Park about a 4
  Access: From Shinjuku take a Chuo Line train bound for Ome and get off at Nishi Tachikawa Station which closest to the park. Entry fee adults 410 yen / children 80 yen."]
 
 
-# urls = [
-#   'https://gaijinpot.scdn3.secure.raxcdn.com/wp-content/uploads/sites/6/2016/05/Meguro-streets.jpg'
-#   'https://resources.realestate.co.jp/wp-content/uploads/2015/10/Nakameguro-Izakya.jpg'
-#   'https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Meguro_River_Spring_2014%282%29.jpg/1200px-Meguro_River_Spring_2014%282%29.jpg'
-# ]
+
+urls = [
+  'https://gaijinpot.scdn3.secure.raxcdn.com/wp-content/uploads/sites/6/2016/05/Meguro-streets.jpg',
+  'https://resources.realestate.co.jp/wp-content/uploads/2015/10/Nakameguro-Izakya.jpg',
+  'https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Meguro_River_Spring_2014%282%29.jpg/1200px-Meguro_River_Spring_2014%282%29.jpg'
+]
 
 
-20.times do
-  exp = Experience.create(
+
+
+puts 'Created categories'
+2.times do
+  exp = Experience.new(
     title: title.sample,
     description: description.sample,
     incentive: incentive.sample,
@@ -74,6 +81,8 @@ Enjoy!", "howa Memorial Park is a 165 hectare National Government Park about a 4
   # exp.photo_urls = urls
 end
 
+puts 'created experiences'
+
 20.times do
 Booking.create(
   date: weekdays.sample,
@@ -82,9 +91,13 @@ Booking.create(
   )
 end
 
+puts 'created bookings'
 20.times do
 UserCategory.create(
   user_id: User.order("RANDOM()").first.id,
  category: categories_array.sample
   )
 end
+
+
+
