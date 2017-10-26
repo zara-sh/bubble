@@ -4,14 +4,28 @@ class CategoriesController < ApplicationController
 
   def show
     @category= Category.find(params[:id])
-    @day_experiences = @category.experiences.where("availability ILIKE ?", "%#{params[:search]}%")
 
-    @experiences = @day_experiences.where.not(latitude: nil, longitude: nil)
+    if  current_user
+      current_user.save
+        @day_experiences = @category.experiences.where("availability ILIKE ?", "%#{params[:search]}%")
+        @experiences = @day_experiences.where.not(latitude: nil, longitude: nil)
+        location = @experiences.near([current_user.latitude, current_user.longitude], 1000)
+        @hash = Gmaps4rails.build_markers(location) do |experience, marker|
+          marker.lat experience.latitude
+          marker.lng experience.longitude
+        end
+    else
+         @day_experiences = @category.experiences.where("availability ILIKE ?", "%#{params[:search]}%")
+        @experiences = @day_experiences.where.not(latitude: nil, longitude: nil)
+        @hash = Gmaps4rails.build_markers(@experiences) do |experience, marker|
+          marker.lat experience.latitude
+          marker.lng experience.longitude
+        end
+    end
 
-    @hash = Gmaps4rails.build_markers(@experiences) do |experience, marker|
-      marker.lat experience.latitude
-      marker.lng experience.longitude
+
+
+
       # marker.infowindow render_to_string(partial: "/experiences/map_box", locals: { experience: experience })
     end
-  end
 end

@@ -1,3 +1,4 @@
+fiyuguyguygug
 <div class="content">
   <div class="container">
         <%= form_tag(category_path(@category.id), method: :get) do %>
@@ -5,6 +6,12 @@
           <%#= text_field_tag :search %>
           <%= submit_tag 'Search', :name => nil, class: 'btn btn-primary' %>
         <% end %>
+
+        <%#= form_for(@category) do |f| %>
+
+          <%#= f.hidden_field :user_id, :value => @user.id %>
+
+        <%# end %>
 
     <div class="row">
       <% @experiences.each do |experience| %>
