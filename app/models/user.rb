@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :bookings, dependent: :destroy
   # has_many :user_categories, dependent: :destroy
   has_and_belongs_to_many :categories
+  has_attachment :photo
   # has_many :experience_categories, through: :experiences, source: :categories
 
   geocoded_by :ip_address
