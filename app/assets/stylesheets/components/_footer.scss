@@ -1,8 +1,9 @@
 
 .page-wrap{
-  min-height: 90vh;
-  height: auto;
-  position: relative;
+  height: calc(100vh - 100px);
+  // min-height: 90vh;
+  // height: auto;
+  // position: relative;
 }
 
 .footer {
@@ -15,8 +16,11 @@
   padding: 0px 50px;
   color: rgba(0,0,0,0.3);
   margin-bottom: 0;
-  position: absolute;
-  bottom: -20;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  // position: absolute;
+  // bottom: -20;
 }
 .footer-links {
   display: flex;
@@ -34,4 +38,8 @@
 }
 .footer .fa-heart {
   color: #D23333;
+}
+
+.footer i {
+  padding: 35px;
 }
