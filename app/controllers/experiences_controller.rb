@@ -1,4 +1,5 @@
 class ExperiencesController < ApplicationController
+  before_action :authenticate_user!
 
   def show_all
     @experiences = Experience.all
@@ -8,6 +9,7 @@ class ExperiencesController < ApplicationController
     @experience = Experience.find(params[:id])
 
   end
+
 
   def new
     # if (current_user.name.nil? ||

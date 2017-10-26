@@ -1,73 +1,65 @@
-<h1><% @experiences.each do |experience| %>
-  <p>
-  <%= experience.category.name%>
-  </p>
-  <% end %>
-</h1>
+fiyuguyguygug
+<div class="content">
+  <div class="container">
+        <%= form_tag(category_path(@category.id), method: :get) do %>
+          <%= select_tag("search", options_for_select(Experience::AVABILITY),include_blank: true, class: 'form-control search-bar') %>
+          <%#= text_field_tag :search %>
+          <%= submit_tag 'Search', :name => nil, class: 'btn btn-primary' %>
+        <% end %>
 
+        <%#= form_for(@category) do |f| %>
 
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-4">
-      <!-- insert <div class="card"> --><div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
-  <div class="card-category">Popular</div>
-  <div class="card-description">
-    <h2>Le Wagon Shanghai</h2>
-    <p>Very cool city, the best</p>
-  </div>
-  <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-  <a class="card-link" href="#" ></a>
-</div>
+          <%#= f.hidden_field :user_id, :value => @user.id %>
+
+        <%# end %>
+
+    <div class="row">
+      <% @experiences.each do |experience| %>
+      <div class="col-xs-12 col-sm-4">
+        <!-- insert <div class="card"> -->
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
+            <div class="card-category"><%= experience.user.name%>
+              </div>
+                <div class="card-description">
+                  <h2><%= experience.title %></h2>
+                  <p><%= experience.incentive %></p>
+                  <p><%= experience.location %></p>
+                </div>
+              <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+            <a class="card-link" href="#" ></a>
+          </div>
+        </div>
+        <% end %>
+      </div>
     </div>
-    <div class="col-xs-12 col-sm-4">
-      <!-- insert <div class="card"> --><div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
-  <div class="card-category">Popular</div>
-  <div class="card-description">
-    <h2>Le Wagon Shanghai</h2>
-    <p>Very cool city, the best</p>
-  </div>
-  <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-  <a class="card-link" href="#" ></a>
-</div>
+
+
+    <div id="map" style="position: relative; overflow: hidden;">
+      <div style="height: 100%; width: 100%; position: absolute; top: 0px; left: 0px;">
+
+      </div>
     </div>
-    <div class="col-xs-12 col-sm-4">
-      <!-- insert <div class="card"> --><div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
-  <div class="card-category">Popular</div>
-  <div class="card-description">
-    <h2>Le Wagon Shanghai</h2>
-    <p>Very cool city, the best</p>
-  </div>
-  <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-  <a class="card-link" href="#" ></a>
 </div>
-    </div>
-  </div>
-</div>
-<%= form_tag(category_path(@category.id), method: :get) do %>
-
-  <%= select_tag("search", options_for_select(Experience::AVABILITY),include_blank: true) %>
-
-  <%#= text_field_tag :search %>
-  <%= submit_tag 'Search', :name => nil %>
-<% end %>
 
 
+    <% content_for(:after_js) do %>
+      <%= javascript_tag do %>
+        $(document).ready(function() {
+          var handler = Gmaps.build('Google');
+          handler.buildMap({ internal: { id: 'map' } }, function() {
+            markers = handler.addMarkers(<%= raw @hash.to_json %>);
+            handler.bounds.extendWith(markers);
+            handler.fitMapToBounds();
+            if (markers.length == 0) {
+              handler.getMap().setZoom(2);
+            } else if (markers.length == 1) {
+              handler.getMap().setZoom(14);
+            }
+          });
+        });
+      <% end %>
+    <% end %>
 
 
-<% @experiences.each do |experience| %>
-  <h3>
-    <%= experience.category.name%>
-  </h3>
-  <p><%= experience.title%></p>
-
-  <p><%= experience.incentive%></p>
-  <p><%= experience.location%></p>
-  <p><%= experience.availability%></p>
-  <p><%= experience.user.name%></p>
-  <p><%= experience.user.phone%></p>
-  <p><%= experience.user.bio%></p>
-  <p><%= experience.user.email%></p>
-  <p><%= experience.user.hobbies%></p>
-<% end %>
 
 

@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:home]
+  before_action :authenticate_user!, except: [:home]
 
   def home
     @categories = Category.all
@@ -37,6 +37,8 @@ class PagesController < ApplicationController
     @user.delete
     redirect_to root_path
   end
+
+
 
   private
 

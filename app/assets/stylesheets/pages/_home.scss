@@ -1,6 +1,6 @@
 // Specific CSS for your home-page
 .banner {
-  background-image: linear-gradient(to bottom right,rgba(93, 74, 44, .7), rgba(35, 92, 137, .7)), url("neighborhood.jpg");
+  background-image: linear-gradient(to bottom,rgba(32, 114, 3, .6), rgba(56, 13, 90, .7)), url("neighborhood.jpg");
   background-size: cover;
   background-position: center center;
   height: 100vh;
@@ -19,10 +19,24 @@
 
 }
 
-i {
+.banner-content i {
   padding: 50px;
 }
 
 .fas {
   padding-top: 50px;
 }
+
+$category-icon-color: #5EEF3C;
+
+.home-category-icon {
+  color: $category-icon-color;
+}
+$category-icon-color-hover: darken($category-icon-color, 50%);
+
+.home-category-icon:hover {
+  color: $category-icon-color-hover;
+
+}
+
+

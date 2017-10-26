@@ -1,0 +1,15 @@
+.search-bar {
+  display: inline-block;
+  width: 25%;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+#map {
+  flex: 0 0 450px;
+  height: 100vh;
+  position: sticky !important;
+  top: 0 !important;
+}
+.content {
+  display: flex;
+}
