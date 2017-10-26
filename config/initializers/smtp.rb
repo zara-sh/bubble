@@ -1,4 +1,3 @@
-
 # ActionMailer::Base.smtp_settings = {
 #   :user_name => ENV['SENDGRID_UN'],
 #   :password => ENV['SENDGRID_PS'],
