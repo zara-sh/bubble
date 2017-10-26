@@ -74,7 +74,7 @@ urls = [
 
 
 puts 'Created categories'
-2.times do
+15.times do
   exp = Experience.new(
     title: title.sample,
     description: description.sample,
@@ -86,6 +86,7 @@ puts 'Created categories'
     )
   exp.save!
   exp.photo_urls = urls
+  puts "Added an experience"
 end
 
 puts 'created experiences'
