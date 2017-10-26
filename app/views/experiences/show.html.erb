@@ -63,6 +63,8 @@
             <% @experience.bookings.each do |booking| %>
               on <%= booking.date %>
               by <%= booking.user.name %>
+              <%= link_to 'confirm', experience_path(@experience), class:'btn btn-info', style:"width:45%" %>
+              <%= link_to 'reject', booking_path(booking), class:'btn btn-danger', style:"width:45%" , method: :delete, data: {confirm: "are you sure you want to reject your neighbor?"} %>
               <%= link_to 'show booking', booking_path(booking) %>
           <% end %>
         </div>

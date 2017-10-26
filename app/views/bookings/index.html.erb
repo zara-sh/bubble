@@ -10,7 +10,7 @@
       </div>
       <% end %>
       <% @bookings.each do |booking| %>
-        <div class="col-xs-12 col-sm-4">
+        <div class="col-xs-12 col-sm-11 col-md-5">
         <!-- insert <div class="card"> -->
           <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
             <div class="card-category"><%= booking.experience.user.name%>
@@ -35,19 +35,19 @@
       <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');"></div>
       </div>
       <% end %>
-      <% @bookings.each do |booking| %>
-        <div class="col-xs-12 col-sm-4">
+      <% @current_user.experiences.each do |experience| %>
+        <div class="col-xs-12 col-sm-12 col-md-11">
         <!-- insert <div class="card"> -->
           <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
-            <div class="card-category"><%= booking.experience.user.name%>
+            <div class="card-category"><%= experience.user.name%>
               </div>
                 <div class="card-description">
-                  <h2><%= booking.experience.title %></h2>
-                  <p><%= booking.experience.incentive %></p>
-                  <p><%= booking.experience.location %></p>
+                  <h2><%= experience.title %></h2>
+                  <p><%= experience.incentive %></p>
+                  <p><%= experience.location %></p>
                 </div>
               <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-            <a class="card-link" href="<%= booking_path(booking) %>" ></a>
+            <a class="card-link" href="<%= experience_path(experience) %>" ></a>
           </div>
         </div>
       <% end %>
