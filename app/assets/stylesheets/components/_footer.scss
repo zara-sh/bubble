@@ -1,9 +1,14 @@
+
 .page-wrap{
   height: calc(100vh - 100px);
+  // min-height: 90vh;
+  // height: auto;
+  // position: relative;
 }
 
 .footer {
   background: #F4F4F4;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -14,6 +19,8 @@
   position: relative;
   bottom: 0;
   width: 100%;
+  // position: absolute;
+  // bottom: -20;
 }
 .footer-links {
   display: flex;

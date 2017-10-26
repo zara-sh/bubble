@@ -43,3 +43,31 @@
     </div>
   </div>
 </div>
+<%= form_tag(category_path(@category.id), method: :get) do %>
+
+  <%= select_tag("search", options_for_select(Experience::AVABILITY),include_blank: true) %>
+
+  <%#= text_field_tag :search %>
+  <%= submit_tag 'Search', :name => nil %>
+<% end %>
+
+
+
+
+<% @experiences.each do |experience| %>
+  <h3>
+    <%= experience.category.name%>
+  </h3>
+  <p><%= experience.title%></p>
+
+  <p><%= experience.incentive%></p>
+  <p><%= experience.location%></p>
+  <p><%= experience.availability%></p>
+  <p><%= experience.user.name%></p>
+  <p><%= experience.user.phone%></p>
+  <p><%= experience.user.bio%></p>
+  <p><%= experience.user.email%></p>
+  <p><%= experience.user.hobbies%></p>
+<% end %>
+
+

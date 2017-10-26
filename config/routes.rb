@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   # get 'categories/show'
 
   devise_for :users,
-    controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+    controllers: { omniauth_callbacks: 'users/omniauth_callbacks', confirmations: 'confirmations' }
   root to: 'pages#home'
   get "search", to: 'pages#search'
   get 'profile', to: 'pages#profile'
@@ -16,6 +16,9 @@ Rails.application.routes.draw do
   resources :bookings, only: [:index, :show]
   resources :categories, only: [:show]
   # resources :bookings, only: [:show]
+
+  # keeping the comment below just in case my modifications above don't actually work as intended
+  # devise_for :users, controllers: { confirmations: 'confirmations' }
 
   mount Attachinary::Engine => "/attachinary"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

@@ -5,6 +5,7 @@ class UserMailer < ApplicationMailer
   #
   #   en.user_mailer.welcome.subject
   #
+
   def welcome(user)
     @user = user  # Instance variable => available in view
 
