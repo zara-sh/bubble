@@ -1,96 +1,58 @@
 
+<div class="content">
+  <div class="container">
+        <%= form_tag(category_path(@category.id), method: :get) do %>
+          <%= select_tag("search", options_for_select(Experience::AVABILITY),include_blank: true, class: 'form-control search-bar') %>
+          <%#= text_field_tag :search %>
+          <%= submit_tag 'Search', :name => nil, class: 'btn btn-primary' %>
+        <% end %>
 
-<div id="map" style="width: 100%; height: 600px;"></div>
-
-<% content_for(:after_js) do %>
-  <%= javascript_tag do %>
-    $(document).ready(function() {
-      var handler = Gmaps.build('Google');
-      handler.buildMap({ internal: { id: 'map' } }, function() {
-        markers = handler.addMarkers(<%= raw @hash.to_json %>);
-        handler.bounds.extendWith(markers);
-        handler.fitMapToBounds();
-        if (markers.length == 0) {
-          handler.getMap().setZoom(2);
-        } else if (markers.length == 1) {
-          handler.getMap().setZoom(14);
-        }
-      });
-    });
-  <% end %>
-<% end %>
-
-
-
-
-
-<div class="container">
-  <h1><%= @category.name %></h1>
-      <%= form_tag(category_path(@category.id), method: :get) do %>
-        <%= select_tag("search", options_for_select(Experience::AVABILITY),include_blank: true, class: 'form-control search-bar') %>
-
-        <%= submit_tag 'Search', :name => nil, class: 'btn btn-primary' %>
-        <%= button_to 'Call Action', category_path, method: :post %>
-      <% end %>
-
-
-
-  <div class="row">
-    <div class="col-xs-12 col-sm-4">
-      <!-- insert <div class="card"> -->
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
-            <% @experiences.each do |experience| %>
-          <div class="card-category"><%= experience.user.name%>
-            </div>
-              <div class="card-description">
-                <h2><%= experience.title%></h2>
-                <p><%= experience.incentive%></p>
-                <p><%= experience.location%></p>
+    <div class="row">
+      <% @experiences.each do |experience| %>
+      <div class="col-xs-12 col-sm-4">
+        <!-- insert <div class="card"> -->
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
+            <div class="card-category"><%= experience.user.name%>
               </div>
-            <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-          <a class="card-link" href="#" ></a>
-          <% end %>
-
+                <div class="card-description">
+                  <h2><%= experience.title %></h2>
+                  <p><%= experience.incentive %></p>
+                  <p><%= experience.location %></p>
+                </div>
+              <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+            <a class="card-link" href="#" ></a>
+          </div>
         </div>
-      </div>
-
-
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
-      <div class="card-category">Popular</div>
-        <div class="card-description">
-          <h2>Le Wagon Shanghai</h2>
-          <p>Very cool city, the best</p>
-        </div>
-        <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-        <a class="card-link" href="#" ></a>
+        <% end %>
       </div>
     </div>
-    <div class="col-xs-12 col-sm-4">
-      <!-- insert <div class="card"> --><div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
-      <div class="card-category">Popular</div>
-        <div class="card-description">
-          <h2>Le Wagon Shanghai</h2>
-          <p>Very cool city, the best</p>
-        </div>
-        <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-        <a class="card-link" href="#" ></a>
+
+
+    <div id="map" style="position: relative; overflow: hidden;">
+      <div style="height: 100%; width: 100%; position: absolute; top: 0px; left: 0px;">
+
       </div>
     </div>
-    <div class="col-xs-12 col-sm-4">
-      <!-- insert <div class="card"> --><div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
-      <div class="card-category">Popular</div>
-        <div class="card-description">
-          <h2>Le Wagon Shanghai</h2>
-          <p>Very cool city, the best</p>
-        </div>
-        <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-        <a class="card-link" href="#" ></a>
-      </div>
-    </div>
-  </div>
 </div>
 
 
+    <% content_for(:after_js) do %>
+      <%= javascript_tag do %>
+        $(document).ready(function() {
+          var handler = Gmaps.build('Google');
+          handler.buildMap({ internal: { id: 'map' } }, function() {
+            markers = handler.addMarkers(<%= raw @hash.to_json %>);
+            handler.bounds.extendWith(markers);
+            handler.fitMapToBounds();
+            if (markers.length == 0) {
+              handler.getMap().setZoom(2);
+            } else if (markers.length == 1) {
+              handler.getMap().setZoom(14);
+            }
+          });
+        });
+      <% end %>
+    <% end %>
 
 
 
