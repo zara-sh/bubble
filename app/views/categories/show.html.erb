@@ -33,6 +33,15 @@
       <% end %>
   <div class="row">
 
+<%= form_tag(category_path(@category.id), method: :get) do %>
+        >
+
+        <%= submit_tag 'Near you!', :name => nil, class: 'btn btn-primary' %>
+      <% end %>
+
+
+
+
 
     <div class="col-xs-12 col-sm-4">
       <!-- insert <div class="card"> -->
