@@ -1,4 +1,6 @@
-fiyuguyguygug
+<!-- hey olivia! so it should have the margin of page_contains found in assets/stylesheets/layouts/page-margins.scss -->
+<!-- <div class="page_contains"> -->
+
 <div class="content">
   <div class="container">
         <%= form_tag(category_path(@category.id), method: :get) do %>
@@ -26,7 +28,7 @@ fiyuguyguygug
                   <p><%= experience.location %></p>
                 </div>
               <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-            <a class="card-link" href="#" ></a>
+            <a class="card-link" href="<%= new_experience_booking_path(experience_id: experience.id) %>" ></a>
           </div>
         </div>
         <% end %>
@@ -41,6 +43,7 @@ fiyuguyguygug
     </div>
 </div>
 
+<!-- </div> -->
 
     <% content_for(:after_js) do %>
       <%= javascript_tag do %>
