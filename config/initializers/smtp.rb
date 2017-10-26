@@ -1,8 +1,10 @@
-ActionMailer::Base.smtp_settings = {
-  :address => "smtp.sendgrid.net",
-  :port => 25,
-  :domain => "mysite.com",
-  :authentication => :plain,
-  :user_name => ENV['SENDGRID_UN'],
-  :password => ENV['SENDGRID_PS']
-}
+
+# ActionMailer::Base.smtp_settings = {
+#   :user_name => ENV['SENDGRID_UN'],
+#   :password => ENV['SENDGRID_PS'],
+#   :domain => 'aroundthecorner.me',
+#   :address => 'smtp.sendgrid.net',
+#   :port => 587,
+#   :authentication => :plain,
+#   :enable_starttls_auto => true
+# }
