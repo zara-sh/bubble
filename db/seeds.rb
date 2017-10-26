@@ -21,26 +21,33 @@ hobby =["Yoga", "Pet", "Dance", "Video game", "Air sport", "Flying", "Swimming",
   phone: "12355667",
   password: "123456",
   bio: Faker::Lorem.word,
-  hobbies: hobby.sample
+  hobbies: hobby.sample,
+  confirmed_at: Time.now
    )
 end
 
 
+puts "Users created!"
 
 category1 = Category.create(
-  name: 'The best latte around'
+  name: 'The best latte around',
+  icon: 'fa-coffee'
 )
 category2 = Category.create(
-  name: "Happy hours"
+  name: "Happy hours",
+  icon: 'fa-glass'
 )
 category3 = Category.create(
-  name: 'Tourism spot in  the town'
+  name: 'Tourism spot in  the town',
+  icon: 'fa-bolt'
 )
 category4 = Category.create(
-  name: 'the best workouts around'
+  name: 'the best workouts around',
+  icon: 'fa-tint'
 )
 category5 = Category.create(
-  name: 'stress relief relaxation'
+  name: 'stress relief relaxation',
+  icon: 'fa-flag'
 )
 categories_array = [category1, category2, category3, category4, category5]
 
@@ -78,7 +85,7 @@ puts 'Created categories'
     category: categories_array.sample
     )
   exp.save!
-  # exp.photo_urls = urls
+  exp.photo_urls = urls
 end
 
 puts 'created experiences'

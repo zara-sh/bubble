@@ -1,0 +1,19 @@
+.form_padding {
+  padding: 0 0 100px 0;
+  // background-color: white;
+}
+
+.attachinary_container ul{
+
+    min-width: 696px;
+  list-style: none;
+  padding-top: 20px;
+  display: flex;
+    li {
+      a {
+        display: list-item;
+      }
+    }
+
+}
+
