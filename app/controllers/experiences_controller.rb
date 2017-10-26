@@ -7,7 +7,16 @@ class ExperiencesController < ApplicationController
   def show
     @experience = Experience.find(params[:id])
 
+    @experiences = Experience.where.not(latitude: nil, longitude: nil)
+
+    @hash = Gmaps4rails.build_markers(@experiences) do |experience, marker|
+      marker.lat experience.latitude
+      marker.lng experience.longitude
+      # marker.infowindow render_to_string(partial: "/experiences/map_box", locals: { experience: experience })
+    end
+
   end
+
 
   def new
     # if (current_user.name.nil? ||

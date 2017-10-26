@@ -9,6 +9,7 @@ gem 'puma'
 gem 'rails', '5.1.4'
 gem 'redis'
 gem "geocoder"
+gem "gmaps4rails"
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
@@ -43,3 +44,8 @@ gem 'jquery-fileupload-rails'
 gem 'coffee-rails'
 gem "letter_opener", group: :development
 gem 'sendgrid'
+
+
+source 'https://rails-assets.org' do
+  gem "rails-assets-underscore"
+end
