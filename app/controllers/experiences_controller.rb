@@ -9,6 +9,7 @@ class ExperiencesController < ApplicationController
 
   end
 
+
   def new
     # if (current_user.name.nil? ||
     #   current_user.address.nil? ||
