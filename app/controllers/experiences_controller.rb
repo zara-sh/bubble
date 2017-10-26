@@ -1,4 +1,5 @@
 class ExperiencesController < ApplicationController
+  before_action :authenticate_user!
 
   def show_all
     @experiences = Experience.all
