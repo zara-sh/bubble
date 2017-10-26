@@ -1,5 +1,5 @@
 class ExperiencesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:listings]
 
   def show_all
     @experiences = Experience.all
