@@ -6,13 +6,15 @@
 // General style
 $font-family-sans-serif:  $body-font;
 $headings-font-family:    $headers-font;
-$body-bg:                 #380d77;
+$body-bg:                 #F3F9D1;
 $font-size-base: 20px;
+$link-hover-decoration: none;
+$grid-gutter-width: 50px;
 
 // Colors
 $gray-base:       $gray;
-$brand-primary:   #235C89;
-$brand-success:   $green;
+$brand-primary:   #94c3f3;
+$brand-success:   #63264A;
 $brand-info:      $yellow;
 $brand-danger:    $red;
 $brand-warning:   $orange;
@@ -23,9 +25,3 @@ $border-radius-large: 2px;
 $border-radius-small: 2px;
 
 // Override other variables below!
-
-
-// #5D4A2C (dark brown)
-// #235C89 (dark blue)
-// #A0D1FF (light blue)
-// #B1FFAB (light green)
