@@ -20,6 +20,7 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'omniauth-facebook'
 gem 'faker'
+gem "jquery-slick-rails"
 
 group :development, :test do
   gem 'pry-byebug'
