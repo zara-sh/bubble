@@ -6,6 +6,7 @@ class CategoriesController < ApplicationController
     @category= Category.find(params[:id])
     @distance = 50
     if  current_user
+        current_user.geocode
         @day_experiences = @category.experiences.where("availability ILIKE ?", "%#{params[:search]}%")
         @all_experiences = @day_experiences.where.not(latitude: nil, longitude: nil)
         @experiences = @all_experiences.near([current_user.latitude, current_user.longitude], @distance)

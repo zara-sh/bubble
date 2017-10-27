@@ -17,7 +17,9 @@
         <%# end %>
 
     <div class="row">
-      <h4>Showing all experiences <%= @distance  %>km away from you.</h4>
+       <% if current_user %>
+       <h4>Showing all experiences <%= @distance  %>km away from you.</h4>
+       <% end %>
       <% @experiences.each do |experience| %>
       <div class="col-xs-12 col-sm-4">
         <!-- insert <div class="card"> -->
