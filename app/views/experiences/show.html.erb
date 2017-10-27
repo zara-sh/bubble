@@ -1,35 +1,126 @@
-<div class="container">
-  <div class="row">
-    <div class="col-sm-4 col-sm-offset-4">
-      <div class= "form_padding">
-
-        <h3>Status: unbooked</h3>
+<div class="contain">
+      <div class="main_contain">
         <h1><%= @experience.title %></h1>
-
-        <% @experience.photos.each do |photo| %>
-          <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill, style: 'margin: 20px 0; border-radius:5px;' %>
-        <% end %>
-
-        <p>Description: <%= @experience.description %></p>
-        <p>Your Reward: <%= @experience.incentive %></p>
         <p>Place: <%= @experience.location %></p>
-        <p>Availability: <%= @experience.availability %></p>
-        <p>Category: <%= @experience.category.name %>
-
-        <% unless @experience.bookings.nil? %>
-          <% @experience.bookings.each do |booking| %>
-            on <%= booking.date %>
-            by <%= booking.user.name %>
-            <%= link_to 'show booking', booking_path(booking) %>
-          <% end %>
-        <% end %>
-
+        <hr>
+        <div class="profile_pic_contain">
+          <div class="left_info">
+            <p>Category: <%= @experience.category.name %>
+            <p>Guided by: <%= @experience.user.name %></p>
+            <p>Tip for this experience: <%= @experience.incentive %></p>
+          </div>
+          <!-- <div class="profile_pic_right"> -->
+          <%= cl_image_tag @experience.photos.first.path, width: 60, height: 60, crop: :fill, style: 'border-radius:50%;', class:'profile_pic_right' %>
+          <!-- </div> -->
+        </div>
+        <hr>
+        <p>About your neighbor guide</p>
+        <p> <%= @experience.user.bio %></p>
+        <hr>
+        <p>Description about this tour</p>
+        <p> <%= @experience.description %></p>
+        <hr>
+        <p>Available on most: <%= @experience.availability %></p>
+        <hr>
         <p><%= link_to "edit", edit_experience_path %></p>
         <p><%= link_to "See my bookings", bookings_path %></p>
         <p><%= link_to "delete", experience_path(@experience),
-              method: :delete, data: {confirm: "are you sure?"} %></p>
+              method: :delete, data: {confirm: "are you sure?"} %>
+        <h4>Your other experiences available to your neighbors</h4>
+        <% if current_user.experiences.count <= 3 %>
+            <div class="" style="display:flex; align-items: center;" >
+              <% current_user.experiences.each do |experience| %>
+               <div> <%= cl_image_tag experience.photos.last.path, width: 200, height: 200, crop: :fill, style: 'padding: 20px; border-radius:5px;' %> </div>
+              <% end %>
+            </div>
+          <% else %>
+            <div class="center" style="display:flex; align-items: center;" >
+              <% current_user.experiences.each do |experience| %>
+                <% unless experience.photos.first.nil? %>
+                  <%= cl_image_tag experience.photos.first.path, width: 200, height: 200, crop: :fill, style: 'padding: 20px; border-radius:5px;' %>
+                <% end %>
+              <% end %>
+            </div>
+        <% end %>
       </div>
-    </div>
-  </div>
+      <div class="side_contain">
+        <div class="side_contain_s">
+          <div class="slider-for">
+            <% @experience.photos.each do |photo| %>
+              <%= cl_image_tag photo.path, height: 400, crop: :fill, style: 'border-radius:5px;', class:'pic_contain' %>
+            <% end %>
+          </div>
+          <div class="slider-nav pic_slider_container" >
+            <% @experience.photos.each do |photo| %>
+              <%= cl_image_tag photo.path, height: 60, width: 50, crop: :fill,style: 'padding: 10px; border-radius:5px;' %>
+            <% end %>
+          </div>
+          <h5>Bookings:</h5>
+          <% if @experience.bookings.first.nil? %>
+              <p>There are currently no bookings</p>
+            <% end %>
+          <% else %>
+            <% @experience.bookings.each do |booking| %>
+              on <%= booking.date %>
+              by <%= booking.user.name %>
+              <%= link_to 'confirm', experience_path(@experience), class:'btn btn-info', style:"width:45%" %>
+              <%= link_to 'reject', booking_path(booking), class:'btn btn-danger', style:"width:45%" , method: :delete, data: {confirm: "are you sure you want to reject your neighbor?"} %>
+              <%= link_to 'show booking', booking_path(booking) %>
+          <% end %>
+        </div>
+      </div>
 </div>
 
+
+
+  <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <!-- <script type="text/javascript" src="slick/slick.min.js"></script> -->
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+ $('.slider-for').slick({
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  arrows: false,
+  fade: true,
+  asNavFor: '.slider-nav'
+});
+$('.slider-nav').slick({
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  asNavFor: '.slider-for',
+  dots: true,
+  centerMode: true,
+  focusOnSelect: true,
+    arrows: true
+});
+
+$('.center').slick({
+  centerMode: true,
+  centerPadding: '60px',
+  slidesToShow: 3,
+  responsive: [
+    {
+      breakpoint: 768,
+      settings: {
+        arrows: false,
+        centerMode: true,
+        centerPadding: '40px',
+        slidesToShow: 3
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        arrows: false,
+        centerMode: true,
+        centerPadding: '40px',
+        slidesToShow: 1
+      }
+    }
+  ]
+});
+
+    });
+  </script>

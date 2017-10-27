@@ -1,7 +1,9 @@
 class PagesController < ApplicationController
   before_action :authenticate_user!, except: [:home]
 
+
   def home
+
     @categories = Category.all
     # @categorie_latte = Category.where(name: 'The best latte around').first
     # @categorie_happy = Category.where(name: 'Happy hours').first
@@ -38,9 +40,11 @@ class PagesController < ApplicationController
     redirect_to root_path
   end
 
+
+
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :phone, :photo, :bio, :hobbies)
+    params.require(:user).permit(:name, :email, :phone, :bio, :hobbies, :photo)
   end
 end

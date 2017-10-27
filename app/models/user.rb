@@ -14,7 +14,7 @@ class User < ApplicationRecord
   has_attachment :photo
   # has_many :experience_categories, through: :experiences, source: :categories
 
-
+  geocoded_by :current_sign_in_ip
 
     def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)
@@ -37,7 +37,17 @@ class User < ApplicationRecord
     return user
   end
 
+   def ip_address
+     self.current_sign_in_ip.to_s
+   end
 
+   def full_profile?
+    !self.name.nil? &&
+    !self.bio.nil? &&
+    !self.hobbies.nil? &&
+    !self.phone.nil? &&
+    !self.photo.nil?
+   end
 
   # below in case we need to skip confirmation
   # protected

@@ -1,3 +1,21 @@
-body {
-  margin: 100px;
+
+
+ .page_contains{
+  padding: 30px 100px;
+  background-image: linear-gradient(to bottom,rgba(32, 114, 3, .6), rgba(56, 13, 90, .7));
+  position: sticky;
+  top: 0;
+  height: 80vh;
+
+  // height: 15000px;
+}
+
+
+.contain {
+  padding: 30px 160px;
+  display: grid;
+  grid-template-columns: 60% 40%;
+  background-image: linear-gradient(to bottom,rgba(32, 114, 3, .6), rgba(56, 13, 90, .7));
+
+  height: auto;
 }

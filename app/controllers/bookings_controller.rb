@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_profile, only: [:new, :create]
 
   def index
     @bookings = current_user.bookings
@@ -8,6 +9,7 @@ class BookingsController < ApplicationController
 
   def show
     @booking = Booking.find(params[:id])
+    @guide = @booking.experience.user
   end
 
   def new
@@ -20,11 +22,17 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     if @booking.save
       # redirect_to  @booking
-      redirect_to  bookings_path
+      redirect_to  booking_path(@booking)
       # (experience_id: @booking.experience_id, id: @booking.id)
     else
       render :new
     end
+  end
+
+  def destroy
+    @booking = Booking.find(params[:id])
+    @booking.delete
+    redirect_to bookings_path
   end
 
   private
