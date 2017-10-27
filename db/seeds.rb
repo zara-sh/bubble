@@ -1,4 +1,4 @@
-# This file should contain all the record creation needed to seed the database with its default values.
+  # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
 # Examples:
@@ -65,9 +65,11 @@ Enjoy!", "howa Memorial Park is a 165 hectare National Government Park about a 4
 
 
 urls = [
-  'https://gaijinpot.scdn3.secure.raxcdn.com/wp-content/uploads/sites/6/2016/05/Meguro-streets.jpg',
-  'https://resources.realestate.co.jp/wp-content/uploads/2015/10/Nakameguro-Izakya.jpg',
-  'https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Meguro_River_Spring_2014%282%29.jpg/1200px-Meguro_River_Spring_2014%282%29.jpg'
+  "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509071151/coffee_shop_vsellz.jpg",
+  "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509071106/Tourism_sjygvr.jpg",
+  "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509071086/bar_e58txp.jpg",
+  "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509071064/gym_prbaqd.jpg",
+  "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509071049/spa_jaml87.jpg"
 ]
 
 
