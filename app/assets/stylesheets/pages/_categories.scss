@@ -1,7 +1,7 @@
 .search-bar {
   display: inline-block;
   width: 25%;
-  margin-top: 50px;
+  margin-top: 0;
   margin-bottom: 50px;
 }
 #map {
@@ -9,7 +9,25 @@
   height: 100vh;
   position: sticky !important;
   top: 0 !important;
+  display: none;
 }
+
 .content {
   display: flex;
+  width: 95%;
+  max-width: 1400px;
+  margin: 50px auto;
+}
+.results {
+  flex-grow: 1;
+}
+
+@media all and (min-width: 750px) {
+  #map {
+    display: block;
+  }
+
+  .results {
+    margin-right: 50px;
+  }
 }

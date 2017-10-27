@@ -1,15 +1,15 @@
 <div class="content">
-  <div class="container">
-        <%= form_tag(category_path(@category.id), method: :get) do %>
-          <%= select_tag("search", options_for_select(Experience::AVABILITY),include_blank: true, class: 'form-control search-bar') %>
-          <%#= text_field_tag :search %>
-          <%= submit_tag 'Search', :name => nil, class: 'btn btn-primary' %>
-        <% end %>
+  <div class="results">
+    <%= form_tag(category_path(@category.id), method: :get) do %>
+      <%= select_tag("search", options_for_select(Experience::AVABILITY),include_blank: true, class: 'form-control search-bar') %>
+      <%#= text_field_tag :search %>
+      <%= submit_tag 'Search', :name => nil, class: 'btn btn-primary' %>
+    <% end %>
 
     <div class="row">
       <% @experiences.each do |experience| %>
-      <div class="col-xs-12 col-sm-4">
-        <!-- insert <div class="card"> -->
+        <div class="col-xs-12 col-md-4">
+          <!-- insert <div class="card"> -->
           <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
             <div class="card-category"><%= experience.user.name%>
               </div>
@@ -22,36 +22,32 @@
             <a class="card-link" href="#" ></a>
           </div>
         </div>
-        <% end %>
-      </div>
+      <% end %>
     </div>
+  </div>
 
 
-    <div id="map" style="position: relative; overflow: hidden;">
-      <div style="height: 100%; width: 100%; position: absolute; top: 0px; left: 0px;">
-
-      </div>
-    </div>
+  <div id="map"></div>
 </div>
 
 
-    <% content_for(:after_js) do %>
-      <%= javascript_tag do %>
-        $(document).ready(function() {
-          var handler = Gmaps.build('Google');
-          handler.buildMap({ internal: { id: 'map' } }, function() {
-            markers = handler.addMarkers(<%= raw @hash.to_json %>);
-            handler.bounds.extendWith(markers);
-            handler.fitMapToBounds();
-            if (markers.length == 0) {
-              handler.getMap().setZoom(2);
-            } else if (markers.length == 1) {
-              handler.getMap().setZoom(14);
-            }
-          });
-        });
-      <% end %>
-    <% end %>
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $(document).ready(function() {
+      var handler = Gmaps.build('Google');
+      handler.buildMap({ internal: { id: 'map' } }, function() {
+        markers = handler.addMarkers(<%= raw @hash.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        if (markers.length == 0) {
+          handler.getMap().setZoom(2);
+        } else if (markers.length == 1) {
+          handler.getMap().setZoom(14);
+        }
+      });
+    });
+  <% end %>
+<% end %>
 
 
 

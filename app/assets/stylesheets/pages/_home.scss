@@ -1,38 +1,39 @@
 // Specific CSS for your home-page
-.banner {
-  background-image: linear-gradient(to bottom,rgba(32, 114, 3, .6), rgba(56, 13, 90, .7)), url("neighborhood.jpg");
-  background-size: cover;
-  background-position: center center;
-  height: 100vh;
-  position: relative;
+// .banner {
+//   background-image: linear-gradient(to bottom,rgba(32, 114, 3, .6), rgba(56, 13, 90, .7)), url("neighborhood.jpg");
+//   background-size: cover;
+//   background-position: center center;
+//   height: 100vh;
+//   position: relative;
 
-}
+// }
 .banner-content {
 
-  text-align: center;
+  text-align: left;
   position: absolute;
   top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: white;
+  color: #63264A;
   white-space: nowrap;
+  padding-left: 20px;
 
 }
 
 .banner-content i {
-  padding: 50px;
+  padding: 20px 60px 0 0;
 }
 
 .fas {
   padding-top: 50px;
 }
 
-$category-icon-color: #5EEF3C;
+$category-icon-color: #63264A;
 
 .home-category-icon {
   color: $category-icon-color;
 }
-$category-icon-color-hover: darken($category-icon-color, 50%);
+$category-icon-color-hover: lighten($category-icon-color, 20%);
 
 .home-category-icon:hover {
   color: $category-icon-color-hover;
