@@ -28,14 +28,34 @@
         <% if @experience.user.experiences.count <= 3 %>
             <div class="" style="display:flex; align-items: center;" >
               <% @experience.user.experiences.each do |experience| %>
-               <div> <%= cl_image_tag experience.photos.last.path, width: 200, height: 200, crop: :fill, style: 'padding: 20px; border-radius:5px;' %> </div>
+                <div class="card_small" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path experience.photos.first.path %>');">
+                  <div class="card-category"><%= experience.user.name%>
+                    </div>
+                      <div class="card-description">
+                        <h2><%= experience.title %></h2>
+                        <p><%= experience.incentive %></p>
+                        <p><%= experience.location %></p>
+                      </div>
+                    <img class="card-user" src="<%= cl_image_path experience.user.photo.path %>">
+                  <a class="card-link" href="<%= new_experience_booking_path(experience_id: experience.id) %>" ></a>
+                </div>
               <% end %>
             </div>
           <% else %>
             <div class="center" style="display:flex; align-items: center;" >
               <% @experience.user.experiences.each do |experience| %>
                 <% unless experience.photos.first.nil? %>
-                  <%= cl_image_tag experience.photos.first.path, width: 200, height: 200, crop: :fill, style: 'padding: 20px; border-radius:5px;' %>
+                  <div class="card_small" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path experience.photos.first.path %>');">
+                    <div class="card-category"><%= experience.user.name%>
+                      </div>
+                        <div class="card-description">
+                          <h2><%= experience.title %></h2>
+                          <p><%= experience.incentive %></p>
+                          <p><%= experience.location %></p>
+                        </div>
+                      <img class="card-user" src="<%= cl_image_path experience.user.photo.path %>">
+                    <a class="card-link" href="<%= new_experience_booking_path(experience_id: experience.id) %>" ></a>
+                  </div>
                 <% end %>
               <% end %>
             </div>

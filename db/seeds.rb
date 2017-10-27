@@ -14,8 +14,7 @@ User.delete_all
 puts "Deleted crap"
 hobby =["Yoga", "Pet", "Dance", "Video game", "Air sport", "Flying", "Swimming", "Book collevting"]
 20.times do
-  User.create(
-  # photo: "https://source.unsplash.com/random/100x100",
+  user = User.new(
   name: Faker::Name.name ,
   email: Faker::Internet.email,
   phone: "12355667",
@@ -24,6 +23,9 @@ hobby =["Yoga", "Pet", "Dance", "Video game", "Air sport", "Flying", "Swimming",
   hobbies: hobby.sample,
   confirmed_at: Time.now
    )
+  user.save
+  user.photo_url = "https://source.unsplash.com/random/100x100"
+  # user.photo_url = 'https://picsum.photos/200/300/?random'
 end
 
 
