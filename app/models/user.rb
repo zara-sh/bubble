@@ -14,8 +14,7 @@ class User < ApplicationRecord
   has_attachment :photo
   # has_many :experience_categories, through: :experiences, source: :categories
 
-  geocoded_by :ip_address
-  after_save :geocode
+  geocoded_by :current_sign_in_ip
 
     def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)
