@@ -1,7 +1,9 @@
 class PagesController < ApplicationController
   before_action :authenticate_user!, except: [:home]
 
+
   def home
+
     @categories = Category.all
     # @categorie_latte = Category.where(name: 'The best latte around').first
     # @categorie_happy = Category.where(name: 'Happy hours').first

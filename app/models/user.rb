@@ -42,6 +42,13 @@ class User < ApplicationRecord
      self.current_sign_in_ip.to_s
    end
 
+   def full_profile?
+    !self.name.nil? &&
+    !self.bio.nil? &&
+    !self.hobbies.nil? &&
+    !self.phone.nil? &&
+    !self.photo.nil?
+   end
 
   # below in case we need to skip confirmation
   # protected
