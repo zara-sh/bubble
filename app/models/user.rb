@@ -14,7 +14,7 @@ class User < ApplicationRecord
   has_attachment :photo
   # has_many :experience_categories, through: :experiences, source: :categories
 
-  geocoded_by :ip_address
+  geocoded_by :current_sign_in_ip
   after_save :geocode
 
     def self.find_for_facebook_oauth(auth)

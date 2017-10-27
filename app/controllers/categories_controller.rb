@@ -9,7 +9,7 @@ class CategoriesController < ApplicationController
       current_user.save
         @day_experiences = @category.experiences.where("availability ILIKE ?", "%#{params[:search]}%")
         @experiences = @day_experiences.where.not(latitude: nil, longitude: nil)
-        location = @experiences.near([current_user.latitude, current_user.longitude], 1000)
+        location = @experiences.near([current_user.latitude, current_user.longitude], 10)
         @hash = Gmaps4rails.build_markers(location) do |experience, marker|
           marker.lat experience.latitude
           marker.lng experience.longitude
