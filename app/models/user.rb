@@ -45,8 +45,12 @@ class User < ApplicationRecord
     !self.name.nil? &&
     !self.bio.nil? &&
     !self.hobbies.nil? &&
-    !self.phone.nil? &&
-    !self.photo.nil?
+    !self.phone.nil?
+    # !self.photo.nil?
+   end
+
+   def no_profile_photo?
+    self.photo.nil?
    end
 
   # below in case we need to skip confirmation

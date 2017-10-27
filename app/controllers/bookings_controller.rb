@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_profile, only: [:new, :create]
+  before_action :set_profile, only: [:show]
 
   def index
     @bookings = current_user.bookings
