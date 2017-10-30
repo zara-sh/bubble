@@ -1,5 +1,7 @@
 class ExperiencesController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_profile, only: [:new, :create]
+
 
   def show_all
     @experiences = Experience.all
@@ -28,6 +30,9 @@ class ExperiencesController < ApplicationController
     @experience = Experience.new(experience_params)
     @experience.user = current_user
     if @experience.save
+      if @experience.photos.first.nil?
+        @experience.photo_urls = ['https://gaijinpot.scdn3.secure.raxcdn.com/wp-content/uploads/sites/6/2016/05/Meguro-streets.jpg']
+      end
       redirect_to experience_path(@experience)
     else
       render :new
@@ -59,5 +64,11 @@ class ExperiencesController < ApplicationController
     #makes sure photo is last or else it breaks
     params.require(:experience).permit(:category_id, :title, :description, :incentive, :location, :availability, :query, :photos => [])
   end
+
+  # def set_experience_photo
+  #   unless @experience.experience_photo?
+  #     @experience.photo_urls = ["http://placehold.it/100x100", "http://placehold.it/100x100"]
+  #   end
+  # end
 
 end

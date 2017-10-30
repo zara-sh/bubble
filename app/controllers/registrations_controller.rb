@@ -7,3 +7,4 @@ class RegistrationsController < ApplicationController
   #   edit_user_registration_path
   # end
 end
+

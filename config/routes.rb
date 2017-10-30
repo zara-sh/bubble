@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :experiences, only: [:show, :new, :create, :edit, :update, :destroy] do
     resources :bookings, only: [:new, :create]
   end
-  resources :bookings, only: [:index, :show]
+  resources :bookings, only: [:index, :show, :destroy]
   resources :categories, only: [:show]
   # resources :bookings, only: [:show]
 

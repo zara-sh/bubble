@@ -1,14 +1,19 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-4 col-sm-offset-4">
-
+    <div class="col-sx-10 col-sx-offset-1 col-md-4 col-md-offset-4">
+      <div class="form_padding">
       <%= simple_form_for @user, url:profile_edit_path do |f| %>
+        <%= f.input :photo, as: :attachinary %>
         <%= f.input :name %>
         <%= f.input :bio %>
-        <%= f.input :phone %>
         <%= f.input :hobbies %>
-        <%= f.submit %>
+        <%= f.input :phone %>
+        <%= f.submit 'save profile info!', class:'btn btn-success', style:"width:100%;" %>
       <% end %>
+
+      <%= link_to "Delete this profile", profile_delete_path,
+            method: :delete, data: {confirm: "are you sure?"} %>
+      </div>
     </div>
   </div>
 </div>

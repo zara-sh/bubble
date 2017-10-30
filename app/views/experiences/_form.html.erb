@@ -11,6 +11,7 @@
         <%= f.input :title %>
         <%= f.input :description %>
         <%= f.input :location %>
+        <%= f.input :incentive %>
         <%= f.input :availability, collection: Experience::AVABILITY %>
         <%= f.association :category  %>
         <%= f.input :photos, as: :attachinary %>

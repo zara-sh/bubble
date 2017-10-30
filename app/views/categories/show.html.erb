@@ -1,3 +1,7 @@
+
+<!-- hey olivia! so it should have the margin of page_contains found in assets/stylesheets/layouts/page-margins.scss -->
+<!-- <div class="page_contains"> -->
+
 <div class="content">
   <div class="results">
     <%= form_tag(category_path(@category.id), method: :get) do %>
@@ -6,11 +10,20 @@
       <%= submit_tag 'Search', :name => nil, class: 'btn btn-primary' %>
     <% end %>
 
+        <%#= form_for(@category) do |f| %>
+
+          <%#= f.hidden_field :user_id, :value => @user.id %>
+
+        <%# end %>
+
     <div class="row">
+       <% if current_user %>
+       <h4>Showing all experiences <%= @distance  %>km away from you.</h4>
+       <% end %>
       <% @experiences.each do |experience| %>
-        <div class="col-xs-12 col-md-4">
-          <!-- insert <div class="card"> -->
-          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
+      <div class="col-xs-12 col-sm-4">
+        <!-- insert <div class="card"> -->
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path experience.photos.first.path %>');" >
             <div class="card-category"><%= experience.user.name%>
               </div>
                 <div class="card-description">
@@ -18,8 +31,8 @@
                   <p><%= experience.incentive %></p>
                   <p><%= experience.location %></p>
                 </div>
-              <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-            <a class="card-link" href="#" ></a>
+              <%= cl_image_tag(experience.user.photo.path, class: 'card-user') %>
+            <a class="card-link" href="<%= new_experience_booking_path(experience_id: experience.id) %>" ></a>
           </div>
         </div>
       <% end %>
@@ -30,6 +43,7 @@
   <div id="map"></div>
 </div>
 
+<!-- </div> -->
 
 <% content_for(:after_js) do %>
   <%= javascript_tag do %>
@@ -48,6 +62,7 @@
     });
   <% end %>
 <% end %>
+
 
 
 

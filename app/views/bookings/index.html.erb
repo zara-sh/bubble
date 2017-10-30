@@ -1,29 +1,75 @@
 
 
-<h2>My Bookings</h2>
- <% @bookings.each do |booking| %>
-  <%= booking.experience.title %>
-  <%= booking.experience.incentive %>
-  <%= booking.date %>
-  <%= link_to 'view', booking_path(booking) %>
- <% end %>
+<div class="content page_contains">
+  <div class="container" style="flex: 0 0 33%; overflow: scroll;">
+       <% if current_user.photo %>
+          <% avatar_url = current_user.photo.path || current_user.facebook_picture_url || "http://placehold.it/30x30" %>
+        <% else %>
+          <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
+      <% end %>
+      <p><%= cl_image_tag avatar_url, height: 150, width: 150, crop: :fill,style: 'padding: 10px; border-radius:50%;' %></p>
+      <p>Name: <%= current_user.name %></p>
+      <p>Phone: <%= current_user.phone %></p>
+      <p>Biography: <%= current_user.bio %></p>
+      <p>Tags for favorite things: <%= current_user.hobbies %></p>
+      <p>Your Email: <%= current_user.email %></p>
 
-<h2>My Experiences</h2>
-<% if current_user.experiences.nil? %>
-  <h3>You have no Experiences posted</h3>
-<% else %>
- <% current_user.experiences.each do |experience| %>
-  <%= experience.title %>
-  <%= experience.incentive %>
-  <%= link_to 'edit', edit_experience_path(experience) %>
-  <%= link_to 'show', experience_path(experience) %>
-  <%= link_to 'delete', experience_path(experience), method: :delete, data: {confirm: 'are you sure?'} %>
-  <% if experience.bookings.nil? %>
-    <p>there are currently no bookings for this experience</p>
-  <% else %>
-    <% experience.bookings.each do |booking| %>
-      <%= booking.date %>
-    <% end %>
-  <% end %>
- <% end %>
-<% end %>
+      <p><%= link_to "edit your profile", profile_edit_path %></p>
+      <p><%= link_to "delete your profile", profile_delete_path,
+            method: :delete, data: {confirm: "are you sure?"} %></p>
+  </div>
+  <div class="container" style="flex: 0 0 33%; overflow: scroll;">
+    <h2>My Bookings</h2>
+    <div class="row">
+      <% @bookings.each do |booking| %>
+        <div class="col-xs-12 col-sm-12 col-md-11">
+        <!-- insert <div class="card"> -->
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path booking.experience.photos.first.path %>');">
+            <div class="card-category"><%= booking.experience.user.name%>
+              </div>
+                <div class="card-description">
+                  <h2><%= booking.experience.title %></h2>
+                  <p><%= booking.experience.incentive %></p>
+                  <p><%= booking.experience.location %></p>
+                </div>
+              <img class="card-user" src="<%= cl_image_path booking.user.photo.path %>">
+            <a class="card-link" href="<%= booking_path(booking) %>" ></a>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="container" style="flex: 0 0 33%; overflow: scroll;">
+    <h2>My Experiences</h2>
+    <div class="row">
+      <% @current_user.experiences.each do |experience| %>
+        <div class="col-xs-12 col-sm-12 col-md-11">
+        <!-- insert <div class="card"> -->
+          <div class="card_small" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path experience.photos.first.path %>');">
+            <div class="card-category"><%= experience.user.name%>
+              </div>
+                <div class="card-description">
+                  <h2><%= experience.title %></h2>
+                  <p><%= experience.incentive %></p>
+                  <p><%= experience.location %></p>
+                </div>
+              <img class="card-user" src="<%= cl_image_path experience.user.photo.path %>">
+            <a class="card-link" href="<%= experience_path(experience) %>" ></a>
+          </div>
+          <div class="booked_dates">
+            <% unless experience.bookings.nil? %>
+            <h6>You are schedule for this experience on:</h6>
+              <% experience.bookings.each do |booking| %>
+                <p><%= booking.date %> <%= link_to 'show booking', booking_path(booking) %></p>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+
+</div>
