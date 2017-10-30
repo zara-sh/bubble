@@ -26,37 +26,39 @@
         <p><%= link_to "See my bookings", bookings_path %></p>
         <p><%= link_to "delete", experience_path(@experience),
               method: :delete, data: {confirm: "are you sure?"} %>
-        <h4>Your other experiences available to your neighbors</h4>
-        <% if current_user.experiences.count <= 3 %>
-            <div class="" style="display:flex; align-items: center;" >
-              <% current_user.experiences.each do |experience| %>
-                <div class="card_small" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path experience.photos.first.path %>');">
+        <h4>Join your neighbor in other experiences!</h4>
+        <% if @experience.user.experiences.count < 3 %>
+            <div style="display: flex" >
+              <% @experience.user.experiences.each do |experience| %>
+                <div class="nsj_card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path experience.photos.last.path %>');">
                   <div class="card-category"><%= experience.user.name%>
-                    </div>
+                  </div>
                       <div class="card-description">
                         <h2><%= experience.title %></h2>
-                        <p><%= experience.incentive %></p>
-                        <p><%= experience.location %></p>
+                        <p>Payment: <%= experience.incentive %></p>
+                        <p>At: <%= experience.location %></p>
                       </div>
-                    <img class="card-user" src="<%= cl_image_path experience.user.photo.path %>">
-                  <a class="card-link" href="<%= experience_path(experience) %>" ></a>
+                    <img class="njs-card-user" src="<%= cl_image_path experience.user.photo.path %>">
+                  <a class="card-link" href="<%= new_experience_booking_path(experience_id: experience.id) %>" ></a>
                 </div>
               <% end %>
             </div>
           <% else %>
-            <div class="center" style="display:flex; align-items: center;" >
-              <% current_user.experiences.each do |experience| %>
-              <div class="card_small" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path experience.photos.first.path %>');">
-                <div class="card-category"><%= experience.user.name%>
+            <div class="center slide_cntr" >
+              <% @experience.user.experiences.each do |experience| %>
+                <% unless experience.photos.first.nil? %>
+                  <div class="nsj_card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path experience.photos.first.path %>');">
+                    <div class="card-category"><%= experience.user.name%>
+                      </div>
+                        <div class="card-description">
+                          <h2><%= experience.title %></h2>
+                          <p><%= experience.incentive %></p>
+                          <p><%= experience.location %></p>
+                        </div>
+                      <img class="njs-card-user" src="<%= cl_image_path experience.user.photo.path %>">
+                    <a class="card-link" href="<%= experience_path(experience) %>" ></a>
                   </div>
-                    <div class="card-description">
-                      <h2><%= experience.title %></h2>
-                      <p><%= experience.incentive %></p>
-                      <p><%= experience.location %></p>
-                    </div>
-                  <img class="card-user" src="<%= cl_image_path experience.user.photo.path %>">
-                <a class="card-link" href="<%= experience_path(experience) %>" ></a>
-              </div>
+                <% end %>
               <% end %>
             </div>
         <% end %>

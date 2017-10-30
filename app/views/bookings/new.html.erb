@@ -28,7 +28,7 @@
 <!-- About Container -->
 <div class="w3-container" id="about">
   <div class="w3-content" style="max-width:700px">
-    <h2 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">Aimer</span></h2>
+    <h2 class="w3-center w3-padding-48"><span class="w3-tag w3-wide"><%= @experience.title %></span></h2>
     <p>About this experience</p>
 
 
@@ -44,56 +44,39 @@
 </div>
 
 <!-- Menu Container -->
-<!-- <div class="w3-container" id="menu">
+<div class="w3-container" id="menu">
   <div class="w3-content" style="max-width:700px">
 
-    <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">THE MENU</span></h5>
+    <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">About your neighbor</span></h5>
 
     <div class="w3-row w3-center w3-card w3-padding">
-      <a href="javascript:void(0)" onclick="openMenu(event, 'Eat');" id="myLink">
-        <div class="w3-col s6 tablink">Eat</div>
+      <a href="javascript:void(0)" onclick="openMenu(event, 'Profile');" id="myLink">
+        <div class="w3-col s6 tablink">Your Neighbor</div>
       </a>
-      <a href="javascript:void(0)" onclick="openMenu(event, 'Drinks');">
-        <div class="w3-col s6 tablink">Drink</div>
+      <a href="javascript:void(0)" onclick="openMenu(event, 'Contacts');">
+        <div class="w3-col s6 tablink">contact information</div>
       </a>
     </div>
 
-    <div id="Eat" class="w3-container menu w3-padding-48 w3-card">
-      <h5>Bread Basket</h5>
-      <p class="w3-text-grey">Assortment of fresh baked fruit breads and muffins 5.50</p><br>
-
-      <h5>Honey Almond Granola with Fruits</h5>
-      <p class="w3-text-grey">Natural cereal of honey toasted oats, raisins, almonds and dates 7.00</p><br>
-
-      <h5>Belgian Waffle</h5>
-      <p class="w3-text-grey">Vanilla flavored batter with malted flour 7.50</p><br>
-
-      <h5>Scrambled eggs</h5>
-      <p class="w3-text-grey">Scrambled eggs, roasted red pepper and garlic, with green onions 7.50</p><br>
-
-      <h5>Blueberry Pancakes</h5>
-      <p class="w3-text-grey">With syrup, butter and lots of berries 8.50</p>
+    <div id="Profile" class="w3-container menu w3-padding-48 w3-card">
+      <%= cl_image_tag @experience.user.photo.path, width: 60, height: 60, crop: :fill, style: 'border-radius:50%;', class:'' %>
+      <h5>Name</h5>
+      <p class="w3-text-grey"><%= @experience.user.name %></p><br>
+      <h5>Short Biography</h5>
+      <p class="w3-text-grey"><%= @experience.user.bio %></p><br>
     </div>
 
-    <div id="Drinks" class="w3-container menu w3-padding-48 w3-card">
-      <h5>Coffee</h5>
-      <p class="w3-text-grey">Regular coffee 2.50</p><br>
+    <div id="Contacts" class="w3-container menu w3-padding-48 w3-card">
+      <h5>Email</h5>
+      <p class="w3-text-grey"><%= @experience.user.email %></p><br>
 
-      <h5>Chocolato</h5>
-      <p class="w3-text-grey">Chocolate espresso with milk 4.50</p><br>
+      <h5>Hobbies</h5>
+      <p class="w3-text-grey"><%= @experience.user.hobbies %></p><br>
 
-      <h5>Corretto</h5>
-      <p class="w3-text-grey">Whiskey and coffee 5.00</p><br>
-
-      <h5>Iced tea</h5>
-      <p class="w3-text-grey">Hot tea, except not hot 3.00</p><br>
-
-      <h5>Soda</h5>
-      <p class="w3-text-grey">Coke, Sprite, Fanta, etc. 2.50</p>
     </div>
     <img src="/w3images/coffeehouse2.jpg" style="width:100%;max-width:1000px;margin-top:32px;">
   </div>
-</div> -->
+</div>
 
 <!-- Contact/Area Container -->
 <div class="w3-container" id="where" style="padding-bottom:32px;">
@@ -113,24 +96,24 @@
 
 
 <h4>Join your neighbor in other experiences!</h4>
-        <% if @experience.user.experiences.count <= 3 %>
-<!--             <div style="" >
- -->              <% @experience.user.experiences.each do |experience| %>
+        <% if @experience.user.experiences.count < 3 %>
+            <div style="display: flex" >
+              <% @experience.user.experiences.each do |experience| %>
                 <div class="nsj_card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path experience.photos.last.path %>');">
                   <div class="card-category"><%= experience.user.name%>
                   </div>
-                      <div class="">
+                      <div class="card-description">
                         <h2><%= experience.title %></h2>
-                        <p><%= experience.incentive %></p>
-                        <p><%= experience.location %></p>
+                        <p>Payment: <%= experience.incentive %></p>
+                        <p>At: <%= experience.location %></p>
                       </div>
                     <img class="njs-card-user" src="<%= cl_image_path experience.user.photo.path %>">
                   <a class="card-link" href="<%= new_experience_booking_path(experience_id: experience.id) %>" ></a>
                 </div>
               <% end %>
-            <!-- </div> -->
+            </div>
           <% else %>
-            <div class="center" style="display:flex; align-items: center;" >
+            <div class="center slide_cntr" >
               <% @experience.user.experiences.each do |experience| %>
                 <% unless experience.photos.first.nil? %>
                   <div class="nsj_card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path experience.photos.first.path %>');">
@@ -141,14 +124,14 @@
                           <p><%= experience.incentive %></p>
                           <p><%= experience.location %></p>
                         </div>
-                      <img class="card-user" src="<%= cl_image_path experience.user.photo.path %>">
+                      <img class="njs-card-user" src="<%= cl_image_path experience.user.photo.path %>">
                     <a class="card-link" href="<%= new_experience_booking_path(experience_id: experience.id) %>" ></a>
                   </div>
                 <% end %>
               <% end %>
             </div>
         <% end %>
-      </div>
+      <!-- </div> -->
 
 
 

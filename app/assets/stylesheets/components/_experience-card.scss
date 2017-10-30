@@ -36,10 +36,21 @@
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-size: cover !important;
   background-position: center;
-  color: white;
+  color: #F7F9EA ;
   display: relative;
   height: auto;
   // position: relative;
+}
+
+.card_small {
+  width: 100%;
+  padding-top: 70%;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  background-size: cover !important;
+  background-position: center;
+  color: white;
+  display: relative;
+  height: auto;
 }
 
 .card_togglable {
@@ -50,7 +61,7 @@
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-size: cover !important;
   background-position: center;
-  color: white;
+  color: #F7F9EA;
   position: relative;
   // margin: auto;
 }
