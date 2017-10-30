@@ -4,14 +4,16 @@
 
 <div class="content search-page">
   <div class="results">
-       <% if current_user %>
-       <h4>Showing all <%= @category.name %> experiences within <%= @distance %>km of you.</h4>
-       <% end %>
     <%= form_tag(category_path(@category.id), method: :get) do %>
       <%= select_tag("search", options_for_select(Experience::AVABILITY),include_blank: true, class: 'form-control search-bar') %>
       <%#= text_field_tag :search %>
       <%= submit_tag 'Search', :name => nil, class: 'btn btn-primary' %>
     <% end %>
+    <h2>
+       <% if current_user %>
+       <h3>Showing all <%= @category.name %> experiences within <%= @distance %>km of you.</h3>
+       <% end %>
+    </h2>
 
         <%#= form_for(@category) do |f| %>
 
