@@ -6,7 +6,7 @@ class Experience < ApplicationRecord
   validates :title, :description, :location, :incentive, presence: :true
   has_attachments :photos, maximum: 5
 
-   geocoded_by :location
-   after_validation :geocode, if: :location_changed?
+  geocoded_by :location
+  after_validation :geocode, if: :location_changed?
   #AVABILITY = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 end
