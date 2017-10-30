@@ -40,15 +40,15 @@ category2 = Category.create(
   icon: 'fa-glass'
 )
 category3 = Category.create(
-  name: 'Trendy Tourism',
+  name: 'Great Workouts',
   icon: 'fa-bolt'
 )
 category4 = Category.create(
-  name: 'Great Workouts',
+  name: 'Relax and Unwind',
   icon: 'fa-tint'
 )
 category5 = Category.create(
-  name: 'Relax and Unwind',
+  name: 'Trendy Tourism',
   icon: 'fa-flag'
 )
 categories_array = [category1, category2, category3, category4, category5]

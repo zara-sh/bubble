@@ -38,20 +38,20 @@ $category-icon-color-hover: lighten($category-icon-color, 20%);
   border-color: none;
 }
 
-.btn-primary {
-  background-color: rgba(99, 38, 74, 0.6);
-  margin: 20px;
-  border-radius: 20px;
-  border-color: rgba(99, 38, 74, 0.2);
+// .btn-primary {
+//   background-color: rgba(99, 38, 74, 0.6);
+//   margin: 20px;
+//   border-radius: 20px;
+//   border-color: rgba(99, 38, 74, 0.2);
 
-}
+// }
 
 .icons {
   display: flex;
   white-space: normal;
   justify-content: left;
   margin-left: -20px;
-  margin-top: 30px;
+  margin-top: 100px;
 
   .home-icon {
     text-align: center;
