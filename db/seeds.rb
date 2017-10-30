@@ -11,7 +11,7 @@ UserCategory.delete_all
 Category.delete_all
 User.delete_all
 
-puts "Deleted crap"
+puts "Deleted Stuff"
 hobby =["Yoga", "Pet", "Dance", "Video game", "Air sport", "Flying", "Swimming", "Book collevting"]
 20.times do
   user = User.new(
@@ -32,30 +32,30 @@ end
 puts "Users created!"
 
 category1 = Category.create(
-  name: 'The best latte around',
+  name: 'Best Coffee',
   icon: 'fa-coffee'
 )
 category2 = Category.create(
-  name: "Happy hours",
+  name: 'Happy Hour',
   icon: 'fa-glass'
 )
 category3 = Category.create(
-  name: 'Tourism spot in  the town',
+  name: 'Trendy Tourism',
   icon: 'fa-bolt'
 )
 category4 = Category.create(
-  name: 'the best workouts around',
+  name: 'Great Workouts',
   icon: 'fa-tint'
 )
 category5 = Category.create(
-  name: 'stress relief relaxation',
+  name: 'Relax and Unwind',
   icon: 'fa-flag'
 )
 categories_array = [category1, category2, category3, category4, category5]
 
 
 weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
-incentive = ["Make friend", "Know neighbourhood","Have free coffe", "For 1000$", "For free"]
+incentive = ["Make Friends", "Get To Know The Area","Free Cup of Coffee", "$$$", "For Free!"]
 title = ["I konw cool place around", "I know cool coffeshop", "I know cool gym", "I know cool spa"]
 
 place = ["Meguro, Tokyo", "Harajuku, Tokyo", "shibuya, Tokyo", "shinjuku, Tokyo","Hikarigaoka, Tokyo", "Ginza, Tokyo", "Koenji, Tokyo" ]
