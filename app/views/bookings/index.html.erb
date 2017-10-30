@@ -1,6 +1,6 @@
 
 
-<div class="content page_contains">
+<div class="content page_contains" style="display:flex;">
   <div class="container" style="flex: 0 0 33%; overflow: scroll;">
       <% if current_user.photo %>
         <% avatar_url = current_user.photo.path || current_user.facebook_picture_url || "http://placehold.it/30x30" %>
