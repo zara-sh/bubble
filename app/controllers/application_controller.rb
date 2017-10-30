@@ -3,8 +3,10 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :exception
 
-  before_action :authenticate_user! # this was commented out before
   include Pundit
+
+  before_action :authenticate_user! # this was commented out before
+
 
   def after_sign_in_path_for(resource_or_scope)
    root_path
