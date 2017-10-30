@@ -45,7 +45,7 @@ gem 'jquery-fileupload-rails'
 gem 'coffee-rails'
 gem "letter_opener", group: :development
 gem 'sendgrid'
-
+gem "pundit"
 
 source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
