@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 Booking.delete_all
+Schedule.delete_all
 Experience.delete_all
 UserCategory.delete_all
 Category.delete_all
@@ -84,7 +85,7 @@ puts 'Created categories'
     description: description.sample,
     incentive: incentive.sample,
     location: place.sample,
-    availability: weekdays.sample,
+    #availability: weekdays.sample,
     user_id: User.order("RANDOM()").first.id,
     category: categories_array.sample
     )
@@ -97,7 +98,7 @@ puts 'created experiences'
 
 20.times do
 Booking.create(
-  date: weekdays.sample,
+  date: Faker::Date.forward(30),
   user_id: User.order("RANDOM()").first.id,
   experience_id: Experience.order("RANDOM()").first.id
   )
@@ -113,3 +114,10 @@ end
 
 
 
+puts 'created schedules'
+20.times do
+Schedule.create(
+  experience_id: Experience.order("RANDOM()").first.id,
+  date: Faker::Date.forward(30).strftime("%m/%d/%Y")
+ )
+end
