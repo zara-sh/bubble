@@ -39,6 +39,9 @@
     <p><strong>On:</strong> <%= @booking.date %></p>
     <p><strong>Location:</strong> <%= @booking.experience.location %></p>
     <p><strong>Payment:</strong> <%= @booking.experience.incentive %></p>
+    <p>
+      <strong>Confirmation status: </strong><%= test(@booking)%>
+    </p>
   </div>
 </div>
 

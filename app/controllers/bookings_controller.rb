@@ -35,6 +35,28 @@ class BookingsController < ApplicationController
     redirect_to bookings_path
   end
 
+  def test(booking)
+    if booking.confirmed == true
+      return "Confirmed!"
+    else
+      return "Awaiting confirmation..."
+    end
+  end
+
+  def conf(booking)
+    booking.confirmed = true
+  end
+
+  def rej(booking)
+    # send email with pertinent information
+    booking.delete
+    redirect_to bookings_path
+  end
+
+  helper_method :test
+  helper_method :conf
+  helper_method :rej
+
   private
 
   def booking_params # TODO: check to see if this works
