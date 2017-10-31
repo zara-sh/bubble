@@ -96,7 +96,7 @@ end
 
 puts 'created experiences'
 
-20.times do
+10.times do
 Booking.create(
   date: Faker::Date.forward(30),
   user_id: User.order("RANDOM()").first.id,

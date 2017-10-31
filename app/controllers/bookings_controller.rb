@@ -3,7 +3,9 @@ class BookingsController < ApplicationController
   before_action :set_profile, only: [:show]
 
   def index
+    policy_scope(Booking)
     @bookings = current_user.bookings
+    authorize @bookings
     @experiences = current_user.experiences
   end
 

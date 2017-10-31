@@ -5,7 +5,11 @@ class BookingPolicy < ApplicationPolicy
       # keep comments below in case of misunderstood usage.
       # For a multi-tenant SaaS app, you may want to use:
       # scope.where(user: user)
+
     end
+  end
+  def index?
+    return true
   end
 
   def create? # anyone can create
