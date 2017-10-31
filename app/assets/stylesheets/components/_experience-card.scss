@@ -1,20 +1,100 @@
-.card {
-  height: 400px;
-  background-size: cover !important;
-  background-position: center;
+.card-container{
+  width: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  // padding-top: 100%;
+  // text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  // color: white;
   position: relative;
   margin-bottom: 50px;
 }
 
+.card-slide{
+    position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  width: 100%;
+  height:0;
+  transition: .5s ease;
+}
+
+.card-container:hover .card-slide {
+  top: 0;
+  height: 60px;
+  background-color: rgba(240, 253, 207, 0.8);
+}
+
+.card-container:hover .card-footer{
+  background-color: rgba(244, 255, 222, 1);
+}
+
+.card {
+
+  width: 100%;
+  padding-top: 70%;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  background-size: cover !important;
+  background-position: center;
+  color: #F7F9EA ;
+  display: relative;
+  height: auto;
+  // position: relative;
+}
+
 .card_small {
-  height: 200px;
-  width: 300px;
+  width: 100%;
+  padding-top: 70%;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-size: cover !important;
   background-position: center;
   color: white;
+  display: relative;
+  height: auto;
+}
+
+.card_togglable {
+  width: 100%;
+  padding-top: 70%;
+  // min-height: 150px;
+  height: auto;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  background-size: cover !important;
+  background-position: center;
+  color: #F7F9EA;
   position: relative;
-  margin: 20px;
+  // margin: auto;
+}
+.card_togglable h6 {
+  margin-top: 0;
+  }
+
+.show_experience {
+position: absolute;
+top: 40px;
+left: 40px;
+font-size: 0;
+transition: .2s ease;
+}
+
+.card_togglable:hover .show_experience {
+font-size: 20px;
+}
+
+.card-footer{
+  width: 100%;
+  padding-top: 30%;
+  background-color: rgba(244, 255, 222, 1);
+  position: relative;
+}
+
+.card-footer-content{
+  width: 100%;
+  // padding-top: 30%;
+  background-color: rgba(244, 255, 222, 1);
+  position: relative;
+  // padding: 10px;
 }
 
 .card-user {
@@ -26,9 +106,6 @@
   border-radius: 50%;
 }
 
-.card-user_small{
-
-}
 
 .card-category {
   position: absolute;
@@ -41,14 +118,18 @@
   position: absolute;
   bottom: 10px;
   left: 10px;
+  width: 100%;
 }
 .card-description h2 {
   font-size: 24px;
+  margin-bottom: 0.2%;
+
 }
 .card-description p {
   font-size: 14px;
   opacity: 0.7;
   font-weight: lighter;
+  margin: 0.2%;
 }
 .card-link {
   position: absolute;
