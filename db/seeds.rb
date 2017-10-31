@@ -23,7 +23,7 @@ hobby =["Yoga", "Pet", "Dance", "Video game", "Air sport", "Flying", "Swimming",
   hobbies: hobby.sample,
   confirmed_at: Time.now
    )
-  user.save
+  user.save!
   user.photo_url = "https://source.unsplash.com/random/100x100"
   # user.photo_url = 'https://picsum.photos/200/300/?random'
 end
