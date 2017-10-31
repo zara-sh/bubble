@@ -7,6 +7,7 @@ class CategoriesController < ApplicationController
     @category= Category.find(params[:id])
     @distance = 100
     @experiences = @category.experiences
+    authorize @category
     #@experience_in_cat = @category.experiences
 
     if params[:date]
