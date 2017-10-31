@@ -1,0 +1,29 @@
+.nsj_card {
+  height: 150px;
+  width: 220px;
+  margin: 10px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  background-size: cover !important;
+  background-position: center;
+  color: white;
+  position: relative;
+}
+
+.njs-card-user {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+// .slide_cntr {
+//    width: 100%;
+//   height: auto;
+// }
+
+.slick-slide {
+    // width: 250px;
+    margin: 0 5px;
+}

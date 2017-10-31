@@ -13,7 +13,7 @@ class User < ApplicationRecord
   has_and_belongs_to_many :categories
   has_attachment :photo
   # has_many :experience_categories, through: :experiences, source: :categories
-
+  # geocoded_by :current_sign_in_ip
   geocoded_by :ip_address
 
     def self.find_for_facebook_oauth(auth)

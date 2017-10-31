@@ -2,7 +2,7 @@
 
  .page_contains{
   padding: 30px 100px;
-  background-image: linear-gradient(to bottom,rgba(32, 114, 3, .6), rgba(56, 13, 90, .7));
+  background-image: linear-gradient(to bottom,rgba(32, 114, 3, 0), rgba(56, 13, 90, 0));
   position: sticky;
   top: 0;
   height: 100vh;
@@ -15,7 +15,7 @@
   padding: 30px 160px;
   display: grid;
   grid-template-columns: 60% 40%;
-  background-image: linear-gradient(to bottom,rgba(32, 114, 3, .6), rgba(56, 13, 90, .7));
+  background-image: linear-gradient(to bottom,rgba(32, 114, 3, 0), rgba(56, 13, 90, 0));
 
   height: auto;
 }
