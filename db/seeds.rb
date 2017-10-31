@@ -24,35 +24,37 @@ hobby =["Yoga", "Pet", "Dance", "Video game", "Air sport", "Flying", "Swimming",
   hobbies: hobby.sample,
   confirmed_at: Time.now
    )
-  user.save!
   user.photo_url = "https://source.unsplash.com/random/100x100"
+  user.save!
+
   # user.photo_url = 'https://picsum.photos/200/300/?random'
 end
 
 
 puts "Users created!"
 
-category1 = Category.create(
+category1 = Category.create!(
   name: 'Best Coffee',
   icon: 'fa-coffee'
 )
-category2 = Category.create(
+category2 = Category.create!(
   name: 'Happy Hour',
   icon: 'fa-glass'
 )
-category3 = Category.create(
+category3 = Category.create!(
   name: 'Great Workouts',
   icon: 'fa-bolt'
 )
-category4 = Category.create(
+category4 = Category.create!(
   name: 'Relax and Unwind',
   icon: 'fa-tint'
 )
-category5 = Category.create(
+category5 = Category.create!(
   name: 'Trendy Tourism',
   icon: 'fa-flag'
 )
 categories_array = [category1, category2, category3, category4, category5]
+
 
 
 weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
@@ -75,29 +77,33 @@ urls = [
   "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509071049/spa_jaml87.jpg"
 ]
 
-
-
-
 puts 'Created categories'
-15.times do
-  exp = Experience.new(
-    title: title.sample,
-    description: description.sample,
-    incentive: incentive.sample,
-    location: place.sample,
-    #availability: weekdays.sample,
-    user_id: User.order("RANDOM()").first.id,
-    category: categories_array.sample
-    )
-  exp.save!
-  exp.photo_urls = urls
-  puts "Added an experience"
+
+Experience.transaction do
+  categories_array.each do |category|
+    rand(2..6).times do
+      exp = Experience.new(
+        title: title.sample,
+        description: description.sample,
+        incentive: incentive.sample,
+        location: place.sample,
+        #availability: weekdays.sample,
+        user_id: User.order("RANDOM()").first.id,
+        category: category#s#_array.sampl
+        )
+      exp.photo_urls = urls
+      exp.schedules.build(date: Faker::Date.forward(30))
+      exp.save!
+
+      puts "Added an experience"
+    end
+  end
 end
 
 puts 'created experiences'
 
-20.times do
-Booking.create(
+10.times do
+Booking.create!(
   date: Faker::Date.forward(30),
   user_id: User.order("RANDOM()").first.id,
   experience_id: Experience.order("RANDOM()").first.id
@@ -106,18 +112,9 @@ end
 
 puts 'created bookings'
 20.times do
-UserCategory.create(
+UserCategory.create!(
   user_id: User.order("RANDOM()").first.id,
  category: categories_array.sample
   )
 end
 
-
-
-puts 'created schedules'
-20.times do
-Schedule.create(
-  experience_id: Experience.order("RANDOM()").first.id,
-  date: Faker::Date.forward(30).strftime("%m/%d/%Y")
- )
-end
