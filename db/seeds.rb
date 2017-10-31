@@ -79,26 +79,26 @@ urls = [
 
 puts 'Created categories'
 
-# Experience.transaction do
-#   categories_array.each do |category|
-#     rand(2..6).times do
-#       exp = Experience.new(
-#         title: title.sample,
-#         description: description.sample,
-#         incentive: incentive.sample,
-#         location: place.sample,
-#         #availability: weekdays.sample,
-#         user_id: User.order("RANDOM()").first.id,
-#         category: category#s#_array.sampl
-#         )
-#       exp.photo_urls = urls
-#       exp.schedules.build(date: Faker::Date.forward(30))
-#       exp.save!
+Experience.transaction do
+  categories_array.each do |category|
+    rand(2..6).times do
+      exp = Experience.new(
+        title: title.sample,
+        description: description.sample,
+        incentive: incentive.sample,
+        location: place.sample,
+        #availability: weekdays.sample,
+        user_id: User.order("RANDOM()").first.id,
+        category: category#s#_array.sampl
+        )
+      exp.photo_urls = urls
+      exp.schedules.build(date: Faker::Date.forward(30))
+      exp.save!
 
-#       puts "Added an experience"
-#     end
-#   end
-# end
+      puts "Added an experience"
+    end
+  end
+end
 
 puts 'created experiences'
 
