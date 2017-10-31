@@ -1,58 +1,34 @@
 <div class="contain">
-      <div class="main_contain">
+    <div class="main_contain">
         <h1><%= @experience.title %></h1>
-        <p><strong>Place:</strong> <%= @experience.location %></p>
+        <p><strong>Neighborhood:</strong> <%= @experience.location %></p>
         <hr>
         <div class="profile_pic_contain">
           <div class="left_info">
             <p><strong>Category:</strong> <%= @experience.category.name %>
             <p><strong>Available on most:</strong> <%= @experience.availability %></p>
-            <p><strong>Tip for this experience:</strong> <%= @experience.incentive %></p>
+            <p><strong>I'm interested in "<%= @experience.incentive %>" </strong> as an incentive</p>
           </div>
           <!-- <div class="profile_pic_right"> -->
           <%= cl_image_tag @experience.photos.first.path, width: 60, height: 60, crop: :fill, style: 'border-radius:50%;', class:'profile_pic_right' %>
           <!-- </div> -->
         </div>
         <hr>
-        <p><strong>Description about this tour</strong></p>
+        <p><strong>Description:</strong></p>
         <p> <%= @experience.description %></p>
-        <p><strong>About your neighbor <%= @experience.user.name %></strong></p>
+        <p><strong>About your neighbor <%= @experience.user.name %>: </strong></p>
         <p> <%= @experience.user.bio %></p>
         <hr>
-        <p><%= link_to "edit", edit_experience_path %></p>
-        <p><%= link_to "See my bookings", bookings_path %></p>
-        <p><%= link_to "delete", experience_path(@experience),
-              method: :delete, data: {confirm: "are you sure?"} %>
-      </div>
-      <div class="side_contain">
-        <div class="side_contain_s">
-          <div class="slider-for">
-            <% @experience.photos.each do |photo| %>
-              <%= cl_image_tag photo.path, height: 400, crop: :fill, style: 'border-radius:5px;', class:'pic_contain' %>
-            <% end %>
-          </div>
-          <div class="slider-nav pic_slider_container" >
-            <% @experience.photos.each do |photo| %>
-              <%= cl_image_tag photo.path, height: 60, width: 50, crop: :fill,style: 'padding: 10px; border-radius:5px;' %>
-            <% end %>
-          </div>
-          <h5>Bookings:</h5>
-          <% if @experience.bookings.first.nil? %>
-              <p>There are currently no bookings</p>
-            <% end %>
-          <% else %>
-            <% @experience.bookings.each do |booking| %>
-              on <%= booking.date %>
-              by <%= booking.user.name %>
-              <%= link_to 'confirm', experience_path(@experience), class:'btn btn-info', style:"width:45%" %>
-              <%= link_to 'reject', booking_path(booking), class:'btn btn-danger', style:"width:45%" , method: :delete, data: {confirm: "are you sure you want to reject your neighbor?"} %>
-              <%= link_to 'show booking', booking_path(booking) %>
-          <% end %>
-        </div>
-      </div>
 
-  <div>
-           <h4>Thanks for sharing these other experiences</h4>
+<div class="edit-content">
+  <%= link_to "Edit", edit_experience_path, class: 'btn-primary' %>
+    <%= link_to "Delete", experience_path(@experience),
+      method: :delete, data: {confirm: "Are You Sure?"}, class: 'btn-primary' %>
+</div>
+
+
+        <div>
+           <h4>Thanks for sharing these experiences</h4>
         <% if @experience.user.experiences.count < 3 %>
             <div style="display: flex" >
               <% @experience.user.experiences.each do |experience| %>
@@ -87,8 +63,36 @@
                 <% end %>
               <% end %>
             </div>
-        <% end %>
-  </div>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="side_contain">
+        <div class="side_contain_s">
+          <div class="slider-for">
+            <% @experience.photos.each do |photo| %>
+              <%= cl_image_tag photo.path, height: 400, crop: :fill, style: 'border-radius:5px;', class:'pic_contain' %>
+            <% end %>
+          </div>
+          <div class="slider-nav pic_slider_container" >
+            <% @experience.photos.each do |photo| %>
+              <%= cl_image_tag photo.path, height: 60, width: 50, crop: :fill,style: 'padding: 10px; border-radius:5px;' %>
+            <% end %>
+          </div>
+          <h5>Who Has Booked Your Experience:</h5>
+          <% if @experience.bookings.first.nil? %>
+              <p>There are currently no bookings</p>
+            <% end %>
+          <% else %>
+            <% @experience.bookings.each do |booking| %>
+              on <%= booking.date %>
+              by <%= booking.user.name %>
+              <%= link_to 'confirm', experience_path(@experience), class:'btn btn-info', style:"width:45%" %>
+              <%= link_to 'reject', booking_path(booking), class:'btn btn-danger', style:"width:45%" , method: :delete, data: {confirm: "are you sure you want to reject your neighbor?"} %>
+              <%= link_to 'show booking', booking_path(booking) %>
+          <% end %>
+        </div>
+      </div>
 
 </div>
 
