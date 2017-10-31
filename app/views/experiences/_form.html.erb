@@ -5,6 +5,7 @@
   <div class="row">
     <div class="col-sm-6 col-sm-offset-3">
       <div class= "form_padding">
+
         <h2>Share an experience</h2>
         <%= simple_form_for(@experience) do |f| %>
           <%= f.error_notification %>
@@ -14,6 +15,7 @@
         <%= f.input :incentive, label:"What incentives will you accept?" %>
 
         <%= f.association :category, label:"What category is your experience"  %>
+
         <%= f.input :photos, as: :attachinary %>
         <!-- <ul class="list-inline"></ul> -->
         <%= f.submit 'Post Your Tour', class: 'btn btn-success', style: 'width:100%' %>
