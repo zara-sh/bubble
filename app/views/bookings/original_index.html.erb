@@ -1,0 +1,78 @@
+
+
+<div class="content page_contains" style="display:flex;">
+  <div class="container" style="flex: 0 0 33%;">
+      <% if current_user.photo %>
+        <% avatar_url = current_user.photo.path || current_user.facebook_picture_url || "http://placehold.it/30x30" %>
+      <% else %>
+        <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
+      <% end %>
+      <p><%= cl_image_tag avatar_url, height: 150, width: 150, crop: :fill, style:'padding: 10px; border-radius:50%;' %></p>
+      <p>Name: <%= current_user.name %></p>
+      <p>Phone: <%= current_user.phone %></p>
+      <p>Biography: <%= current_user.bio %></p>
+      <p>Tags for favorite things: <%= current_user.hobbies %></p>
+      <p>Your Email: <%= current_user.email %></p>
+      <p><%= link_to "edit your profile", profile_edit_path %></p>
+      <p><%= link_to "delete your profile", profile_delete_path, method: :delete, data: {confirm: "are you sure?"} %></p>
+  </div>
+  <div class="container" style="flex: 0 0 33%;">
+    <h2>My Bookings</h2>
+    <div class="row">
+      <% @bookings.each do |booking| %>
+        <div class="col-xs-12 col-sm-12 col-md-11">
+          <div class="card-container" >
+            <div class="card-slide" ><img class="card-user" src="<%= cl_image_path booking.user.photo.path %>">
+              <div class="card-category"><%= booking.experience.user.name%>
+              </div>
+            </div>
+            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path booking.experience.photos.first.path %>');"></div>
+            <div class="card-footer">
+                <div class="card-description">
+                  <h2><%= booking.experience.title %></h2>
+                  <p>Payment: <%= booking.experience.incentive %></p>
+                  <p>At: <%= booking.experience.location %></p>
+                </div>
+            </div>
+            <a class="card-link" href="<%= booking_path(booking) %>" ></a>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="container" style="flex: 0 0 33%;">
+    <h2>My Experiences</h2>
+    <div class="row">
+      <% @current_user.experiences.each do |experience| %>
+        <div class="col-xs-12 col-sm-12 col-md-11">
+          <div class="card-container" >
+            <div class="card_togglable" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path experience.photos.first.path %>');">
+              <h5 class="show_experience">See more details</h5>
+              <a class="card-link" href="<%= experience_path(experience) %>" ></a>
+            </div>
+            <div class="card-footer-content">
+              <div class="card-footer">
+                <div class="card-description">
+                  <h2><%= experience.title %></h2>
+                  <p>Your Reward: <%= experience.incentive %></p>
+                  <p>At: <%= experience.location %></p>
+                </div>
+           <!--      <a class="card-link" href="<%= experience_path(experience) %>" ></a> -->
+              </div>
+              <div class="booked_dates" style="padding: 10px;">
+                <% unless experience.bookings.nil? %>
+                <h6>You are scheduled for this experience on:</h6>
+                  <% experience.bookings.each do |booking| %>
+                    <p><%= booking.date %> <%= link_to 'show booking', booking_path(booking) %></p>
+                  <% end %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
