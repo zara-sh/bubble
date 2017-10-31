@@ -1,0 +1,23 @@
+.pic_size {
+  width: 100vw;
+  height: 60vh;
+    // background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+   object-fit: cover;
+}
+
+.slider_nav_cntnr {
+  margin: auto;
+  max-width: 300px;
+}
+
+
+.slick-prev:before, .slick-next:before {
+  color: rgb(192, 241, 164) ;
+}
+
+.slick-slide img {
+  width: auto;
+}
+
