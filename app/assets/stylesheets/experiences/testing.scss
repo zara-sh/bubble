@@ -1,0 +1,137 @@
+.main_contain {
+  grid-column: 1 / span 1;
+}
+
+.side_contain {
+  width: 100%;
+    max-width: 100%;
+  grid-column: 2 / span 1;
+  position: relative;
+}
+
+.side_contain_s {
+  max-width: 100%;
+  width: 80%;
+  margin-left: auto;
+  // max-width: 90%;
+  position: sticky;
+  top: 20px;
+}
+
+.pic_slider_container{
+  // background-color: rgba(114, 8, 153, 0.2);
+  // opacity: 0.7;
+  max-width: 300px;
+  margin: auto;
+  // height: auto;
+}
+
+.profile_pic_contain {
+  display: flex;
+  justify-content: space-between;
+  // position: relative;
+}
+
+.profile_pic_right {
+  // position: absolute;
+  // top: 0;
+  // right: 0;
+}
+
+.side_contain img {
+  width: auto !important;
+  min-width: 60px;
+  max-width: 100%;
+}
+
+// .side_contain .slick-slide {
+//   width: auto !important;
+//   margin: auto;
+// }
+
+hr {
+   display: block;
+   position: relative;
+   padding: 0;
+   margin: 8px auto;
+   height: 0;
+   width: 100%;
+   max-height: 0;
+   font-size: 1px;
+   line-height: 0;
+   clear: both;
+   border: none;
+   // border-top: 1px solid #aaaaaa;
+   border-bottom: 1px solid rgba(50, 50, 50, 0.5);
+   box-shadow: 0px 0px 6px rgba(50, 50, 50, 0.9);
+}
+
+@media (max-width: 1025px) {
+  .contain {
+    padding: 5%;
+      grid-template-columns: 100%;
+  }
+  .main_contain {
+  grid-column: 1 / span 1;
+  }
+
+  .side_contain {
+    max-width: 100%;
+    width: auto;
+    margin: auto;
+    grid-column: 1 / span 1;
+    position: relative;
+  }
+  .side_contain_s {
+    min-width: 250px;
+    width: 100%;
+    margin: auto;
+    // max-width: 90%;
+    position: relative;
+    top: 20px;
+  }
+}
+
+@media (max-width: 720px) {
+  .contain {
+    padding: 10px;
+      grid-template-columns: 100%;
+  }
+
+
+}
+
+
+
+
+
+.slick-slide {
+    margin: 0;
+}
+// .slide_cntr {
+//    width: 100%;
+//   height: auto;
+// }
+.slider_nav_cntnr {
+  margin: auto;
+  max-width: 300px;
+}
+
+
+.slick-prev:before, .slick-next:before {
+  color: rgb(114, 8, 153) ;
+}
+
+.slick-slide img {
+  // width: auto !important;
+  min-width: 40px;
+}
+
+.slick-list {
+  margin: 30px auto;
+}
+
+.slick-track {
+  width: 100%;
+  // margin: auto;
+}

@@ -180,9 +180,9 @@ footer a, footer a:link {
     <div class="col-sm-4 col-sm-offset-4">
   <form novalidate="novalidate" class="login" id="formId" action="/users/sign_in" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="hugWrQLc5NDW1BSkhsHTPS0HP7vhcg/qusfrqfq5MfHHKZCgBEDnAveLa+a2go1xiDiHVAF2s6Mmal0DnC9RyQ==">
     <p class="title">Log in</p>
-    <input type="email" value="" name="user[email]" placeholder="email" autofocus/>
+    <input type="email" id= "login_email" value="" name="user[email]" placeholder="email" autofocus/>
     <i class="fa fa-user"></i>
-    <input type="password" placeholder="password" name="user[password]"/>
+    <input type="password" id="login_password" placeholder="password" name="user[password]"/>
     <i class="fa fa-key"></i>
     <div class="form-group boolean optional user_remember_me"><div class="checkbox"><input value="0" type="hidden" name="user[remember_me]"><label class="boolean optional" for="user_remember_me"><input class="boolean optional" type="checkbox" value="1" name="user[remember_me]" id="user_remember_me">Remember me</label></div></div>
     <button type="submit" value="Log in" name="commit">

@@ -8,6 +8,7 @@ $('form').one('submit', function(e) {
   $this.addClass('loading');
   $state.html('Authenticating');
   setTimeout(function() {
+    if ("<%=escape_javascript @ruby_var.title %>");
     $('form').submit()
     $this.addClass('ok');
     $state.html('Welcome back!');
