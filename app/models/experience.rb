@@ -10,3 +10,4 @@ class Experience < ApplicationRecord
   after_validation :geocode, if: :location_changed?
   #AVABILITY = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 end
+

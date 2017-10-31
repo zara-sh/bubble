@@ -36,6 +36,10 @@
             <% end %>
           </div>
           <%= simple_form_for([@experience, @booking]) do |f| %>
+
+
+            <%#= f.input :date, collection: Experience::AVABILITY %>
+
             <%= f.hidden_field :user_id, value: current_user.id %>
             <%= f.hidden_field :experience_id, value: @experience.id %>
             <%= f.submit "book", style: "width: 100%", class: "btn btn-success" %>
