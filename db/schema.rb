@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20171030041840) do
 
   # These are extensions that must be enabled in order to support this database
@@ -63,6 +64,14 @@ ActiveRecord::Schema.define(version: 20171030041840) do
     t.index ["user_id"], name: "index_experiences_on_user_id"
   end
 
+  create_table "schedules", force: :cascade do |t|
+    t.date "date"
+    t.bigint "experience_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["experience_id"], name: "index_schedules_on_experience_id"
+  end
+
   create_table "user_categories", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "category_id"
@@ -111,6 +120,7 @@ ActiveRecord::Schema.define(version: 20171030041840) do
   add_foreign_key "bookings", "users"
   add_foreign_key "experiences", "categories"
   add_foreign_key "experiences", "users"
+  add_foreign_key "schedules", "experiences"
   add_foreign_key "user_categories", "categories"
   add_foreign_key "user_categories", "users"
 end

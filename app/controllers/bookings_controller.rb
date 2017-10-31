@@ -10,16 +10,19 @@ class BookingsController < ApplicationController
   def show
     @booking = Booking.find(params[:id])
     @guide = @booking.experience.user
+    authorize @booking
   end
 
   def new
     @experience = Experience.find(params[:experience_id])
     @booking = @experience.bookings.create
+    authorize @booking
   end
 
   def create
     @booking = Booking.new(booking_params)
     @booking.user = current_user
+    authorize @booking
     if @booking.save
       # redirect_to  @booking
       redirect_to  booking_path(@booking)
@@ -31,6 +34,7 @@ class BookingsController < ApplicationController
 
   def destroy
     @booking = Booking.find(params[:id])
+    authorize @booking
     @booking.delete
     redirect_to bookings_path
   end
