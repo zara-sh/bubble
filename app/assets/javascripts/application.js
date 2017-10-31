@@ -7,4 +7,5 @@
 //= require jquery.slick
 //= require underscore
 //= require gmaps/google
+//= require jquery-ui.multidatespicker
 //= require_tree .

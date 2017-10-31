@@ -12,8 +12,9 @@
         <%= f.input :description, label:"describe the experience you are posting" %>
         <%= f.input :location, label:"address of meeting location" %>
         <%= f.input :incentive, label:"what you'd like from your neighbor" %>
-        <%= f.input :availability, collection: Experience::AVABILITY, label:"available dates" %>
+        <%= f.input :availability, id:"dates_field" %>
         <%= f.association :category, label:"your experience/tour belongs to which category?"  %>
+        <%= f.association :booking, label:"your booking date"  %>
         <%= f.input :photos, as: :attachinary %>
         <!-- <ul class="list-inline"></ul> -->
         <%= f.submit 'Post Your Tour!', class: 'btn btn-success', style: 'width:100%' %>
