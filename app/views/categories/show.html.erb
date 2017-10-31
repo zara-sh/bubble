@@ -23,17 +23,20 @@
 
     <div class="row">
       <% @experiences.each do |experience| %>
-      <div class="col-xs-12 col-sm-4">
-        <!-- insert <div class="card"> -->
-          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path experience.photos.first.path %>');" >
-            <div class="card-category"><%= experience.user.name%>
+        <div class="col-xs-12 col-sm-6">
+          <div class="card-container" >
+            <div class="card-slide" ><img class="card-user" src="<%= cl_image_path experience.user.photo.path %>">
+              <div class="card-category"><%= experience.user.name%>
               </div>
+            </div>
+            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path experience.photos.first.path %>');"></div>
+            <div class="card-footer">
                 <div class="card-description">
                   <h2><%= experience.title %></h2>
-                  <p><%= experience.incentive %></p>
-                  <p><%= experience.location %></p>
+                  <p>Payment: <%= experience.incentive %></p>
+                  <p>At: <%= experience.location %></p>
                 </div>
-              <%= cl_image_tag(experience.user.photo.path, class: 'card-user') %>
+            </div>
             <a class="card-link" href="<%= new_experience_booking_path(experience_id: experience.id) %>" ></a>
           </div>
         </div>
