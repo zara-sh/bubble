@@ -21,9 +21,16 @@
     flex-grow: 1;
   }
 
-  @media all and (min-width: 750px) {
+  @media all and (min-width: 1000px) {
     #map {
       display: block;
+    }
+    .card-description {
+      font-size: 14px;
+      position: relative;
+    }
+    .card-footer {
+      padding: 5px;
     }
 
     .results {
