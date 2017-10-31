@@ -10,18 +10,16 @@
 
 }
 .banner-content {
-
   text-align: left;
-  position: absolute;
+  // position: absolute;
   top: 45%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  // transform: translate(-50%, -50%);
   color: #63264A;
-  white-space: nowrap;
+  // white-space: nowrap;
   padding-left: 20px;
 
 }
-
 
 
 .fas {
@@ -57,7 +55,8 @@ $category-icon-color-hover: lighten($category-icon-color, 20%);
 
   .home-icon {
     text-align: center;
-    width: 250px;
+    // width: 250px;
+    width: 100%;
     transition: all .3s ease;
   }
 
@@ -92,3 +91,21 @@ $category-icon-color-hover: lighten($category-icon-color, 20%);
   }
 }
 
+
+// @media only screen and (max-width: 770px) {
+//     .banner {
+//       background-color: blue;
+//     }
+// }
+
+
+.home-row {
+  margin: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.home-icon {
+  padding: 0;
+}
