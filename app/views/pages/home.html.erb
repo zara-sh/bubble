@@ -1,21 +1,24 @@
 
 
 <div class="banner">
-  <div class="banner-content"> <h1>A Guided Treasure Hunt In Your Neighborhood</h1>
-    <p>they're just around the corner</p>
+  <div class="banner-content">
+    <h1>A friendly neighbor is waiting to show you around</h1>
+    <p>What would you like to discover today?</p>
 
-
-    <div class="fas">
-
+    <div class="icons">
       <% @categories.each do  |c|  %>
-        <%= link_to category_path(c), class: 'home-category-icon' do %>
-          <!-- link_to category icon -->
-        <i class="fa <%=c.icon%> fa-5x" aria-hidden="true"></i>
-        <% end %>
+        <div class="home-icon">
+          <%= link_to category_path(c), class: 'home-category-icon' do %>
+            <!-- link_to category icon -->
+            <i class="fa <%=c.icon%> fa-5x" aria-hidden="true"></i>
+          <% end %>
+          <p>
+          <%= c.name %>
+          </p>
+        </div>
       <% end %>
-
+    </div>
   </div>
 </div>
-
 
 
