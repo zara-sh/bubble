@@ -103,6 +103,9 @@ GEM
       thor (~> 0.14)
     font-awesome-sass (4.7.0)
       sass (>= 3.2)
+    fullcalendar-rails (2.4.0.1)
+      jquery-rails (>= 4.0.5, < 5.0.0)
+      momentjs-rails (>= 2.9.0)
     geocoder (1.4.4)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
@@ -153,6 +156,8 @@ GEM
       builder
       minitest (>= 5.0)
       ruby-progressbar
+    momentjs-rails (2.17.1)
+      railties (>= 3.1)
     multi-dates-picker-rails (0.1.1)
     multi_json (1.12.2)
     multi_xml (0.6.0)
@@ -299,6 +304,7 @@ DEPENDENCIES
   faker
   figaro
   font-awesome-sass
+  fullcalendar-rails
   geocoder
   gmaps4rails
   jbuilder (~> 2.0)
@@ -310,6 +316,7 @@ DEPENDENCIES
   letter_opener
   listen (~> 3.0.5)
   minitest-reporters
+  momentjs-rails
   multi-dates-picker-rails
   omniauth-facebook
   pg
