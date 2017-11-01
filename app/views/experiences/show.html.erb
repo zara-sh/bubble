@@ -1,32 +1,34 @@
+
 <div class="contain">
-      <div class="main_contain">
+    <div class="main_contain">
         <h1><%= @experience.title %></h1>
-        <p>Place: <%= @experience.location %></p>
+        <p><strong>Neighborhood:</strong> <%= @experience.location %></p>
         <hr>
-        <div class="profile_pic_contain">
-          <div class="left_info">
-            <p>Category: <%= @experience.category.name %>
-            <p>Guided by: <%= @experience.user.name %></p>
-            <p>Tip for this experience: <%= @experience.incentive %></p>
+
+            <p><strong>Category:</strong> <%= @experience.category.name %>
+            <p><strong>Available on most:</strong> <%= @experience.availability %></p>
+            <p><strong>I'm interested in "<%= @experience.incentive %>" </strong> as an incentive</p>
           </div>
           <!-- <div class="profile_pic_right"> -->
           <%= cl_image_tag @experience.photos.first.path, width: 60, height: 60, crop: :fill, style: 'border-radius:50%;', class:'profile_pic_right' %>
           <!-- </div> -->
         </div>
         <hr>
-        <p>About your neighbor guide</p>
+        <p><strong>Description:</strong></p>
+        <p> <%= @experience.description %></p>
+        <p><strong>About your neighbor <%= @experience.user.name %>: </strong></p>
         <p> <%= @experience.user.bio %></p>
         <hr>
-        <p>Description about this tour</p>
-        <p> <%= @experience.description %></p>
-        <hr>
-        <p>Available on most: <%= @experience.availability %></p>
-        <hr>
-        <p><%= link_to "edit", edit_experience_path %></p>
-        <p><%= link_to "See my bookings", bookings_path %></p>
-        <p><%= link_to "delete", experience_path(@experience),
-              method: :delete, data: {confirm: "are you sure?"} %>
-        <h4>Join your neighbor in other experiences!</h4>
+
+<div class="edit-content">
+  <%= link_to "Edit", edit_experience_path, class: 'btn-primary' %>
+    <%= link_to "Delete", experience_path(@experience),
+      method: :delete, data: {confirm: "Are You Sure?"}, class: 'btn-primary' %>
+</div>
+
+
+        <div>
+           <h4>Thanks for sharing these experiences</h4>
         <% if @experience.user.experiences.count < 3 %>
             <div style="display: flex" >
               <% @experience.user.experiences.each do |experience| %>
@@ -49,20 +51,22 @@
                 <% unless experience.photos.first.nil? %>
                   <div class="nsj_card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path experience.photos.first.path %>');">
                     <div class="card-category"><%= experience.user.name%>
-                      </div>
+                    </div>
                         <div class="card-description">
                           <h2><%= experience.title %></h2>
-                          <p><%= experience.incentive %></p>
-                          <p><%= experience.location %></p>
+                          <p>Payment: <%= experience.incentive %></p>
+                          <p>At: <%= experience.location %></p>
                         </div>
                       <img class="njs-card-user" src="<%= cl_image_path experience.user.photo.path %>">
-                    <a class="card-link" href="<%= experience_path(experience) %>" ></a>
+                    <a class="card-link" href="<%= new_experience_booking_path(experience_id: experience.id) %>" ></a>
                   </div>
                 <% end %>
               <% end %>
             </div>
-        <% end %>
+          <% end %>
+        </div>
       </div>
+
       <div class="side_contain">
         <div class="side_contain_s">
           <div class="slider-for">
@@ -75,7 +79,7 @@
               <%= cl_image_tag photo.path, height: 60, width: 50, crop: :fill,style: 'padding: 10px; border-radius:5px;' %>
             <% end %>
           </div>
-          <h5>Bookings:</h5>
+          <h5>Who Has Booked Your Experience:</h5>
           <% if @experience.bookings.first.nil? %>
               <p>There are currently no bookings</p>
             <% end %>
@@ -89,6 +93,7 @@
           <% end %>
         </div>
       </div>
+
 </div>
 
 
@@ -96,51 +101,3 @@
   <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
   <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
   <!-- <script type="text/javascript" src="slick/slick.min.js"></script> -->
-
-  <script type="text/javascript">
-    $(document).ready(function(){
- $('.slider-for').slick({
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  arrows: false,
-  fade: true,
-  asNavFor: '.slider-nav'
-});
-$('.slider-nav').slick({
-  slidesToShow: 3,
-  slidesToScroll: 1,
-  asNavFor: '.slider-for',
-  dots: true,
-  centerMode: true,
-  focusOnSelect: true,
-    arrows: true
-});
-
-$('.center').slick({
-  centerMode: true,
-  centerPadding: '60px',
-  slidesToShow: 3,
-  responsive: [
-    {
-      breakpoint: 768,
-      settings: {
-        arrows: false,
-        centerMode: true,
-        centerPadding: '40px',
-        slidesToShow: 3
-      }
-    },
-    {
-      breakpoint: 480,
-      settings: {
-        arrows: false,
-        centerMode: true,
-        centerPadding: '40px',
-        slidesToShow: 1
-      }
-    }
-  ]
-});
-
-    });
-  </script>

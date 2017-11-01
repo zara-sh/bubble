@@ -13,17 +13,7 @@
   position: absolute;
   left: 10px;
   top: 10px;
-  width: 40px;
+  width: 40px !important;
   height: 40px;
   border-radius: 50%;
-}
-
-// .slide_cntr {
-//    width: 100%;
-//   height: auto;
-// }
-
-.slick-slide {
-    // width: 250px;
-    margin: 0 5px;
 }

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171026063743) do
+ActiveRecord::Schema.define(version: 20171030041840) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,6 +63,14 @@ ActiveRecord::Schema.define(version: 20171026063743) do
     t.index ["user_id"], name: "index_experiences_on_user_id"
   end
 
+  create_table "schedules", force: :cascade do |t|
+    t.date "date"
+    t.bigint "experience_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["experience_id"], name: "index_schedules_on_experience_id"
+  end
+
   create_table "user_categories", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "category_id"
@@ -101,6 +109,7 @@ ActiveRecord::Schema.define(version: 20171026063743) do
     t.datetime "confirmation_sent_at"
     t.float "latitude"
     t.float "longitude"
+    t.boolean "admin"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -110,6 +119,7 @@ ActiveRecord::Schema.define(version: 20171026063743) do
   add_foreign_key "bookings", "users"
   add_foreign_key "experiences", "categories"
   add_foreign_key "experiences", "users"
+  add_foreign_key "schedules", "experiences"
   add_foreign_key "user_categories", "categories"
   add_foreign_key "user_categories", "users"
 end
