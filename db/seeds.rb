@@ -13,6 +13,7 @@ Category.delete_all
 User.delete_all
 
 puts "Deleted Stuff"
+
 hobby =["Yoga", "Pets", "Dance", "Video games", "Sports", "Flying", "Swimming", "Book collecting"]
 20.times do
   user = User.new(
