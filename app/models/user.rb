@@ -15,7 +15,7 @@ class User < ApplicationRecord
   # has_many :experience_categories, through: :experiences, source: :categories
   # geocoded_by :current_sign_in_ip
   geocoded_by :ip_address
-
+  after_validation :geocode
     def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)
     user_params.merge! auth.info.slice(:email, :first_name, :last_name)
