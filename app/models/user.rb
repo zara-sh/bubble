@@ -11,6 +11,12 @@ class User < ApplicationRecord
   validates :phone, length: {maximum: 15}
   validates :bio, length: {maximum: 300}
 
+  validates :name, length: {maximum: 25}
+  validates :email, length: {maximum: 40}
+  validates :phone, length: {maximum: 15}
+  validates :bio, length: {maximum: 10000}
+
+
   has_many :experiences, dependent: :destroy
   has_many :bookings, dependent: :destroy
   # has_many :user_categories, dependent: :destroy

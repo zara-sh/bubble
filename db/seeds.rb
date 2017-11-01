@@ -17,7 +17,7 @@ puts "Deleted Stuff"
 
 phone = ["(251) 546-9442", "(125) 546-4478","(949) 569-4371", "(630) 446-8851", "(226) 906-2721","(671) 925-1352"]
 
-name = ["Lucie Langenfeld", "Kris Kiss", "Anabel Ahmad","Fran Farley","Sabra Sayler"
+name = ["Lucie Langenfeld", "Kris Kiss", "Anabel Ahmad","Fran Farley","Sabra Sayler"]
 
 hobby =["Yoga", "Pets", "Dance", "Video games", "Sports", "Flying", "Swimming", "Book collecting","Joesph Josey","Bobby Burges"]
 
@@ -46,13 +46,13 @@ profile_url = ["http://res.cloudinary.com/dqeebh2l0/image/upload/v1509513548/p11
 
 14.times do |i|
   user = User.new(
-  name: name.sample ,
+  name: name.sample,
   email: Faker::Internet.email,
   phone: phone.sample,
   password: "123456",
   bio: bio.sample,
   hobbies: hobby.sample,
-  confirmed_at: Time.now
+  confirmed_at: Time.now,
   photo_url: profile_url[i]
   )
   # user.photo_url = "https://source.unsplash.com/random/100x100"
@@ -114,8 +114,8 @@ puts 'Created categories'
 "Where to get Aeropress","Fresh Roasted Beans","Green Caffeine"]
 
 cat1_des = ["A little spot tucked away with great staff",
-" delicious and affordable beverages"
- "These lattes are made perfectly, with great art on top of the foam",
+" delicious and affordable beverages",
+ "These lattes are made perfectly with great art on top of the foam",
 "Cold brew coffee is low in acid and also deliciously smooth",
 "Tiny cafes you’ll probably miss, not even on Google Maps",
 "Aeropress is a new and handy technique of brewing fresh hot coffee",
@@ -133,7 +133,7 @@ cat1_des = ["A little spot tucked away with great staff",
 # end
 
 
-cat2_title = ["Appletini or Cosmo?"," Where the best Martinis Live", "Downtown Tokyo Bars""Drinks You’ve Never Heard Of"
+cat2_title = ["Appletini or Cosmo?"," Where the best Martinis Live", "Downtown Tokyo Bars""Drinks You’ve Never Heard Of",
 "Affordable Cocktails in the City", "Old-Fashioned Mixologists", "Speakeasy Type Club Downtown"]
 cat2_des = ["Choose between two of the best cocktails", "Find the best spots for good martinis"," Go out on the town and experience nightlife"," Great spots for super creative cocktails"," Experience awesome clubs for great prices", "Great old-fashioned drinks from bygone eras", "Jazz clubs for history buffs"]
 # 7.times do
@@ -232,7 +232,7 @@ cat1_url = ["http://res.cloudinary.com/dqeebh2l0/image/upload/v1509518978/cof2_a
 
 Experience.transaction do
   # categories_array.each do |category|
-    8.times do
+    3.times do
       exp1 = Experience.new(
         title: cat1_title.sample,
         description: cat1_des.sample,
@@ -241,7 +241,7 @@ Experience.transaction do
         user_id: User.order("RANDOM()").first.id,
         category: category1
         )
-      exp1.photo_urls = cat1_url.sample
+      exp1.photo_urls = cat1_url
       rand(2..4).times do
         exp1.schedules.build(date: Faker::Date.forward(30))
       end
@@ -258,7 +258,7 @@ cat2_url = ["http://res.cloudinary.com/dqeebh2l0/image/upload/v1509519428/bar5_g
 "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509519429/bar2_iqloqp.jpg",]
 Experience.transaction do
   # categories_array.each do |category|
-    7.times do
+    3.times do
       exp2 = Experience.new(
         title: cat2_title.sample,
         description: cat2_des.sample,
@@ -267,11 +267,11 @@ Experience.transaction do
         user_id: User.order("RANDOM()").first.id,
         category: category2
         )
-      exp1.photo_urls = cat2_url.sample
+      exp2.photo_urls = cat2_url
       rand(2..4).times do
-        exp1.schedules.build(date: Faker::Date.forward(30))
+        exp2.schedules.build(date: Faker::Date.forward(30))
       end
-      exp1.save!
+      exp2.save!
 
       puts "Added an experiences to cat 2"
     end
@@ -283,20 +283,20 @@ end
 
 Experience.transaction do
   # categories_array.each do |category|
-    5.times do
+    2.times do
       exp3 = Experience.new(
         title: cat3_title.sample,
-        description: cat3_des.sample,
+        description: cat2_des.sample,
         incentive: incentive.sample,
         location: place.sample,
         user_id: User.order("RANDOM()").first.id,
         category: category3
         )
-      exp1.photo_urls = urls
+      exp3.photo_urls = urls
       rand(2..4).times do
-        exp1.schedules.build(date: Faker::Date.forward(30))
+        exp3.schedules.build(date: Faker::Date.forward(30))
       end
-      exp1.save!
+      exp3.save!
 
       puts "Added an experiences to cat 3"
     end
@@ -306,20 +306,20 @@ end
 
 Experience.transaction do
   # categories_array.each do |category|
-    6.times do
+    2.times do
       exp4 = Experience.new(
         title: cat4_title.sample,
-        description: cat4_des.sample,
+        description: cat2_des.sample,
         incentive: incentive.sample,
         location: place.sample,
         user_id: User.order("RANDOM()").first.id,
         category: category4
         )
-      exp1.photo_urls = urls
+      exp4.photo_urls = urls
       rand(2..4).times do
-        exp1.schedules.build(date: Faker::Date.forward(30))
+        exp4.schedules.build(date: Faker::Date.forward(30))
       end
-      exp1.save!
+      exp4.save!
 
       puts "Added an experiences to cat 4"
     end
@@ -331,20 +331,20 @@ end
 
 Experience.transaction do
   # categories_array.each do |category|
-    6.times do
+    3.times do
       exp5 = Experience.new(
         title: cat3_title.sample,
-        description: cat5_des.sample,
+        description: cat2_des.sample,
         incentive: incentive.sample,
         location: place.sample,
         user_id: User.order("RANDOM()").first.id,
         category: category5
         )
-      exp1.photo_urls = urls
+      exp5.photo_urls = urls
       rand(2..4).times do
-        exp1.schedules.build(date: Faker::Date.forward(30))
+        exp5.schedules.build(date: Faker::Date.forward(30))
       end
-      exp1.save!
+      exp5.save!
 
       puts "Added an experiences to cat 5"
     end
