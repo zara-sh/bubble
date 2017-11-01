@@ -3,7 +3,6 @@ class EventsController < ApplicationController
 
   def the_calender
     @events = Event.where(user_id: current_user.id)
-    # authorize @events
   end
 
 end
