@@ -10,7 +10,7 @@ $('form').one('submit', function(e) {
   setTimeout(function() {
     $('form').submit()
     $this.addClass('ok');
-    $state.html('Welcome back!');
+    $state.html('Securing your profile');
     setTimeout(function() {
       $state.html('Log in');
       $this.removeClass('ok loading');

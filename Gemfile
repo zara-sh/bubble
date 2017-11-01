@@ -11,8 +11,7 @@ gem 'redis'
 gem "geocoder"
 gem "gmaps4rails"
 gem 'bootstrap-datepicker-rails'
-gem 'multi-dates-picker-rails'
-gem 'jquery-ui-rails'
+gem 'jquery-ui-rails', '~> 4.2.1'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
@@ -24,7 +23,6 @@ gem 'uglifier'
 gem 'omniauth-facebook'
 gem 'faker'
 gem "jquery-slick-rails"
-gem 'jquery-ui-rails'
 gem 'multi-dates-picker-rails'
 
 group :development, :test do
