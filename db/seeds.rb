@@ -121,104 +121,33 @@ cat1_des = ["A little spot tucked away with great staff",
 "Aeropress is a new and handy technique of brewing fresh hot coffee",
 "This awesome places roasts its own amazing coffee beans",
 "Try out some lightly roasted coffee beans for more caffeine"]
-# 10.times do
-# exp1 = Experience.new(
-#   title: cat1_title.sample ,
-#   description: cat1_des.sampl,
-#   incentive: incentive.sample,
-#   location: place.sample,
-#   user_id: User.order("RANDOM()").first.id,
-#   category: category1
-# )
-# end
+
 
 
 cat2_title = ["Appletini or Cosmo?"," Where the best Martinis Live", "Downtown Tokyo Bars""Drinks You’ve Never Heard Of",
 "Affordable Cocktails in the City", "Old-Fashioned Mixologists", "Speakeasy Type Club Downtown"]
 cat2_des = ["Choose between two of the best cocktails", "Find the best spots for good martinis"," Go out on the town and experience nightlife"," Great spots for super creative cocktails"," Experience awesome clubs for great prices", "Great old-fashioned drinks from bygone eras", "Jazz clubs for history buffs"]
-# 7.times do
-# exp2 = Experience.new(
-#   title: cat2_title.sample ,
-#   description: description.sample,
-#   incentive: incentive.sample,
-#   location: place.sample,
-#   user_id: User.order("RANDOM()").first.id,
-#   category: category2
-# )
-# end
+
+
 
 cat3_title =["Alternatives to Crossfit","Lift Heavy Nearby", "No Need for Machines at This Gym", "Quiet Gym with Great Staff", "Personal Training Within 5 Minutes",
 "Work Hard Play Hard","Great Space for Yoga"]
 
-# 5.times do
-# exp3 = Experience.new(
-#   title: cat3_title.sample ,
-#   description: description.sample,
-#   incentive: incentive.sample,
-#   location: place.sample,
-#   user_id: User.order("RANDOM()").first.id,
-#   category: category3
-# )
-# end
+
 cat4_title = ["Onsens Which Accept Tattoos","Decompress in Japan’s Best Spas",
 "Affordable Makeovers","A Short Weekend Spa Trip",
 "Some Good Places for Manicure and Pedicures",
  "Relaxing Walks through the Park",
 "Take Time to Rest After Work",]
 cat4_des = ["These onsens are rare because they accept tattoos", "Some of the best spas in the area offer great places to relax and decompress", "If you want to get a makeover and feel great about yourself then these places are perfect", "If you’d like to spend just a quick weekend decompressing from a difficult job then these spots are going to be your favorite soon", "Sometimes you just need to get your fingernails pretty and sparkly", "Sometimes it’s just good to take a relaxing walk in the park among the wildlife and flowers", "If you just need a place to go and relax after work then these quiet places around town are great"]
-# 5.times do
-# exp4 = Experience.new(
-#   title: cat4_title.sample ,
-#   description: description.sample,
-#   incentive: incentive.sample,
-#   location: place.sample,
-#   user_id: User.order("RANDOM()").first.id,
-#   category: category4
-# )
-# end
+
 
 cat5_title =["Best Ramen in the City","Largest Shrine in the Prefecture",
 "Electric Town","Beaches Great for Photos",
 "Japan’s Spookiest Forests","Historical Sites",
 "Wartime Memorials"]
 
-# 6.times do
-# exp5 = Experience.new(
-#   title: cat5_title.sample ,
-#   description: description.sample,
-#   incentive: incentive.sample,
-#   location: place.sample,
-#   user_id: User.order("RANDOM()").first.id,
-#   category: category5,
-# )
-# end
-# rand(2..4).times do
-#     exp5.schedules.build(date: Faker::Date.forward(30))
-# end
 
-
-# Experience.transaction do
-#   # categories_array.each do |category|
-#     rand(2..6).times do
-#       exp = Experience.new(
-#         title: title.sample,
-#         description: description.sample,
-#         incentive: incentive.sample,
-#         location: place.sample,
-#         #availability: weekdays.sample,
-#         user_id: User.order("RANDOM()").first.id,
-#         category: category#s#_array.sampl
-#         )
-#       exp.photo_urls = urls
-#       rand(2..4).times do
-#         exp.schedules.build(date: Faker::Date.forward(30))
-#       end
-#       exp.save!
-
-#       puts "Added an experience"
-#     end
-#   # end
-# end
 
 cat1_url = ["http://res.cloudinary.com/dqeebh2l0/image/upload/v1509518978/cof2_a04slv.jpg",
 "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509518979/cof5_jcvmgz.jpg",
@@ -232,7 +161,7 @@ cat1_url = ["http://res.cloudinary.com/dqeebh2l0/image/upload/v1509518978/cof2_a
 
 Experience.transaction do
   # categories_array.each do |category|
-    3.times do
+    3.times do |i|
       exp1 = Experience.new(
         title: cat1_title.sample,
         description: cat1_des.sample,
@@ -241,7 +170,7 @@ Experience.transaction do
         user_id: User.order("RANDOM()").first.id,
         category: category1
         )
-      exp1.photo_urls = cat1_url
+      exp1.photo_urls = cat1_url[i]
       rand(2..4).times do
         exp1.schedules.build(date: Faker::Date.forward(30))
       end
@@ -258,7 +187,7 @@ cat2_url = ["http://res.cloudinary.com/dqeebh2l0/image/upload/v1509519428/bar5_g
 "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509519429/bar2_iqloqp.jpg",]
 Experience.transaction do
   # categories_array.each do |category|
-    3.times do
+    3.times do |i|
       exp2 = Experience.new(
         title: cat2_title.sample,
         description: cat2_des.sample,
@@ -267,7 +196,7 @@ Experience.transaction do
         user_id: User.order("RANDOM()").first.id,
         category: category2
         )
-      exp2.photo_urls = cat2_url
+      exp2.photo_urls = cat2_url[i]
       rand(2..4).times do
         exp2.schedules.build(date: Faker::Date.forward(30))
       end
@@ -283,7 +212,7 @@ end
 
 Experience.transaction do
   # categories_array.each do |category|
-    2.times do
+    2.times do |i|
       exp3 = Experience.new(
         title: cat3_title.sample,
         description: cat2_des.sample,
@@ -292,7 +221,7 @@ Experience.transaction do
         user_id: User.order("RANDOM()").first.id,
         category: category3
         )
-      exp3.photo_urls = urls
+      exp3.photo_urls = urls[i]
       rand(2..4).times do
         exp3.schedules.build(date: Faker::Date.forward(30))
       end
@@ -306,7 +235,7 @@ end
 
 Experience.transaction do
   # categories_array.each do |category|
-    2.times do
+    2.times do |i|
       exp4 = Experience.new(
         title: cat4_title.sample,
         description: cat2_des.sample,
@@ -315,7 +244,7 @@ Experience.transaction do
         user_id: User.order("RANDOM()").first.id,
         category: category4
         )
-      exp4.photo_urls = urls
+      exp4.photo_urls = urls[i]
       rand(2..4).times do
         exp4.schedules.build(date: Faker::Date.forward(30))
       end
@@ -331,7 +260,7 @@ end
 
 Experience.transaction do
   # categories_array.each do |category|
-    3.times do
+    3.times do |i|
       exp5 = Experience.new(
         title: cat3_title.sample,
         description: cat2_des.sample,
@@ -340,7 +269,7 @@ Experience.transaction do
         user_id: User.order("RANDOM()").first.id,
         category: category5
         )
-      exp5.photo_urls = urls
+      exp5.photo_urls = urls[i]
       rand(2..4).times do
         exp5.schedules.build(date: Faker::Date.forward(30))
       end
