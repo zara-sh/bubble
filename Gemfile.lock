@@ -125,6 +125,8 @@ GEM
       thor (>= 0.14, < 2.0)
     jquery-slick-rails (1.8.1)
       railties (>= 3.1)
+    jquery-ui-rails (6.0.1)
+      railties (>= 3.2.16)
     json (2.1.0)
     jwt (1.5.6)
     launchy (2.4.3)
@@ -151,6 +153,7 @@ GEM
       builder
       minitest (>= 5.0)
       ruby-progressbar
+    multi-dates-picker-rails (0.1.1)
     multi_json (1.12.2)
     multi_xml (0.6.0)
     multipart-post (2.0.0)
@@ -302,10 +305,12 @@ DEPENDENCIES
   jquery-fileupload-rails
   jquery-rails
   jquery-slick-rails
+  jquery-ui-rails
   launchy
   letter_opener
   listen (~> 3.0.5)
   minitest-reporters
+  multi-dates-picker-rails
   omniauth-facebook
   pg
   poltergeist

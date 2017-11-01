@@ -13,7 +13,8 @@ Category.delete_all
 User.delete_all
 
 puts "Deleted Stuff"
-hobby =["Yoga", "Pet", "Dance", "Video game", "Sports", "Flying", "Swimming", "Book collecting"]
+
+hobby =["Yoga", "Pets", "Dance", "Video games", "Sports", "Flying", "Swimming", "Book collecting"]
 20.times do
   user = User.new(
   name: Faker::Name.name ,
@@ -59,7 +60,7 @@ categories_array = [category1, category2, category3, category4, category5]
 
 weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
 incentive = ["Make Friends", "Get To Know The Area","Free Cup of Coffee", "$$$", "For Free!"]
-title = ["I konw cool place around", "I know cool coffeshop", "I know cool gym", "I know cool spa"]
+title = ["Touristy Spots", "Best Cafe Ever", "Where to Workout", "Best Relaxation Spot"]
 
 place = ["Meguro, Tokyo", "Harajuku, Tokyo", "shibuya, Tokyo", "shinjuku, Tokyo","Hikarigaoka, Tokyo", "Ginza, Tokyo", "Koenji, Tokyo" ]
 description = ["Blue Bottle Coffee is on the ground floor and is accessible from the outside of the building.  I got lost trying to find it, but if you go outside and look up the address on Google maps, make your way toward the pin from the outdoors, you should find it.
@@ -92,7 +93,9 @@ Experience.transaction do
         category: category#s#_array.sampl
         )
       exp.photo_urls = urls
-      exp.schedules.build(date: Faker::Date.forward(30))
+      rand(2..4).times do
+        exp.schedules.build(date: Faker::Date.forward(30))
+      end
       exp.save!
 
       puts "Added an experience"

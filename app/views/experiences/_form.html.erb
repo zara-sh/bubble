@@ -1,10 +1,16 @@
+<!--
 
+  <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"/>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"/>
+    <script src="http://multidatespickr.sourceforge.net/jquery-ui.multidatespicker.js"/> -->
 
 <div class="content">
 <div class="container">
   <div class="row">
     <div class="col-sm-6 col-sm-offset-3">
       <div class= "form_padding">
+
         <h2>Share an experience</h2>
         <%= simple_form_for(@experience) do |f| %>
           <%= f.error_notification %>
@@ -12,8 +18,9 @@
         <%= f.input :description, label:"Short description of this experience" %>
         <%= f.input :location, label:"Location" %>
         <%= f.input :incentive, label:"What incentives will you accept?" %>
-
+        <div class="form-group string optional experience_availability"><label class="control-label string optional" for="experience_availability">Availability</label><input class="form-control date1" type="text" format="dd-mm-yyyy" name="experience[availability]" ></div>
         <%= f.association :category, label:"What category is your experience"  %>
+
         <%= f.input :photos, as: :attachinary %>
         <!-- <ul class="list-inline"></ul> -->
         <%= f.submit 'Post Your Tour', class: 'btn btn-success', style: 'width:100%' %>
