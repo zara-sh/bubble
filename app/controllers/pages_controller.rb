@@ -15,7 +15,7 @@ class PagesController < ApplicationController
   end
 
   def profile
-    @user = current_user
+    @events = Event.where(user_id: current_user.id)
   end
 
   def edit # profile

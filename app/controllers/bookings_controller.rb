@@ -28,7 +28,10 @@ class BookingsController < ApplicationController
     if @booking.save
       # redirect_to  @booking
       redirect_to  booking_path(@booking)
+      Event.create(title: @booking.experience.title, start: @booking.date.to_date)
+      byebug
       # (experience_id: @booking.experience_id, id: @booking.id)
+
     else
       render :new
     end

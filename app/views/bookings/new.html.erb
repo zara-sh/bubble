@@ -42,6 +42,7 @@
 
             <%= f.hidden_field :user_id, value: current_user.id %>
             <%= f.hidden_field :experience_id, value: @experience.id %>
+            <%= f.input :date %>
             <%= f.submit "book", style: "width: 100%", class: "btn btn-success" %>
           <% end %>
         </div>

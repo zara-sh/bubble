@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  start: 2017-11-01
+  user: one
+  schedule: one
+
+two:
+  title: MyString
+  start: 2017-11-01
+  user: two
+  schedule: two

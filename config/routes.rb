@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'events/index'
+
   # get 'categories/show'
 
   devise_for :users,
@@ -15,6 +17,7 @@ Rails.application.routes.draw do
   end
   resources :bookings, only: [:index, :show, :destroy]
   resources :categories, only: [:show]
+  get "calender", to: "events#the_calender"
   # resources :bookings, only: [:show]
 
   # keeping the comment below just in case my modifications above don't actually work as intended

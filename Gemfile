@@ -12,7 +12,6 @@ gem "geocoder"
 gem "gmaps4rails"
 gem 'bootstrap-datepicker-rails'
 
-
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'
@@ -23,6 +22,8 @@ gem 'uglifier'
 gem 'omniauth-facebook'
 gem 'faker'
 gem "jquery-slick-rails"
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'
 
 group :development, :test do
   gem 'pry-byebug'
