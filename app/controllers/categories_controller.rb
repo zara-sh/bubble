@@ -5,7 +5,7 @@ class CategoriesController < ApplicationController
 
   def show
     @category= Category.find(params[:id])
-    @distance = 15
+    @distance = 6
     @experiences = @category.experiences
     authorize @category
     #@experience_in_cat = @category.experiences
