@@ -24,7 +24,6 @@ gem 'uglifier'
 gem 'omniauth-facebook'
 gem 'faker'
 gem "jquery-slick-rails"
-gem 'jquery-ui-rails'
 gem 'multi-dates-picker-rails'
 
 group :development, :test do
