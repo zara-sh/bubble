@@ -43,19 +43,22 @@ class BookingsController < ApplicationController
     end
   end
 
-  def conf(booking)
-    booking.confirmed = true
+  def conf # for when you click "confirm". should hide buttons.
+    @booking = Booking.find(params[:id])
+    @booking.confirmed = true
   end
 
-  def rej(booking)
+  def rej
+    @temp = User.find(Experience.find(@booking.experience_id).user_id)
+    # ^ user who created experience
+    @booking = Booking.find(params[:id])
+    UserMailer.rejected(User.find(@booking.user_id)).deliver_now
     # send email with pertinent information
-    booking.delete
-    redirect_to bookings_path
+    # booking.delete
+    # redirect_to bookings_path
   end
 
-  helper_method :test
-  helper_method :conf
-  helper_method :rej
+  helper_method :test, :conf, :rej
 
   private
 

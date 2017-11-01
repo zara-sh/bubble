@@ -12,4 +12,10 @@ class UserMailer < ApplicationMailer
     mail(to: @user.email, subject: 'Welcome to Le Wagon')
     # This will render a view in `app/views/user_mailer`!
   end
+
+  def rejected(user)
+    @user = user
+    mail(to: @user.email, subject: 'Guide cancellation')
+
+  end
 end
