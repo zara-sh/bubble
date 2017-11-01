@@ -8,20 +8,35 @@
 
 
 <!-- Header with image -->
-          <div class="slider-for">
-            <% @booking.experience.photos.each do |photo| %>
-                        <%# 10.times do %>
-              <%= cl_image_tag photo.path, height: 400, crop: :fill, style: 'border-radius:5px;', class:'pic_size' %>
-            <% end %>
-                        <%# end %>
-          </div>
-          <div class="slider-nav slider_nav_cntnr" >
-            <% @booking.experience.photos.each do |photo| %>
-            <%# 10.times do %>
-              <%= cl_image_tag photo.path, height: 60, width: 60, crop: :fill, style:'padding: 10px; border-radius:5px;' %>
-            <%# end %>
-            <% end %>
-          </div>
+
+        <% if @booking.experience.photos.count == 1 %>
+              <% @booking.experience.photos.each do |photo| %>
+                <%= cl_image_tag photo.path, crop: :fill, style: 'border-radius:5px;', class:'pic_size' %>
+              <% end %>
+        <% elsif @booking.experience.photos.count == 2%>
+            <div class="slider-for-less">
+              <% @booking.experience.photos.each do |photo| %>
+                <%= cl_image_tag photo.path, height: 400, crop: :fill, style: 'border-radius:5px;', class:'pic_size' %>
+              <% end %>
+            </div>
+            <div class="slider-nav-less pic_slider_container" >
+              <% @booking.experience.photos.each do |photo| %>
+                <%= cl_image_tag photo.path, height: 40, width: 40, crop: :fill,style: 'padding: 10px; border-radius:5px;' %>
+              <% end %>
+            </div>
+          <% else %>
+            <div class="slider-for">
+              <% @booking.experience.photos.each do |photo| %>
+                <%= cl_image_tag photo.path, height: 400, crop: :fill, style: 'border-radius:5px;', class:'pic_size' %>
+              <% end %>
+            </div>
+            <div class="slider-nav pic_slider_container" >
+              <% @booking.experience.photos.each do |photo| %>
+                <%= cl_image_tag photo.path, height: 40, width: 40, crop: :fill,style: 'padding: 10px; border-radius:5px;' %>
+              <% end %>
+            </div>
+        <% end %>
+
 <!-- Add a background color and large text to the whole page? -->
 <div class="">
 
