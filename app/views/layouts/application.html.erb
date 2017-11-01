@@ -7,6 +7,13 @@
     <%= favicon_link_tag 'favicon.ico' %>
     <link href="/assets/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <meta name="description" content="Experience new things!">
+    <meta name="og:description" content="Experience new things!">
+    <meta name="title" content="Around The Corner - Discover your Neighborhood!">
+    <meta name="og:title" content="Around The Corner - Discover your Neighborhood!">
+    <meta name="og:type" content="html">
+    <meta name="og:url" content="<%= request.url %>">
+    <meta name="og:image" content="<%=image_url('/cover.jpg')%>">
+
     <meta name="keywords" content="HTML,CSS,XML,JavaScript">
     <meta name="author" content="Team ATC">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
