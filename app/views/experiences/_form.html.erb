@@ -18,7 +18,7 @@
         <%= f.input :description, label:"Short description of this experience" %>
         <%= f.input :location, label:"Location" %>
         <%= f.input :incentive, label:"What incentives will you accept?" %>
-        <div class="form-group string optional experience_availability"><label class="control-label string optional" for="experience_availability">Availability</label><input class="form-control date1" type="text" format="dd-mm-yyyy" name="experience[availability]" ></div>
+        <div class="form-group string optional experience_availability"><label class="control-label string optional" for="experience_availability">Availability</label><input class="form-control date1" type="text" name="experience[availability]" data-date-format="dd/mm/yyyy"></div>
         <%= f.association :category, label:"What category is your experience"  %>
         <%= f.input :photos, as: :attachinary %>
         <!-- <ul class="list-inline"></ul> -->

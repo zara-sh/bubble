@@ -39,9 +39,11 @@ class ExperiencesController < ApplicationController
       end
       if experience_params[:availability]
         experience_params[:availability].gsub("/", '-').split(",").each do |d|
+          # byebug
         @experience.schedules.build(date: d.to_date)
         if @experience.save
         end
+
         end
       end
       redirect_to experience_path(@experience)
