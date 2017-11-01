@@ -6,7 +6,7 @@
   <div class="results">
     <%= form_tag(category_path(@category.id), method: :get) do %>
       <%#= select_tag("search", options_for_select(Experience::AVABILITY),include_blank: true, class: 'form-control search-bar') %>
-      <input name='date' type="text" data-provide='datepicker' data-date-format="dd-mm-yyyy" >
+      <input placeholder="Search Date" name='date' type="text" data-provide='datepicker' data-date-format="dd-mm-yyyy" >
       <%= submit_tag 'Search', class: 'btn btn-primary' %>
     <% end %>
     <h2>
@@ -37,9 +37,17 @@
                   <p>Incentive: <%= experience.incentive %></p>
                   <p>In: <%= experience.location %></p>
                   <p>Available dates: </p>
-                  <% experience.schedules.each do |thing| %>
-                  <p><%= thing.date %></p>
-                  <% end %>
+                  <p>
+                    <% experience.schedules.each do |thing| %>
+                      <span><%= thing.date %></span>
+                    <% end %>
+                    <% experience.schedules.each do |thing| %>
+                      <span><%= thing.date %></span>
+                    <% end %>
+                    <% experience.schedules.each do |thing| %>
+                      <span><%= thing.date %></span>
+                    <% end %>
+                  </p>
 
                 </div>
             </div>
