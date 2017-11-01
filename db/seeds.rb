@@ -13,7 +13,7 @@ Category.delete_all
 User.delete_all
 
 puts "Deleted Stuff"
-hobby =["Yoga", "Pet", "Dance", "Video game", "Air sport", "Flying", "Swimming", "Book collevting"]
+hobby =["Yoga", "Pet", "Dance", "Video game", "Sports", "Flying", "Swimming", "Book collecting"]
 20.times do
   user = User.new(
   name: Faker::Name.name ,
