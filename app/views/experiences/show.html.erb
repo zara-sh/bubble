@@ -1,99 +1,96 @@
 
 <div class="contain">
-    <div class="main_contain">
-        <h1><%= @experience.title %></h1>
-        <p><strong>Neighborhood:</strong> <%= @experience.location %></p>
-        <hr>
-
-            <p><strong>Category:</strong> <%= @experience.category.name %>
-            <p><strong>Available on most:</strong> <%= @experience.availability %></p>
-            <p><strong>I'm interested in "<%= @experience.incentive %>" </strong> as an incentive</p>
-          </div>
-          <!-- <div class="profile_pic_right"> -->
-          <%= cl_image_tag @experience.photos.first.path, width: 60, height: 60, crop: :fill, style: 'border-radius:50%;', class:'profile_pic_right' %>
-          <!-- </div> -->
-        </div>
-        <hr>
-        <p><strong>Description:</strong></p>
-        <p> <%= @experience.description %></p>
-        <p><strong>About your neighbor <%= @experience.user.name %>: </strong></p>
-        <p> <%= @experience.user.bio %></p>
-        <hr>
-
-<div class="edit-content">
-  <%= link_to "Edit", edit_experience_path, class: 'btn-primary' %>
-    <%= link_to "Delete", experience_path(@experience),
-      method: :delete, data: {confirm: "Are You Sure?"}, class: 'btn-primary' %>
-</div>
-
-
-        <div>
-           <h4>Thanks for sharing these experiences</h4>
-        <% if @experience.user.experiences.count < 3 %>
-            <div style="display: flex" >
-              <% @experience.user.experiences.each do |experience| %>
-                <div class="nsj_card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path experience.photos.last.path %>');">
-                  <div class="card-category"><%= experience.user.name%>
+  <div class="main_contain">
+    <h1><%= @experience.title %></h1>
+    <p><strong>Neighborhood:</strong> <%= @experience.location %></p>
+    <hr>
+    <div class="profile_pic_contain">
+      <div class="left_info">
+        <p><strong>Category:</strong> <%= @experience.category.name %>
+        <p><strong>Available on:</strong></p>
+        <% @experience.schedules.each do |schedule| %>
+          <p><%= schedule.date.strftime("%A, %m/%d/%Y") %></p>
+        <% end %>
+        <p><strong>I'm interested in "<%= @experience.incentive %>" </strong> as an incentive</p>
+      </div>
+      <%= cl_image_tag @experience.photos.first.path, width: 60, height: 60, crop: :fill, style: 'border-radius:50%;', class:'profile_pic_right' %>
+    </div>
+    <hr>
+    <p><strong>Description:</strong></p>
+    <p> <%= @experience.description %></p>
+    <p><strong>About your neighbor <%= @experience.user.name %>: </strong></p>
+    <p> <%= @experience.user.bio %></p>
+    <hr>
+    <div class="edit-content">
+      <%= link_to "Edit", edit_experience_path, class: 'btn-primary' %>
+        <%= link_to "Delete", experience_path(@experience),
+          method: :delete, data: {confirm: "Are You Sure?"}, class: 'btn-primary' %>
+    </div>
+  </div>
+  <div class="side_contain">
+    <div class="side_contain_s">
+      <div class="slider-for">
+        <% @experience.photos.each do |photo| %>
+          <%= cl_image_tag photo.path, height: 400, crop: :fill, style: 'border-radius:5px;', class:'pic_contain' %>
+        <% end %>
+      </div>
+      <div class="slider-nav pic_slider_container" >
+        <% @experience.photos.each do |photo| %>
+          <%= cl_image_tag photo.path, height: 60, width: 50, crop: :fill,style: 'padding: 10px; border-radius:5px;' %>
+        <% end %>
+      </div>
+      <h5>Who Has Booked Your Experience:</h5>
+      <% if @experience.bookings.first.nil? %>
+          <p>There are currently no bookings</p>
+        <% end %>
+      <% else %>
+        <% @experience.bookings.each do |booking| %>
+          on <%= booking.date %>
+          by <%= booking.user.name %>
+          <%= link_to 'confirm', experience_path(@experience), class:'btn btn-info', style:"width:45%" %>
+          <%= link_to 'reject', booking_path(booking), class:'btn btn-danger', style:"width:45%" , method: :delete, data: {confirm: "are you sure you want to reject your neighbor?"} %>
+          <%= link_to 'show booking', booking_path(booking) %>
+      <% end %>
+    </div>
+  </div>
+  <div>
+    <h4>Thanks for sharing these experiences</h4>
+    <% if @experience.user.experiences.count < 3 %>
+        <div style="display: flex" >
+          <% @experience.user.experiences.each do |experience| %>
+            <div class="nsj_card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path experience.photos.last.path %>');">
+              <div class="card-category"><%= experience.user.name%>
+              </div>
+                  <div class="card-description">
+                    <h2><%= experience.title %></h2>
+                    <p>Payment: <%= experience.incentive %></p>
+                    <p>At: <%= experience.location %></p>
                   </div>
-                      <div class="card-description">
-                        <h2><%= experience.title %></h2>
-                        <p>Payment: <%= experience.incentive %></p>
-                        <p>At: <%= experience.location %></p>
-                      </div>
-                    <img class="njs-card-user" src="<%= cl_image_path experience.user.photo.path %>">
-                  <a class="card-link" href="<%= new_experience_booking_path(experience_id: experience.id) %>" ></a>
-                </div>
-              <% end %>
+                <img class="njs-card-user" src="<%= cl_image_path experience.user.photo.path %>">
+              <a class="card-link" href="<%= new_experience_booking_path(experience_id: experience.id) %>" ></a>
             </div>
-          <% else %>
-            <div class="center slide_cntr" >
-              <% @experience.user.experiences.each do |experience| %>
-                <% unless experience.photos.first.nil? %>
-                  <div class="nsj_card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path experience.photos.first.path %>');">
-                    <div class="card-category"><%= experience.user.name%>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="center slide_cntr" >
+          <% @experience.user.experiences.each do |experience| %>
+            <% unless experience.photos.first.nil? %>
+              <div class="nsj_card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path experience.photos.first.path %>');">
+                <div class="card-category"><%= experience.user.name%>
+                  </div>
+                    <div class="card-description">
+                      <h2><%= experience.title %></h2>
+                      <p><%= experience.incentive %></p>
+                      <p><%= experience.location %></p>
                     </div>
-                        <div class="card-description">
-                          <h2><%= experience.title %></h2>
-                          <p>Payment: <%= experience.incentive %></p>
-                          <p>At: <%= experience.location %></p>
-                        </div>
-                      <img class="njs-card-user" src="<%= cl_image_path experience.user.photo.path %>">
-                    <a class="card-link" href="<%= new_experience_booking_path(experience_id: experience.id) %>" ></a>
-                  </div>
-                <% end %>
-              <% end %>
-            </div>
+                  <img class="njs-card-user" src="<%= cl_image_path experience.user.photo.path %>">
+                <a class="card-link" href="<%= experience_path(experience) %>" ></a>
+              </div>
+            <% end %>
           <% end %>
         </div>
-      </div>
-
-      <div class="side_contain">
-        <div class="side_contain_s">
-          <div class="slider-for">
-            <% @experience.photos.each do |photo| %>
-              <%= cl_image_tag photo.path, height: 400, crop: :fill, style: 'border-radius:5px;', class:'pic_contain' %>
-            <% end %>
-          </div>
-          <div class="slider-nav pic_slider_container" >
-            <% @experience.photos.each do |photo| %>
-              <%= cl_image_tag photo.path, height: 60, width: 50, crop: :fill,style: 'padding: 10px; border-radius:5px;' %>
-            <% end %>
-          </div>
-          <h5>Who Has Booked Your Experience:</h5>
-          <% if @experience.bookings.first.nil? %>
-              <p>There are currently no bookings</p>
-            <% end %>
-          <% else %>
-            <% @experience.bookings.each do |booking| %>
-              on <%= booking.date %>
-              by <%= booking.user.name %>
-              <%= link_to 'confirm', experience_path(@experience), class:'btn btn-info', style:"width:45%" %>
-              <%= link_to 'reject', booking_path(booking), class:'btn btn-danger', style:"width:45%" , method: :delete, data: {confirm: "are you sure you want to reject your neighbor?"} %>
-              <%= link_to 'show booking', booking_path(booking) %>
-          <% end %>
-        </div>
-      </div>
-
+    <% end %>
+  </div>
 </div>
 
 
