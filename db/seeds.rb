@@ -155,22 +155,23 @@ cat1_url = ["http://res.cloudinary.com/dqeebh2l0/image/upload/v1509518978/cof2_a
 "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509518980/cof10_yk5pfe.jpg",
 "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509518978/cof6_nh3jd0.jpg",
 "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509518978/cof4_cprqwn.jpg",
-"http://res.cloudinary.com/dqeebh2l0/image/upload/v1509518979/coffee_shop_wuxjkb.jpg",
+"http://res.cloudinary.com/dqeebh2l0/image/upload/v1509518979/coffee_shop_wuxjkb.jpg"
 ]
 
 
 Experience.transaction do
   # categories_array.each do |category|
-    3.times do |i|
+    3.times do
       exp1 = Experience.new(
         title: cat1_title.sample,
         description: cat1_des.sample,
         incentive: incentive.sample,
         location: place.sample,
         user_id: User.order("RANDOM()").first.id,
-        category: category1
+        category: category1,
+        photo_urls: cat1_url.shuffle
         )
-      exp1.photo_urls = cat1_url[i]
+      #exp1.photo_urls = cat1_url[i]
       rand(2..4).times do
         exp1.schedules.build(date: Faker::Date.forward(30))
       end
@@ -184,19 +185,20 @@ end
 
 cat2_url = ["http://res.cloudinary.com/dqeebh2l0/image/upload/v1509519428/bar5_gfs3ap.jpg",
 "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509519429/bar_f5jd4t.jpg",
-"http://res.cloudinary.com/dqeebh2l0/image/upload/v1509519429/bar2_iqloqp.jpg",]
+"http://res.cloudinary.com/dqeebh2l0/image/upload/v1509519429/bar2_iqloqp.jpg"]
 Experience.transaction do
   # categories_array.each do |category|
-    3.times do |i|
+    3.times do
       exp2 = Experience.new(
         title: cat2_title.sample,
         description: cat2_des.sample,
         incentive: incentive.sample,
         location: place.sample,
         user_id: User.order("RANDOM()").first.id,
-        category: category2
+        category: category2,
+        photo_urls: cat2_url
         )
-      exp2.photo_urls = cat2_url[i]
+      #exp2.photo_urls = cat2_url[i]
       rand(2..4).times do
         exp2.schedules.build(date: Faker::Date.forward(30))
       end
@@ -212,16 +214,17 @@ end
 
 Experience.transaction do
   # categories_array.each do |category|
-    2.times do |i|
+    2.times do
       exp3 = Experience.new(
         title: cat3_title.sample,
         description: cat2_des.sample,
         incentive: incentive.sample,
         location: place.sample,
         user_id: User.order("RANDOM()").first.id,
-        category: category3
+        category: category3,
+        photo_urls: urls.shuffle
         )
-      exp3.photo_urls = urls[i]
+      #exp3.photo_urls = urls[i]
       rand(2..4).times do
         exp3.schedules.build(date: Faker::Date.forward(30))
       end
@@ -235,16 +238,17 @@ end
 
 Experience.transaction do
   # categories_array.each do |category|
-    2.times do |i|
+    2.times do
       exp4 = Experience.new(
         title: cat4_title.sample,
         description: cat2_des.sample,
         incentive: incentive.sample,
         location: place.sample,
         user_id: User.order("RANDOM()").first.id,
-        category: category4
+        category: category4,
+        photo_urls: urls.shuffle
         )
-      exp4.photo_urls = urls[i]
+      #exp4.photo_urls = urls[i]
       rand(2..4).times do
         exp4.schedules.build(date: Faker::Date.forward(30))
       end
@@ -260,16 +264,17 @@ end
 
 Experience.transaction do
   # categories_array.each do |category|
-    3.times do |i|
+    3.times do
       exp5 = Experience.new(
         title: cat3_title.sample,
         description: cat2_des.sample,
         incentive: incentive.sample,
         location: place.sample,
         user_id: User.order("RANDOM()").first.id,
-        category: category5
+        category: category5,
+        photo_urls: urls.shuffle
         )
-      exp5.photo_urls = urls[i]
+      #exp5.photo_urls = urls[i]
       rand(2..4).times do
         exp5.schedules.build(date: Faker::Date.forward(30))
       end
