@@ -14,6 +14,7 @@ class CategoriesController < ApplicationController
       @experiences = @category.experiences.joins(:schedules).where(schedules: {date: params[:date]})
     end
 
+byebug
 
     if current_user
       #@experiences = Experience.near([current_user.latitude, current_user.longitude], @distance)
