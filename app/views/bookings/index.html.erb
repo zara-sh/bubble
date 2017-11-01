@@ -14,7 +14,7 @@
         <p>Name: <%= current_user.name %></p>
         <p>Phone: <%= current_user.phone %></p>
         <p>Biography: <%= current_user.bio %></p>
-        <p>Tags for favorite things: <%= current_user.hobbies %></p>
+        <p>Hobbies: <%= current_user.hobbies %></p>
         <p>Your Email: <%= current_user.email %></p>
         <p><%= link_to "edit your profile", profile_edit_path %></p>
         <p><%= link_to "delete your profile", profile_delete_path, method: :delete, data: {confirm: "are you sure?"} %></p>

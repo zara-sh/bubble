@@ -34,14 +34,12 @@
                 <div class="card-description">
                   <h2><%= experience.title %></h2>
 
-                  <p><%= experience.incentive %></p>
-                  <p><%= experience.location %></p>
+                  <p>Incentive: <%= experience.incentive %></p>
+                  <p>In: <%= experience.location %></p>
+                  <p>Available dates: </p>
                   <% experience.schedules.each do |thing| %>
                   <p><%= thing.date %></p>
                   <% end %>
-
-                  <p>Payment: <%= experience.incentive %></p>
-                  <p>At: <%= experience.location %></p>
 
                 </div>
             </div>
