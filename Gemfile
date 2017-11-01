@@ -11,7 +11,6 @@ gem 'redis'
 gem "geocoder"
 gem "gmaps4rails"
 gem 'bootstrap-datepicker-rails'
-gem 'multi-dates-picker-rails'
 gem 'jquery-ui-rails', '~> 4.2.1'
 
 gem 'autoprefixer-rails'
