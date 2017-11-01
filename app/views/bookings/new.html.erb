@@ -15,11 +15,10 @@
       <div class="profile_pic_contain">
         <div class="left_info">
           <p><strong>About your neighbor <%= @experience.user.name %></strong></p>
-          </div>
+        </div>
         <!-- <div class="profile_pic_right"> -->
         <%= cl_image_tag @experience.user.photo.path, width: 60, height: 60, crop: :fill, style: 'border-radius:50%;', class:'profile_pic_right' %>
         <!-- </div> -->
-        </div>
       </div>
       <p> <%= @experience.user.bio %></p>
       <hr>
@@ -56,7 +55,8 @@
             </div>
         <% end %>
         <%= simple_form_for([@experience, @booking]) do |f| %>
-          <%= f.input :date, collection: Experience::AVABILITY %>
+          <%#= f.input :date, collection: @experience_schedules %>
+          <%= f.input :date, collection: @experience_schedules %>
           <%= f.hidden_field :user_id, value: current_user.id %>
           <%= f.hidden_field :experience_id, value: @experience.id %>
           <%= f.submit "book", style: "width: 100%", class: "btn btn-success" %>
@@ -64,7 +64,7 @@
       </div>
     </div>
     <div>
-    <% if @experience.user.experiences.count < 3 %>
+      <% if @experience.user.experiences.count < 3 %>
           <div style="display: flex" >
             <% @experience.user.experiences.each do |experience| %>
               <div class="nsj_card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path experience.photos.last.path %>');">
