@@ -12,6 +12,8 @@
     <h2>
        <% if current_user %>
        <h3>Showing all <%= @category.name %> experiences within <%= @distance %>km of you.</h3>
+       <% else %>
+       <h3> Please login to view within <%= @distance %>km of you </h3>
        <% end %>
     </h2>
 
