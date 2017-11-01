@@ -18,12 +18,18 @@ class BookingsController < ApplicationController
   def new
     @experience = Experience.find(params[:experience_id])
     @booking = @experience.bookings.create
+    @experience_schedules = []
+    @experience.schedules.each do |schedule|
+      @experience_schedules << schedule.date
+    end
     authorize @booking
   end
 
   def create
     @booking = Booking.new(booking_params)
     @booking.user = current_user
+    @schedule = @booking.experience.schedules.where(date: booking_params[:date]).first
+    @booking.schedule = @schedule
     authorize @booking
     if @booking.save
       # redirect_to  @booking
@@ -44,7 +50,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params # TODO: check to see if this works
-    params.require(:booking).permit(:experience_id, :customer_id, :date)
+    params.require(:booking).permit(:experience_id, :customer_id, :date, :schedule_id)
   end
 
 end
