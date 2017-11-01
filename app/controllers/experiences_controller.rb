@@ -37,7 +37,13 @@ class ExperiencesController < ApplicationController
       if @experience.photos.first.nil?
         @experience.photo_urls = ['https://gaijinpot.scdn3.secure.raxcdn.com/wp-content/uploads/sites/6/2016/05/Meguro-streets.jpg']
       end
-
+      if experience_params[:availability]
+        experience_params[:availability].gsub("/", '-').split(",").each do |d|
+        @experience.schedules.build(date: d.to_date)
+        if @experience.save
+        end
+        end
+      end
       redirect_to experience_path(@experience)
     else
       render :new
