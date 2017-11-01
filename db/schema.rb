@@ -49,17 +49,6 @@ ActiveRecord::Schema.define(version: 20171101034124) do
     t.string "icon"
   end
 
-  create_table "events", force: :cascade do |t|
-    t.string "title"
-    t.date "start"
-    t.bigint "user_id"
-    t.bigint "schedule_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["schedule_id"], name: "index_events_on_schedule_id"
-    t.index ["user_id"], name: "index_events_on_user_id"
-  end
-
   create_table "experiences", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -131,8 +120,6 @@ ActiveRecord::Schema.define(version: 20171101034124) do
   add_foreign_key "bookings", "experiences"
   add_foreign_key "bookings", "schedules"
   add_foreign_key "bookings", "users"
-  add_foreign_key "events", "schedules"
-  add_foreign_key "events", "users"
   add_foreign_key "experiences", "categories"
   add_foreign_key "experiences", "users"
   add_foreign_key "schedules", "experiences"
