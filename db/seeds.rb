@@ -92,7 +92,9 @@ Experience.transaction do
         category: category#s#_array.sampl
         )
       exp.photo_urls = urls
-      exp.schedules.build(date: Faker::Date.forward(30))
+      rand(2..4).times do
+        exp.schedules.build(date: Faker::Date.forward(30))
+      end
       exp.save!
 
       puts "Added an experience"
