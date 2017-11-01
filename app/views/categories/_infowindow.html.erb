@@ -1,0 +1,16 @@
+<%#= link_to "Show", new_experience_booking_path(space) %>
+          <div class="card-container" >
+            <div class="card-slide" ><img class="card-user" src="<%= cl_image_path @experience.user.photo.path %>">
+              <div class="card-category"><%= @experience.user.name%>
+              </div>
+            </div>
+            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @experience.photos.first.path %>');"></div>
+            <div class="card-footer">
+                <div class="card-description">
+                  <h2><%= @experience.title %></h2>
+                  <p>Incentive: <%= @experience.incentive %></p>
+                  <p>In: <%= @experience.location %></p>
+                </div>
+            </div>
+            <a class="card-link" href="<%= new_experience_booking_path(experience_id: @experience.id) %>" ></a>
+          </div>

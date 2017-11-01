@@ -31,16 +31,33 @@
     </div>
     <div class="side_contain">
       <div class="side_contain_s">
-        <div class="slider-for">
-          <% @experience.photos.each do |photo| %>
-            <%= cl_image_tag photo.path, height: 400, crop: :fill, style: 'border-radius:5px;', class:'pic_contain' %>
-          <% end %>
-        </div>
-        <div class="slider-nav pic_slider_container" >
-          <% @experience.photos.each do |photo| %>
-            <%= cl_image_tag photo.path, height: 60, width: 50, crop: :fill,style: 'padding: 10px; border-radius:5px;' %>
-          <% end %>
-        </div>
+        <% if @experience.photos.count == 1 %>
+              <% @experience.photos.each do |photo| %>
+                <%= cl_image_tag photo.path, height: 400, crop: :fill, style: 'border-radius:5px;', class:'pic_contain' %>
+              <% end %>
+        <% elsif @experience.photos.count == 2%>
+            <div class="slider-for-less">
+              <% @experience.photos.each do |photo| %>
+                <%= cl_image_tag photo.path, height: 400, crop: :fill, style: 'border-radius:5px;', class:'pic_contain' %>
+              <% end %>
+            </div>
+            <div class="slider-nav-less pic_slider_container" >
+              <% @experience.photos.each do |photo| %>
+                <%= cl_image_tag photo.path, height: 40, width: 40, crop: :fill,style: 'padding: 10px; border-radius:5px;' %>
+              <% end %>
+            </div>
+          <% else %>
+            <div class="slider-for">
+              <% @experience.photos.each do |photo| %>
+                <%= cl_image_tag photo.path, height: 400, crop: :fill, style: 'border-radius:5px;', class:'pic_contain' %>
+              <% end %>
+            </div>
+            <div class="slider-nav pic_slider_container" >
+              <% @experience.photos.each do |photo| %>
+                <%= cl_image_tag photo.path, height: 40, width: 40, crop: :fill,style: 'padding: 10px; border-radius:5px;' %>
+              <% end %>
+            </div>
+        <% end %>
         <h5>Who Has Booked Your Experience:</h5>
         <% if @experience.bookings.first.nil? %>
             <p>There are currently no bookings</p>
