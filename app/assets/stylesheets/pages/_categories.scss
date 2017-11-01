@@ -34,6 +34,7 @@
     }
 
     .results {
+      max-width: calc(100% - 500px);
       margin-right: 50px;
     }
   }
