@@ -1,3 +1,6 @@
+
+// $("#dates_field").multiDatesPicker()
+
 // $(function() {
 //   $( ".datepicker" ).datepicker({ dateFormat: "yyyy-mm-dd" });
 // });
@@ -50,3 +53,4 @@ $('.date1').datepicker({
 //       }
 //     );
 // });
+
