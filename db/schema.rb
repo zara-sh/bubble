@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20171101034124) do
     t.bigint "experience_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "confirmed", default: false
     t.bigint "schedule_id"
     t.index ["experience_id"], name: "index_bookings_on_experience_id"
     t.index ["schedule_id"], name: "index_bookings_on_schedule_id"
@@ -47,17 +48,6 @@ ActiveRecord::Schema.define(version: 20171101034124) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "icon"
-  end
-
-  create_table "events", force: :cascade do |t|
-    t.string "title"
-    t.date "start"
-    t.bigint "user_id"
-    t.bigint "schedule_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["schedule_id"], name: "index_events_on_schedule_id"
-    t.index ["user_id"], name: "index_events_on_user_id"
   end
 
   create_table "experiences", force: :cascade do |t|
@@ -104,6 +94,9 @@ ActiveRecord::Schema.define(version: 20171101034124) do
     t.datetime "last_sign_in_at"
     t.inet "current_sign_in_ip"
     t.inet "last_sign_in_ip"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
@@ -117,13 +110,9 @@ ActiveRecord::Schema.define(version: 20171101034124) do
     t.string "last_name"
     t.string "token"
     t.datetime "token_expiry"
-    t.string "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
     t.float "latitude"
     t.float "longitude"
     t.boolean "admin"
-    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -131,8 +120,6 @@ ActiveRecord::Schema.define(version: 20171101034124) do
   add_foreign_key "bookings", "experiences"
   add_foreign_key "bookings", "schedules"
   add_foreign_key "bookings", "users"
-  add_foreign_key "events", "schedules"
-  add_foreign_key "events", "users"
   add_foreign_key "experiences", "categories"
   add_foreign_key "experiences", "users"
   add_foreign_key "schedules", "experiences"
