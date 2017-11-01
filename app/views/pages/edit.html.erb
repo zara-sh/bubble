@@ -4,10 +4,10 @@
       <div class="form_padding">
       <%= simple_form_for @user, url:profile_edit_path do |f| %>
         <%= f.input :photo, as: :attachinary %>
-        <%= f.input :name %>
-        <%= f.input :bio %>
-        <%= f.input :hobbies %>
-        <%= f.input :phone %>
+        <%= f.input :name, maxlength: 25 %>
+        <%= f.input :bio, maxlength: 300 %>
+        <%= f.input :hobbies, maxlength: 25 %>
+        <%= f.input :phone, maxlength: 15 %>
         <%= f.submit 'save profile info!', class:'btn btn-success', style:"width:100%;" %>
       <% end %>
 
