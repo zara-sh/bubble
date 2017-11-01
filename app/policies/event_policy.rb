@@ -11,4 +11,8 @@ class EventPolicy < ApplicationPolicy
   def index?
     return true
   end
+
+  def the_calender?
+    return true
+  end
 end

@@ -14,8 +14,12 @@ class PagesController < ApplicationController
   def search
   end
 
+  respond_to :json
   def profile
-    @events = Event.where(user_id: current_user.id)
+    # @events = Event.where(user_id: current_user.id)
+    events = []
+    @events = Event.all
+    render :text => @events.to_json
   end
 
   def edit # profile

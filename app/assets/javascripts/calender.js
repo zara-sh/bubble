@@ -1,4 +1,11 @@
 $('#calendar').fullCalendar({
-    schedules: '/profile.json'
+    events: '/profile'
+
+   eventClick: function(event) {
+        if ( event.url ) {
+            window.open(event.url);
+            return false;
+        }
+    }
+
 });
-// $('#calendar').fullCalendar({});

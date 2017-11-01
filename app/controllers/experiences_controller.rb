@@ -2,9 +2,6 @@ class ExperiencesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_profile, only: [:new, :create]
 
-  # authorize @experience
-
-
   def show_all
     @experiences = Experience.all
   end
