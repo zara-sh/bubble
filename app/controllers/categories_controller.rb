@@ -6,7 +6,7 @@ class CategoriesController < ApplicationController
   def show
     @category= Category.find(params[:id])
     @distance = 6
-    @experiences = @category.experiences
+    @experiences = @category.experiences.order(created_at: :asc)
     authorize @category
     #@experience_in_cat = @category.experiences
 

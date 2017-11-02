@@ -114,11 +114,12 @@ puts 'Created categories'
 cat1_title =["Best Cafe Ever","Delicious Lattes","Try Cold Brew Coffee", "Secret Little Cafes",
 "Where to get Aeropress","Fresh Roasted Beans","Green Caffeine"]
 
-cat1_des = ["A little spot tucked away with great staff",
+cat1_des = [
+  "A little spot tucked away with great staff",
+  "These lattes are made perfectly with great art on top of the foam",
+  "Cold brew coffee is low in acid and also deliciously smooth",
+  "Tiny cafes you’ll probably miss, not even on Google Maps",
 " delicious and affordable beverages",
-"These lattes are made perfectly with great art on top of the foam",
-"Cold brew coffee is low in acid and also deliciously smooth",
-"Tiny cafes you’ll probably miss, not even on Google Maps",
 "Aeropress is a new and handy technique of brewing fresh hot coffee",
 "This awesome places roasts its own amazing coffee beans",
 "Try out some lightly roasted coffee beans for more caffeine"]
@@ -135,9 +136,9 @@ cat1_url = ["http://res.cloudinary.com/dqeebh2l0/image/upload/v1509518978/cof2_a
 
 Experience.transaction do
   # categories_array.each do |category|
-  6.times do
+  6.times do |i|
       exp1 = Experience.new(
-        title: cat1_title.sample,
+        title: cat1_title[i],
         description: cat1_des.sample,
         incentive: incentive.sample,
         location: place.sample,
