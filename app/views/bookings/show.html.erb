@@ -62,13 +62,15 @@ p {
     <p>
       <strong>Confirmation status: </strong><%= test(@booking)%>
     </p>
-    <% if test(@booking) %>
-    <p>
-      <%= link_to "Confirm", confirm_booking_path, method: :post, class: "btn btn-success" %>
-      <%= link_to "Cancel", cancel_booking_path, method: :post, class: "btn btn-danger" %>
+    <% if policy(Restaurant).create? %>
+      <% if test(@booking) %>
+      <p>
+        <%= link_to "Confirm", confirm_booking_path, method: :post, class: "btn btn-success" %>
+        <%= link_to "Cancel", cancel_booking_path, method: :post, class: "btn btn-danger" %>
 
-      <!-- need to do the policy for who can access the methods these call, as well as who can see these -->
-    </p>
+        <!-- need to do the policy for who can access the methods these call, as well as who can see these -->
+      </p>
+      <% end %>
     <% end %>
     </div>
   </div>
