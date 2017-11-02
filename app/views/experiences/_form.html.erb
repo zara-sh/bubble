@@ -14,6 +14,7 @@
         <h2>Share an experience</h2>
         <%= simple_form_for(@experience) do |f| %>
           <%= f.error_notification %>
+
         <%= f.input :title, label:"Title", maxlength: 25 %>
         <%= f.input :description, label:"Short description of this experience", maxlength: 200 %>
         <%= f.input :location, label:"Location" %>

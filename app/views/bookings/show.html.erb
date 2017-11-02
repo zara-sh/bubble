@@ -59,6 +59,19 @@ p {
       <p><strong>On: </strong> <%= @booking.date.to_date.strftime("%A, %b %d,%Y") %></p>
       <p><strong>Location:</strong> <%= @booking.experience.location %></p>
       <p><strong>Payment:</strong> <%= @booking.experience.incentive %></p>
+    <p>
+      <strong>Confirmation status: </strong><%= test(@booking)%>
+    </p>
+    <% if policy(@booking).confirm? %>
+      <% if test(@booking) %>
+      <p>
+        <%= link_to "Confirm", confirm_booking_path, method: :post, class: "btn btn-success" %>
+        <%= link_to "Cancel", cancel_booking_path, method: :post, class: "btn btn-danger" %>
+
+        <!-- need to do the policy for who can access the methods these call, as well as who can see these -->
+      </p>
+      <% end %>
+    <% end %>
     </div>
   </div>
 
@@ -192,6 +205,7 @@ function openMenu(evt, menuName) {
   evt.currentTarget.firstElementChild.className += " w3-dark-grey";
 }
 document.getElementById("myLink").click();
+
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
 <!--

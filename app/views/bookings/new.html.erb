@@ -9,6 +9,7 @@
           <p><strong>Available on:</strong></p>
           <% @experience.schedules.each do |schedule| %>
             <p><%= schedule.date.strftime("%A, %b %d,%Y") %></p>
+
           <% end %>
           <p><strong>Tip for this experience:</strong> <%= @experience.incentive %></p>
       <hr>

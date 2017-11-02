@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20171102084132) do
     t.bigint "experience_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "confirmed", default: false
     t.bigint "schedule_id"
     t.index ["experience_id"], name: "index_bookings_on_experience_id"
     t.index ["schedule_id"], name: "index_bookings_on_schedule_id"
