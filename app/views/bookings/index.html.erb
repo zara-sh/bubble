@@ -1,6 +1,5 @@
 
 <div class="content page_contains" style="display:flex;">
-  <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-md-4">
         <h2>My Profile</h2>
@@ -10,13 +9,15 @@
           <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
         <% end %>
         <p><%= cl_image_tag avatar_url, height: 150, width: 150, crop: :fill, style:'padding: 10px; border-radius:50%;' %></p>
-        <p>Name: <%= current_user.name %></p>
-        <p>Phone: <%= current_user.phone %></p>
-        <p>Biography: <%= current_user.bio %></p>
-        <p>Hobbies: <%= current_user.hobbies %></p>
-        <p>Your Email: <%= current_user.email %></p>
-        <p><%= link_to "edit your profile", profile_edit_path %></p>
-        <p><%= link_to "delete your profile", profile_delete_path, method: :delete, data: {confirm: "are you sure?"} %></p>
+        <div class="profile-info"
+        <p><strong>Name: </strong><%= current_user.name %></p>
+        <p><strong>Phone: </strong><%= current_user.phone %></p>
+        <p><strong>Biography: </strong> <%= current_user.bio %></p>
+        <p><strong>Hobbies: </strong><%= current_user.hobbies %></p>
+        <p><strong>Your Email: </strong><%= current_user.email %></p></div>
+  <div class="edit-buttons">
+  <p><%= link_to "Edit Profile", profile_edit_path, class: 'btn btn-primary' %></p>
+  <p><%= link_to "Delete Profile", profile_delete_path, class: 'btn btn-danger', method: :delete, data: {confirm: "are you sure?"} %></p></div>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-4">
         <h2>My Bookings</h2>
@@ -67,7 +68,6 @@
         <% end %>
       </div>
     </div>
-  </div>
 </div>
 
 

@@ -12,7 +12,6 @@ class BookingsController < ApplicationController
   def show
     @booking = Booking.find(params[:id])
     @guide = @booking.experience.user
-    authorize @booking
   end
 
   def new
@@ -32,7 +31,8 @@ class BookingsController < ApplicationController
     @booking.schedule = @schedule
     authorize @booking
     if @booking.save
-      # redirect_to  @booking
+        Event.create(title: @booking.experience.title, start: @schedule.date, url: booking_path(@booking), user_id: current_user.id, booking_id: @booking.id)
+        Event.create(title: @booking.experience.title, start: @schedule.date, url: booking_path(@booking), user_id: @booking.experience.user.id, booking_id: @booking.id)
       redirect_to  booking_path(@booking)
       # (experience_id: @booking.experience_id, id: @booking.id)
     else
@@ -43,9 +43,45 @@ class BookingsController < ApplicationController
   def destroy
     @booking = Booking.find(params[:id])
     authorize @booking
-    @booking.delete
+    @booking.destroy
     redirect_to bookings_path
   end
+
+  def cancel
+    @booking = Booking.find(params[:id])
+    UserMailer.rejected(User.find(@booking.user_id)).deliver_now
+    redirect_to bookings_path, :alert => 'The booking has been cancelled.'
+    @booking.delete
+  end
+
+  def testwo
+    @booking = Booking.find(params[:id])
+    authorize @booking
+    if @booking.experience.user == current_user
+      return true
+    else
+      return false
+    end
+  end
+
+  def test(test)
+    @booking = test
+    authorize @booking
+    if @booking.confirmed = true
+      return "Confirmed!"
+    else
+      return "Awaiting confirmation..."
+    end
+  end
+
+  def confirm # for when you click "confirm". should hide buttons.
+    @booking = Booking.find(params[:id])
+    @booking.confirmed = true
+    authorize @booking
+    redirect_to booking_path(@booking), :notice => 'The booking has been confirmed!'
+  end
+
+  helper_method :test, :testwo
 
   private
 

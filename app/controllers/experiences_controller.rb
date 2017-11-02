@@ -54,7 +54,7 @@ class ExperiencesController < ApplicationController
 
   def edit
     @experience = Experience.find(params[:id])
-    # authorize @experience
+    authorize @experience
   end
 
   def update
@@ -70,7 +70,7 @@ class ExperiencesController < ApplicationController
   def destroy
     @experience = Experience.find(params[:id])
     authorize @experience
-    @experience.delete
+    @experience.destroy
     redirect_to root_path
   end
 

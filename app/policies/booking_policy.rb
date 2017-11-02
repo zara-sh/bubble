@@ -8,6 +8,7 @@ class BookingPolicy < ApplicationPolicy
 
     end
   end
+
   def index?
     return true
   end
@@ -17,6 +18,15 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def destroy? # creator can destroy
-    record.user == user
+    record.experience.user == user
   end
+
+  def confirm?
+    destroy?
+  end
+
+  def cancel?
+    destroy?
+  end
+
 end
