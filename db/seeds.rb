@@ -17,16 +17,16 @@ puts "Deleted Stuff"
 
 phone = ["(251) 546-9442", "(125) 546-4478","(949) 569-4371", "(630) 446-8851", "(226) 906-2721","(671) 925-1352"]
 
-name = ["Lucie Langenfeld", "Kris Kiss", "Anabel Ahmad","Fran Farley","Sabra Sayler"]
+name = ["Ebony Mullin","Sheron Huertas","Rochelle Woolridge","Karyl Quiroz","Lashawn Votaw","Marcy Raglin","Omar Fluitt","Carmelo Kline","Otis Schon","Jean Crumbley","Lucie Langenfeld", "Kris Kiss", "Anabel Ahmad","Fran Farley","Sabra Sayler"]
 
 hobby =["Yoga", "Pets", "Dance", "Video games", "Sports", "Flying", "Swimming", "Book collecting","Joesph Josey","Bobby Burges"]
 
-bio = ["My name is Cecil Lewis, and I am a survivor.  For weeks I daydreamed of my family’s vacation to Thailand.  That vacation was a much needed time away from my hectic hours as a lawyer in a medium-sized firm in Chicago.  But as it turned out my time there was not relaxing at all, life had a different plan.  While on that vacation, our hotel received word of a devastating tsunami set to hit land, we were to evacuate quickly.  Lucky for my family we were further uphill hiking that day when we heard the news. We left to find an even safer location just before the water came on shore. We survived the tsunami. It was an act of God. When we returned many days later we found our resort was no more.
- ", "Kate Thompson is a senior at Cuyahoga State University, originally from Los Angeles, California. This spring she will receive her B.A in English with a minor in Creative Writing. During her time at Cuyahoga State she worked closely with WriteYouth, a non-profit organization dedicated to promoting childhood literacy. With WriteYouth Kate has led creative writing workshops at over 20 elementary schools throughout the greater Chicago Area. As a writer Kate’s short stories and essays have appeared in numerous online publications, including most notably the Los Angeles Times this past winter. When Kate is not writing or leading workshops, she enjoys running, singing, and playing the piano.",
-"My name is Hal Mulberts and I grew up on a farm in Kansas with my family of five.  Life was simple.  The vast fields bore witness to our curiosity, and as kids, we often took to the expansive backyard for our adventures.  As we got older we worked the land we lived on. It demanded tilling, planting, caring, fertilizing, and harvesting.  To repeat the process, it demanded rest.  I learned there is no other way to successfully farm than by obeying the rules of the land.   Infractions of these rules meant poor harvest or poor crops, and we knew having either meant scrimping in the next season.
+bio = ["I am a survivor.  For weeks I daydreamed of my family’s vacation to Thailand.  That vacation was a much needed time away from my hectic hours as a lawyer in a medium-sized firm in Chicago.  But as it turned out my time there was not relaxing at all, life had a different plan.  While on that vacation, our hotel received word of a devastating tsunami set to hit land, we were to evacuate quickly.  Lucky for my family we were further uphill hiking that day when we heard the news. We left to find an even safer location just before the water came on shore. We survived the tsunami. It was an act of God. When we returned many days later we found our resort was no more.
+ ", "A senior at Cuyahoga State University, originally from Los Angeles, California. This spring she will receive her B.A in English with a minor in Creative Writing. During her time at Cuyahoga State she worked closely with WriteYouth, a non-profit organization dedicated to promoting childhood literacy. With WriteYouth Kate has led creative writing workshops at over 20 elementary schools throughout the greater Chicago Area. As a writer Kate’s short stories and essays have appeared in numerous online publications, including most notably the Los Angeles Times this past winter. When Kate is not writing or leading workshops, she enjoys running, singing, and playing the piano.",
+"I grew up on a farm in Kansas with my family of five.  Life was simple.  The vast fields bore witness to our curiosity, and as kids, we often took to the expansive backyard for our adventures.  As we got older we worked the land we lived on. It demanded tilling, planting, caring, fertilizing, and harvesting.  To repeat the process, it demanded rest.  I learned there is no other way to successfully farm than by obeying the rules of the land.   Infractions of these rules meant poor harvest or poor crops, and we knew having either meant scrimping in the next season.
 My siblings and I participated in the farming.  Though for many days a week we would leave the farm to attend school. Soon we found a rhythm between both our duties.
 I quckly understood the importance of preparation, hard work, and respect.  I applied these values to my endeavours by making an inventory of resources, planning my activities for efficiency, working on my goals every single day, and giving my body the necessary rest it needed to operate.  My upbringing has completely supported my development and I am thankful for it.
-","Kate Thompson is a senior at Cuyahoga State University, originally from Los Angeles, California. This spring she will receive her B.A in English with a minor in Creative Writing. During her time at Cuyahoga State she worked closely with WriteYouth, a non-profit organization dedicated to promoting childhood literacy. With WriteYouth Kate has led creative writing workshops at over 20 elementary schools throughout the greater Chicago Area. As a writer Kate’s short stories and essays have appeared in numerous online publications, including most notably the Los Angeles Times this past winter. When Kate is not writing or leading workshops, she enjoys running, singing, and playing the piano.",
+","A senior at Cuyahoga State University, originally from Los Angeles, California. This spring she will receive her B.A in English with a minor in Creative Writing. During her time at Cuyahoga State she worked closely with WriteYouth, a non-profit organization dedicated to promoting childhood literacy. With WriteYouth Kate has led creative writing workshops at over 20 elementary schools throughout the greater Chicago Area. As a writer Kate’s short stories and essays have appeared in numerous online publications, including most notably the Los Angeles Times this past winter. When Kate is not writing or leading workshops, she enjoys running, singing, and playing the piano.",
 ]
 
 profile_url = ["http://res.cloudinary.com/dqeebh2l0/image/upload/v1509513548/p11_hvnrgy.png",
@@ -46,7 +46,7 @@ profile_url = ["http://res.cloudinary.com/dqeebh2l0/image/upload/v1509513548/p11
 
 14.times do |i|
   user = User.new(
-  name: name.sample,
+  name: name[i],
   email: Faker::Internet.email,
   phone: phone.sample,
   password: "123456",
@@ -95,7 +95,39 @@ categories_array = [category1, category2, category3, category4, category5]
 incentive = ["Make Friends", "Get To Know The Area","Free Cup of Coffee", "$$$", "For Free!"]
 title = ["Touristy Spots", "Best Cafe Ever", "Where to Workout", "Best Relaxation Spot"]
 
-place = ["Meguro, Tokyo", "Harajuku, Tokyo", "shibuya, Tokyo", "shinjuku, Tokyo","Hikarigaoka, Tokyo", "Ginza, Tokyo", "Koenji, Tokyo", "Eibusu, Tokyo", "Yoyogi, Tokyo", "Shinagawa, Tokyo", "Naka-meguro, Tokyo", "Ueno, Tokyo", "Daikan-yama, Tokyo", "Yutenji, Tokyo", "Gotanda, Tokyo","Senzoku, Tokyo", "Kita-senzoku", "Ookayama, Tokyo", "Fudomea, Tokyo", "Musashi-Koyama, Tokyo"]
+place = ["Meguro, Tokyo",
+  "Harajuku, Tokyo",
+  "shibuya, Tokyo",
+  "shinjuku, Tokyo",
+  "Hikarigaoka, Tokyo",
+  "Ginza, Tokyo",
+  "Koenji, Tokyo",
+  "Eibusu, Tokyo",
+  "Yoyogi, Tokyo",
+  "Shinagawa, Tokyo",
+  "Naka-meguro, Tokyo",
+  "Ueno, Tokyo",
+  "Daikan-yama, Tokyo",
+  "Yutenji, Tokyo",
+  "Gotanda, Tokyo",
+  "Senzoku, Tokyo",
+  "Kita-senzoku, Tokyo",
+  "Ookayama, Tokyo",
+  "Fudomea, Tokyo",
+  "Musashi-Koyama, Tokyo",
+  "〒141-0021 Tokyo, 品川区Kamiosaki, 2 Chome−17−3, 北斗目黒ビル",
+  "〒153-0063 Tōkyō-to, Meguro-ku, Meguro, 3 Chome−9−3, 須田ビルクラスターハイツ 1F",
+  "3 Chome-20-26 Shimomeguro, Meguro-ku, Tōkyō-to 153-0064",
+  "1 Chome-8-5 Shimomeguro, Meguro-ku, Tōkyō-to 153-0064",
+  "1 Chome-8-5 Shimomeguro, Meguro-ku, Tōkyō-to 153-0064",
+  "1 Chome-8-1 Shimomeguro, Meguro-ku, Tōkyō-to 153-0064",
+  "2 Chome-2-4-36 Meguro, Meguro-ku, Tōkyō-to 153-0063",
+  "〒153-0064, 2 Chome-21-28 Shimomeguro, Meguro-ku, Tōkyō-to 153-0064",
+  "〒153-0064 東京都目黒区Shimomeguro, 2 Chome−3, 下目黒２丁目３−２３",
+  "1 Chome-5-21 Shimomeguro, Meguro-ku, Tōkyō-to 153-0064",
+  "1 Chome-4-8 Meguro, Meguro-ku, Tōkyō-to 153-0063",
+  "〒141-0021 Tōkyō-to, Shinagawa-ku, Kamiōsaki, 2 Chome−25−5, 久米ビル 8F"
+      ]
 description = ["Blue Bottle Coffee is on the ground floor and is accessible from the outside of the building.  I got lost trying to find it, but if you go outside and look up the address on Google maps, make your way toward the pin from the outdoors, you should find it.
 I was delighted to see that there’s a Blue Bottle location in Shinjuku.  You can expect the same quality here as you would at any other location.  The staff is friendly and quick.  The craftsmanship is excellent, just what you’d expect from Blue Bottle.  I got a New Orleans drink here, and it tasted just like the one from their New York City shops.  The lines can get long, and there is not much seating available, but there are some benches outside.  The shop indoors across from Blue Bottle has fun culinary accouterments to look at if you’d like to take a small stroll inside.
 Enjoy!", "howa Memorial Park is a 165 hectare National Government Park about a 40 minute train ride from Shinjuku Station. The park is great to visit year round with seasonal flowers adding some colour even through the winter months. Noteworthy is the crisscrossed network of cycling paths and bikes including tandem’s are available for hire. In addition the park includes several playgrounds including a Children’s Forest and rainbow pool, BBQ facilities and for couples looking for something quieter there is always pedal boating on the artificial lake.
@@ -103,19 +135,25 @@ Enjoy!", "howa Memorial Park is a 165 hectare National Government Park about a 4
 
 
 
-urls = [
-  "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509071151/coffee_shop_vsellz.jpg",
-  "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509071106/Tourism_sjygvr.jpg",
-  "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509071086/bar_e58txp.jpg",
-  "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509071064/gym_prbaqd.jpg",
-  "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509071049/spa_jaml87.jpg"
-]
+# urls = [
+#   "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509071151/coffee_shop_vsellz.jpg",
+#   "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509071106/Tourism_sjygvr.jpg",
+#   "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509071086/bar_e58txp.jpg",
+#   "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509071064/gym_prbaqd.jpg",
+#   "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509071049/spa_jaml87.jpg"
+# ]
 
 puts 'Created categories'
 
 
-cat1_title =["Best Cafe Ever","Delicious Lattes","Try Cold Brew Coffee", "Secret Little Cafes",
-"Where to get Aeropress","Fresh Roasted Beans","Green Caffeine"
+cat1_title =[
+"Best Cafe Ever",
+"Delicious Lattes",
+"Try Cold Brew Coffee",
+ "Secret Little Cafes",
+"Where to get Aeropress",
+"Fresh Roasted Beans",
+"Green Caffeine"
 ]
 
 cat1_des = [
@@ -140,7 +178,7 @@ cat1_url = ["http://res.cloudinary.com/dqeebh2l0/image/upload/v1509518978/cof2_a
 
 Experience.transaction do
   # categories_array.each do |category|
-  6.times do |i|
+  7.times do |i|
       exp1 = Experience.new(
         title: cat1_title[i],
         description: cat1_des[i],
@@ -149,7 +187,8 @@ Experience.transaction do
         user_id: User.order("RANDOM()").first.id,
         category: category1,
         # photo_urls: cat1_url.shuffle
-        photo_urls: [cat1_url[i]] + cat1_url.shuffle)
+        photo_urls: [cat1_url[i]] + cat1_url.shuffle
+        )
       #exp1.photo_urls = cat1_url[i]
       rand(2..4).times do
         exp1.schedules.build(date: Faker::Date.forward(30))
@@ -191,7 +230,7 @@ cat2_url = [
 ]
 Experience.transaction do
   # categories_array.each do |category|
-    4.times do |i|
+    7.times do |i|
       exp2 = Experience.new(
         title: cat2_title[i],
         description: cat2_des[i],
@@ -199,7 +238,8 @@ Experience.transaction do
         location: place.sample,
         user_id: User.order("RANDOM()").first.id,
         category: category2,
-        photo_urls: [cat2_url[i]] + cat2_url.shuffle)
+        photo_urls: [cat2_url[i]] + cat2_url.shuffle
+        )
       #exp2.photo_urls = cat2_url[i]
       rand(2..4).times do
         exp2.schedules.build(date: Faker::Date.forward(30))
@@ -211,27 +251,33 @@ Experience.transaction do
 end
 
 cat3_url = ["http://res.cloudinary.com/dqeebh2l0/image/upload/v1509531829/g2_vvjvyy.jpg",
-"http://res.cloudinary.com/dqeebh2l0/image/upload/v1509531829/g5_lplshn.jpg",
+"http://res.cloudinary.com/dqeebh2l0/image/upload/v1509592596/lift_heavy_nearby_ksygal.jpg",
 "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509531830/gym_fnjzeu.jpg",
 "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509531830/g4_pxfvbb.jpg",
-"http://res.cloudinary.com/dqeebh2l0/image/upload/v1509531830/g1_jhb9hd.jpg"
+"http://res.cloudinary.com/dqeebh2l0/image/upload/v1509531830/g1_jhb9hd.jpg",
+"http://res.cloudinary.com/dqeebh2l0/image/upload/v1509599953/yoga_dhonur.jpg",
+"http://res.cloudinary.com/dqeebh2l0/image/upload/v1509531829/g5_lplshn.jpg"
 ]
 
-cat3_title =["Alternatives to Crossfit","Lift Heavy Nearby",
+cat3_title =["Alternatives to Crossfit",
+"Lift Heavy Nearby",
 #"No Need for Machines at This Gym",
 "Quiet Gym with Great Staff",
 "Personal Training Within 5 Minutes",
-"Work Hard Play Hard","Great Space for Yoga"]
+"Work Hard Play Hard",
+"Great Space for Yoga"]
 
 cat3_des = ["To achieve something you’ve never had before, you must do something you’ve never done before.",
 "You are born weak and die weak, what you are in between those two periods of time is up to you",
 "Hard work beats talent when talent doesn’t work hard",
-"Winners Train, Losers Complain"
+"Winners Train, Losers Complain",
+"Exercise consists of cardiovascular conditioning, strength and resistance training, and flexibility.",
+"Yoga is an ancient art based on a harmonizing system of development for the body, mind, and spirit."
 ]
 
 Experience.transaction do
   # categories_array.each do |category|
-    4.times do |i|
+    5.times do |i|
       exp3 = Experience.new(
         title: cat3_title[i],
         description: cat3_des[i],
@@ -239,7 +285,8 @@ Experience.transaction do
         location: place.sample,
         user_id: User.order("RANDOM()").first.id,
         category: category3,
-        photo_urls: [cat3_url[i]] + cat3_url.shuffle)
+        photo_urls: [cat3_url[i]] + cat3_url.shuffle
+        )
       #exp3.photo_urls = urls[i]
       rand(2..4).times do
         exp3.schedules.build(date: Faker::Date.forward(30))
@@ -280,7 +327,7 @@ cat4_des = ["These onsens are rare because they accept tattoos",
 
 Experience.transaction do
   # categories_array.each do |category|
-    4.times do |i|
+    6.times do |i|
       exp4 = Experience.new(
         title: cat4_title.sample,
         description: cat4_des.sample,
@@ -288,7 +335,8 @@ Experience.transaction do
         location: place.sample,
         user_id: User.order("RANDOM()").first.id,
         category: category4,
-        photo_urls: [cat4_url[i]] + cat4_url.shuffle)
+        photo_urls: [cat4_url[i]] + cat4_url.shuffle
+        )
       #exp4.photo_urls = urls[i]
       rand(2..4).times do
         exp4.schedules.build(date: Faker::Date.forward(30))
@@ -331,7 +379,7 @@ cat5_title =[
 
 Experience.transaction do
   # categories_array.each do |category|
-    4.times do |i|
+    7.times do |i|
       exp5 = Experience.new(
         title: cat5_title[i],
         description: cat5_des[i],
@@ -339,7 +387,7 @@ Experience.transaction do
         location: place.sample,
         user_id: User.order("RANDOM()").first.id,
         category: category5,
-        photo_urls: ([cat5_url[i]] + cat5_url.shuffle)[0..4]
+        photo_urls: [cat5_url[i]] + cat5_url.shuffle
         )
       #exp5.photo_urls = urls[i]
       rand(2..4).times do

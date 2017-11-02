@@ -16,6 +16,8 @@ class CategoriesController < ApplicationController
 
 
     if current_user
+      current_user.latitude = 35.6339
+      current_user.longitude = 139.7081
       #@experiences = Experience.near([current_user.latitude, current_user.longitude], @distance)
       @all_experiences = @experiences.where.not(latitude: nil, longitude: nil)
       @experiences = @all_experiences.near([current_user.latitude, current_user.longitude], @distance)
