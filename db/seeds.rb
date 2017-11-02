@@ -166,9 +166,11 @@ cat1_des = [
 "Try out some lightly roasted coffee beans for more caffeine",
 " delicious and affordable beverages"
 ]
-cat1_url = ["http://res.cloudinary.com/dqeebh2l0/image/upload/v1509518978/cof2_a04slv.jpg",
-"http://res.cloudinary.com/dqeebh2l0/image/upload/v1509518979/cof5_jcvmgz.jpg",
-"http://res.cloudinary.com/dqeebh2l0/image/upload/v1509518980/cof3_dev9pv.jpg",
+cat1_url = [
+"http://res.cloudinary.com/dqeebh2l0/image/upload/v1509612429/c1_vzzy7d.jpg",
+"http://res.cloudinary.com/dqeebh2l0/image/upload/v1509612757/foam_cwfzln.jpg",
+"http://res.cloudinary.com/dqeebh2l0/image/upload/v1509612498/c2_grwdf0.png",
+"http://res.cloudinary.com/dqeebh2l0/image/upload/v1509612830/cof3_nzn0i1.jpg",
 "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509518980/cof10_yk5pfe.jpg",
 "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509518978/cof6_nh3jd0.jpg",
 "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509518978/cof4_cprqwn.jpg",
