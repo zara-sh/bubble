@@ -1,0 +1,7 @@
+# config/meta.yml
+
+meta_product_name: "Around The Corner"
+meta_title: "Around The Corner - Discover your Neighborhood!"
+meta_description: "Experience new things!"
+meta_image: "covert.jpg"                       # should exist in `app/assets/images/`
+ # required for Twitter Cards
