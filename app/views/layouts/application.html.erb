@@ -6,19 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= favicon_link_tag 'favicon.ico' %>
     <link href="/assets/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-    <meta name="description" content="Experience new things!">
-    <meta name="og:description" content="Experience new things!">
-    <meta name="title" content="Around The Corner - Discover your Neighborhood!">
-    <meta name="og:title" content="Around The Corner - Discover your Neighborhood!">
-    <meta name="og:type" content="website">
-    <meta name="og:url" content="<%= request.url %>">
-    <meta name="og:image" content="<%=image_url('covert.jpg')%>">
+
+
+<title>Around The Corner</title>
+<meta name="description" content="<%= meta_description %>">
+
+<!-- Facebook Open Graph data -->
+<meta property="og:title" content="<%= meta_title %>" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="<%= request.original_url %>" />
+<meta property="og:image" content="<%= meta_image %>" />
+<meta property="og:description" content="<%= meta_description %>" />
+<meta property="og:site_name" content="<%= meta_title %>" />
+
 
     <meta name="keywords" content="HTML,CSS,XML,JavaScript">
     <meta name="author" content="Team ATC">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Around The Corner - Discover your Neighborhood!</title>
+
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
