@@ -12,7 +12,6 @@ class BookingsController < ApplicationController
   def show
     @booking = Booking.find(params[:id])
     @guide = @booking.experience.user
-    authorize @booking
   end
 
   def new
@@ -55,8 +54,19 @@ class BookingsController < ApplicationController
     @booking.delete
   end
 
+  def testwo
+    @booking = Booking.find(params[:id])
+    authorize @booking
+    if @booking.experience.user == current_user
+      return true
+    else
+      return false
+    end
+  end
+
   def test(test)
     @booking = test
+    authorize @booking
     if @booking.confirmed = true
       return "Confirmed!"
     else
@@ -67,10 +77,11 @@ class BookingsController < ApplicationController
   def confirm # for when you click "confirm". should hide buttons.
     @booking = Booking.find(params[:id])
     @booking.confirmed = true
+    authorize @booking
     redirect_to booking_path(@booking), :notice => 'The booking has been confirmed!'
   end
 
-  helper_method :test
+  helper_method :test, :testwo
 
   private
 

@@ -62,7 +62,7 @@ p {
     <p>
       <strong>Confirmation status: </strong><%= test(@booking)%>
     </p>
-    <% if policy(Restaurant).create? %>
+    <% if policy(@booking).confirm? %>
       <% if test(@booking) %>
       <p>
         <%= link_to "Confirm", confirm_booking_path, method: :post, class: "btn btn-success" %>
