@@ -92,7 +92,7 @@ categories_array = [category1, category2, category3, category4, category5]
 incentive = ["Make Friends", "Get To Know The Area","Free Cup of Coffee", "$$$", "For Free!"]
 title = ["Touristy Spots", "Best Cafe Ever", "Where to Workout", "Best Relaxation Spot"]
 
-place = ["Meguro, Tokyo", "Harajuku, Tokyo", "shibuya, Tokyo", "shinjuku, Tokyo","Hikarigaoka, Tokyo", "Ginza, Tokyo", "Koenji, Tokyo", "Eibusu, Tokyo", "Yoyogi, Tokyo", "Shinagawa, Tokyo", "Naka-meguro, Tokyo", "Ueno, Tokyo" ]
+place = ["Meguro, Tokyo", "Harajuku, Tokyo", "shibuya, Tokyo", "shinjuku, Tokyo","Hikarigaoka, Tokyo", "Ginza, Tokyo", "Koenji, Tokyo", "Eibusu, Tokyo", "Yoyogi, Tokyo", "Shinagawa, Tokyo", "Naka-meguro, Tokyo", "Ueno, Tokyo", "Daikan-yama, Tokyo", "Yutenji, Tokyo", "Gotanda, Tokyo","Senzoku, Tokyo", "Kita-senzoku", "Ookayama, Tokyo", "Fudomea, Tokyo", "Musashi-Koyama, Tokyo"]
 description = ["Blue Bottle Coffee is on the ground floor and is accessible from the outside of the building.  I got lost trying to find it, but if you go outside and look up the address on Google maps, make your way toward the pin from the outdoors, you should find it.
 I was delighted to see that there’s a Blue Bottle location in Shinjuku.  You can expect the same quality here as you would at any other location.  The staff is friendly and quick.  The craftsmanship is excellent, just what you’d expect from Blue Bottle.  I got a New Orleans drink here, and it tasted just like the one from their New York City shops.  The lines can get long, and there is not much seating available, but there are some benches outside.  The shop indoors across from Blue Bottle has fun culinary accouterments to look at if you’d like to take a small stroll inside.
 Enjoy!", "howa Memorial Park is a 165 hectare National Government Park about a 40 minute train ride from Shinjuku Station. The park is great to visit year round with seasonal flowers adding some colour even through the winter months. Noteworthy is the crisscrossed network of cycling paths and bikes including tandem’s are available for hire. In addition the park includes several playgrounds including a Children’s Forest and rainbow pool, BBQ facilities and for couples looking for something quieter there is always pedal boating on the artificial lake.
@@ -135,7 +135,7 @@ cat1_url = ["http://res.cloudinary.com/dqeebh2l0/image/upload/v1509518978/cof2_a
 
 Experience.transaction do
   # categories_array.each do |category|
-    3.times do
+  6.times do
       exp1 = Experience.new(
         title: cat1_title.sample,
         description: cat1_des.sample,
@@ -171,7 +171,7 @@ cat2_url = ["http://res.cloudinary.com/dqeebh2l0/image/upload/v1509519428/bar5_g
 "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509519429/bar3_v2adcv.jpg"]
 Experience.transaction do
   # categories_array.each do |category|
-    3.times do
+    4.times do
       exp2 = Experience.new(
         title: cat2_title.sample,
         description: cat2_des.sample,
@@ -208,7 +208,7 @@ cat3_des = ["To achieve something you’ve never had before, you must do somethi
 
 Experience.transaction do
   # categories_array.each do |category|
-    2.times do
+    4.times do
       exp3 = Experience.new(
         title: cat3_title.sample,
         description: cat3_des.sample,
@@ -248,7 +248,7 @@ cat4_des = ["These onsens are rare because they accept tattoos", "Some of the be
 
 Experience.transaction do
   # categories_array.each do |category|
-    2.times do
+    4.times do
       exp4 = Experience.new(
         title: cat4_title.sample,
         description: cat4_des.sample,
@@ -289,7 +289,7 @@ cat5_title =["Best Ramen in the City","Largest Shrine in the Prefecture",
 
 Experience.transaction do
   # categories_array.each do |category|
-    3.times do
+    4.times do
       exp5 = Experience.new(
         title: cat5_title.sample,
         description: cat5_des.sample,
