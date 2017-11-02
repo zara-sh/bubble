@@ -93,7 +93,7 @@ categories_array = [category1, category2, category3, category4, category5]
 
 #weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
 incentive = ["Make Friends", "Get To Know The Area","Free Cup of Coffee", "$$$", "For Free!"]
-title = ["Touristy Spots", "Best Cafe Ever", "Where to Workout", "Best Relaxation Spot"]
+title = ["Touristy Spots", "Best Cafe Ever", "Where to Workout", "Super Relaxing"]
 
 place = ["Meguro, Tokyo",
   "Harajuku, Tokyo",
@@ -145,16 +145,12 @@ Enjoy!", "howa Memorial Park is a 165 hectare National Government Park about a 4
 
 puts 'Created categories'
 
-
-cat1_title =[
-"Best Cafe Ever",
-"Delicious Lattes",
-"Try Cold Brew Coffee",
- "Secret Little Cafes",
-"Where to get Aeropress",
-"Fresh Roasted Beans",
-"Green Caffeine"
-]
+cat1_title =["Best Cafe Ever"
+  ,"Delicious Lattes",
+  "Try Cold Brew Coffee", 
+  "Secret Little Cafes",
+"Perfect Aeropress",
+  "Fresh Roasted","Green Caffeine"]
 
 cat1_des = [
   "A little spot tucked away with great staff",
@@ -201,14 +197,21 @@ end
 
 
 
-cat2_title = ["Appletini or Cosmo?",
-  " Where the best Martinis Live",
-  "Downtown Tokyo Bars",
-  "Drinks You’ve Never Heard Of",
-  "Affordable Cocktails in the City",
-  "Old-Fashioned Mixologists",
-  "Speakeasy Type Club Downtown"
-]
+cat2_title = ["Appletini or Cosmo?"," Best Martinis", "Downtown Bars", "Unique Drinks",
+"Affordable Cocktails", "Old-fashioned Drinks", "Speakeasy Downtown"]
+# cat2_des = ["Choose between two of the best cocktails", "Find the best spots for good martinis",
+#   " Go out on the town and experience nightlife"," Great spots for super creative cocktails",
+#   " Experience awesome clubs for great prices", "Great old-fashioned drinks from bygone eras",
+#   "Jazz clubs for history buffs"]
+
+# cat2_title = ["Appletini or Cosmo?",
+#   " Where the best Martinis Live",
+#   "Downtown Tokyo Bars",
+#   "Drinks You’ve Never Heard Of",
+#   "Affordable Cocktails in the City",
+#   "Old-Fashioned Mixologists",
+#   "Speakeasy Type Club Downtown"
+# ]
 
 cat2_des = ["Choose between two of the best cocktails",
   "Find the best spots for good martinis",
@@ -218,6 +221,7 @@ cat2_des = ["Choose between two of the best cocktails",
   "Great old-fashioned drinks from bygone eras",
   "Jazz clubs for history buffs"
 ]
+
 
 cat2_url = [
 "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509519428/bar5_gfs3ap.jpg",
@@ -258,14 +262,12 @@ cat3_url = ["http://res.cloudinary.com/dqeebh2l0/image/upload/v1509531829/g2_vvj
 "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509599953/yoga_dhonur.jpg",
 "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509531829/g5_lplshn.jpg"
 ]
-
-cat3_title =["Alternatives to Crossfit",
-"Lift Heavy Nearby",
-#"No Need for Machines at This Gym",
-"Quiet Gym with Great Staff",
-"Personal Training Within 5 Minutes",
-"Work Hard Play Hard",
-"Great Space for Yoga"]
+cat3_title =["Alt Crossfit","Lift Heavy Nearby",
+#"No Machines Here",
+"Quiet Gym",
+"Personal Training",
+"Olympic Lifting",
+  "Great Yoga"]
 
 cat3_des = ["To achieve something you’ve never had before, you must do something you’ve never done before.",
 "You are born weak and die weak, what you are in between those two periods of time is up to you",
@@ -307,14 +309,12 @@ cat4_url = ["http://res.cloudinary.com/dqeebh2l0/image/upload/v1509531361/r1_y2v
 "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509584326/r6_sg4yqk.jpg"
 ]
 
-cat4_title = ["Onsens Which Accept Tattoos",
-  "Decompress in Japan’s Best Spas",
-"Affordable Makeovers",
-"A Short Weekend Spa Trip",
-"Some Good Places for Manicure and Pedicures",
- "Relaxing Walks through the Park",
-"Take Time to Rest After Work"
-]
+
+cat4_title = ["Peaceful Onsen","Decompress Here",
+"Affordable Makeovers","Weekend Spa",
+"Best Mani-Pedi",
+ "Relaxing Park",
+"After Work Rest",]
 
 cat4_des = ["These onsens are rare because they accept tattoos",
  "Some of the best spas in the area offer great places to relax and decompress",
@@ -367,15 +367,15 @@ cat5_des = [
 "Japan is a country of rich history, full of shrines and memorials, beauty and wonder. Some historical sites are incredibly old but still preserved wonderfully, from the buildings to forests and more.",
 "Wartime memorials are a place of sorrow, but rebuilding. They are beautifully made tributes to times not too far in the past. Take a quiet moment here to reflect.",
 ]
-cat5_title =[
-  "Best Ramen in the City",
-  "Largest Shrine in the Prefecture",
+
+
+cat5_title =["Best Ramen",
+  "Largest Shrine",
 "Electric Town",
-"Beaches Great for Photos",
-"Japan’s Spookiest Forests",
-"Historical Sites",
-"Wartime Memorials"
-]
+  "Sun and Sand",
+"Spookiest Forests",
+  "Historical Sites",
+"Wartime Memorials"]
 
 Experience.transaction do
   # categories_array.each do |category|
