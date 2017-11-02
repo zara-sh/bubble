@@ -5,7 +5,7 @@
 </html>
 <style>
 </style>
-<!-- <%rej%> for testing-->
+
 
 <!-- Header with image -->
           <div class="slider-for">
@@ -42,6 +42,14 @@
     <p>
       <strong>Confirmation status: </strong><%= test(@booking)%>
     </p>
+    <% if test(@booking) %>
+    <p>
+      <%= link_to "Confirm", confirm_booking_path, method: :post, class: "btn btn-success" %>
+      <%= link_to "Cancel", cancel_booking_path, method: :post, class: "btn btn-danger" %>
+
+      <!-- need to do the policy for who can access the methods these call, as well as who can see these -->
+    </p>
+    <% end %>
   </div>
 </div>
 
@@ -150,11 +158,7 @@
 
 
     <p><%= link_to "See my bookings", bookings_path %></p>
-    <p>
-      <button type="button" class="btn btn-success">Confirm</button>
-      <button type="button" class="btn btn-danger">Cancel</button>
-      <!-- need to do the policy for who can access the methods these call, as well as who can see these -->
-    </p>
+
 
   </div>
 </div>
@@ -197,6 +201,7 @@ function openMenu(evt, menuName) {
   evt.currentTarget.firstElementChild.className += " w3-dark-grey";
 }
 document.getElementById("myLink").click();
+
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
 <!--
