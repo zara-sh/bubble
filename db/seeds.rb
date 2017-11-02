@@ -281,13 +281,13 @@ cat5_des = ["Japan's best attractions are the ones no one cares about, like the 
 "Jigokudani Monkey Park is a famous hot spring area near Nagano,. The name Jigokudani (meaning “Hell’s Valley”), is due to steam and boiling water that bubbles out the frozen ground, surrounded by steep cliffs and formidably cold forests. It is famous for its large population of wild Snow Monkeys that go to the valley during the winter when snow covers the park. The monkeys descend from the steep cliffs and forest to sit in the warm hot springs, and return to the security of the forests in the evenings.",
 "The Kiyomizu-dera Buddhist temple is located in Eastern Kyoto and can be traced back as far as the year 798. An indoor waterfall fed from the outside river keeps the temple in harmony with nature and not one nail was used in construction. While locals used to jump off the edge to have a wish granted (with a survival rate of 85.4%), modern visitors can enjoy the shrines and talismans and artwork on display without risking life and limb.",
 "The Tokyo Tower is a testament to the advancement of technology and modern life. Inspired by the Eiffel tower design, it is the second tallest man-made structure in Japan and functions as a communications and observation tower. Visitors can climb the tower for unparalleled views of Tokyo and the surrounding areas as well as visit shops and restaurants.",
-
+"The Great Buddha of Kamakura is a colossal outdoor representation of Amida Buddha, one of Japan’s most celebrated Buddhist figures. Cast in bronze, the Great Buddha stands at over 13 meters (40 feet) high and weighs nearly 93 tons. The statue reportedly dates from 1252. Although it originally was housed in a small wooden temple, the Great Buddha now stands in the open air as the original temple was washed away in a tsunami in the 15th century."
 ]
 cat5_title =["Best Ramen in the City","Largest Shrine in the Prefecture",
 "Electric Town","Beaches Great for Photos",
 "Japan’s Spookiest Forests","Historical Sites",
-"Wartime Memorials","The Great Buddha of Kamakura is a colossal outdoor representation of Amida Buddha, one of Japan’s most celebrated Buddhist figures. Cast in bronze, the Great Buddha stands at over 13 meters (40 feet) high and weighs nearly 93 tons. The statue reportedly dates from 1252. Although it originally was housed in a small wooden temple, the Great Buddha now stands in the open air as the original temple was washed away in a tsunami in the 15th century.",
-""]
+"Wartime Memorials"
+]
 
 Experience.transaction do
   # categories_array.each do |category|
