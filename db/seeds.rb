@@ -84,6 +84,9 @@ category5 = Category.create!(
   name: 'Trendy Tourism',
   icon: 'fa-flag'
 )
+
+puts 'the 5 categories created'
+
 categories_array = [category1, category2, category3, category4, category5]
 
 

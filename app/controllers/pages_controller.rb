@@ -14,9 +14,13 @@ class PagesController < ApplicationController
   def search
   end
 
+  respond_to :json
   def profile
-    @user = current_user
+    # @events = Event.where(user_id: current_user.id)
+    @events = Event.all
+    render :text => @events.to_json
   end
+
 
   def edit # profile
     # unless current_user.full_profile?

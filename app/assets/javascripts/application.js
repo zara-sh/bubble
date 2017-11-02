@@ -7,6 +7,8 @@
 //= require jquery.slick
 //= require underscore
 //= require gmaps/google
+//= require moment
+//= require fullcalendar
 //= require bootstrap-datepicker
 //= require bootstrap-datepicker/core
 //= require bootstrap-datepicker/locales/bootstrap-datepicker.es.js
