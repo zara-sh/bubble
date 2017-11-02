@@ -112,7 +112,8 @@ puts 'Created categories'
 
 
 cat1_title =["Best Cafe Ever","Delicious Lattes","Try Cold Brew Coffee", "Secret Little Cafes",
-"Where to get Aeropress","Fresh Roasted Beans","Green Caffeine"]
+"Where to get Aeropress","Fresh Roasted Beans","Green Caffeine"
+]
 
 cat1_des = [
   "A little spot tucked away with great staff",
@@ -121,9 +122,9 @@ cat1_des = [
   "Tiny cafes you’ll probably miss, not even on Google Maps",
 "Aeropress is a new and handy technique of brewing fresh hot coffee",
 "This awesome places roasts its own amazing coffee beans",
-"Try out some lightly roasted coffee beans for more caffeine"]
-" delicious and affordable beverages",
-
+"Try out some lightly roasted coffee beans for more caffeine",
+" delicious and affordable beverages"
+]
 cat1_url = ["http://res.cloudinary.com/dqeebh2l0/image/upload/v1509518978/cof2_a04slv.jpg",
 "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509518979/cof5_jcvmgz.jpg",
 "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509518980/cof3_dev9pv.jpg",
@@ -145,8 +146,7 @@ Experience.transaction do
         user_id: User.order("RANDOM()").first.id,
         category: category1,
         # photo_urls: cat1_url.shuffle
-        photo_urls: ([cat1_url[i]] + cat1_url.shuffle)[0..4]
-        )
+        photo_urls: [cat1_url[i]] + cat1_url.shuffle)
       #exp1.photo_urls = cat1_url[i]
       rand(2..4).times do
         exp1.schedules.build(date: Faker::Date.forward(30))
@@ -165,7 +165,8 @@ cat2_title = ["Appletini or Cosmo?",
   "Drinks You’ve Never Heard Of",
   "Affordable Cocktails in the City",
   "Old-Fashioned Mixologists",
-  "Speakeasy Type Club Downtown"]
+  "Speakeasy Type Club Downtown"
+]
 
 cat2_des = ["Choose between two of the best cocktails",
   "Find the best spots for good martinis",
@@ -173,7 +174,8 @@ cat2_des = ["Choose between two of the best cocktails",
   " Great spots for super creative cocktails",
   " Experience awesome clubs for great prices",
   "Great old-fashioned drinks from bygone eras",
-  "Jazz clubs for history buffs"]
+  "Jazz clubs for history buffs"
+]
 
 cat2_url = [
 "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509519428/bar5_gfs3ap.jpg",
@@ -181,11 +183,12 @@ cat2_url = [
 "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509519429/bar2_iqloqp.jpg",
 "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509519429/bar4_dtrpfa.jpg",
 "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509519429/bar3_v2adcv.jpg",
-"http://res.cloudinary.com/dqeebh2l0/image/upload/v1509592543/c11_bd4vy7.jpg"
-"http://res.cloudinary.com/dqeebh2l0/image/upload/v1509592220/c10_mawcx9.jpg"]
+"http://res.cloudinary.com/dqeebh2l0/image/upload/v1509592543/c11_bd4vy7.jpg",
+"http://res.cloudinary.com/dqeebh2l0/image/upload/v1509592220/c10_mawcx9.jpg"
+]
 Experience.transaction do
   # categories_array.each do |category|
-    4.times do
+    4.times do |i|
       exp2 = Experience.new(
         title: cat2_title[i],
         description: cat2_des[i],
@@ -193,8 +196,7 @@ Experience.transaction do
         location: place.sample,
         user_id: User.order("RANDOM()").first.id,
         category: category2,
-        photo_urls: ([cat2_url[i]] + cat2_url.shuffle)[0..4]
-        )
+        photo_urls: [cat2_url[i]] + cat2_url.shuffle)
       #exp2.photo_urls = cat2_url[i]
       rand(2..4).times do
         exp2.schedules.build(date: Faker::Date.forward(30))
@@ -209,7 +211,8 @@ cat3_url = ["http://res.cloudinary.com/dqeebh2l0/image/upload/v1509531829/g2_vvj
 "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509531829/g5_lplshn.jpg",
 "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509531830/gym_fnjzeu.jpg",
 "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509531830/g4_pxfvbb.jpg",
-"http://res.cloudinary.com/dqeebh2l0/image/upload/v1509531830/g1_jhb9hd.jpg"]
+"http://res.cloudinary.com/dqeebh2l0/image/upload/v1509531830/g1_jhb9hd.jpg"
+]
 
 cat3_title =["Alternatives to Crossfit","Lift Heavy Nearby",
 #"No Need for Machines at This Gym",
@@ -220,11 +223,12 @@ cat3_title =["Alternatives to Crossfit","Lift Heavy Nearby",
 cat3_des = ["To achieve something you’ve never had before, you must do something you’ve never done before.",
 "You are born weak and die weak, what you are in between those two periods of time is up to you",
 "Hard work beats talent when talent doesn’t work hard",
-"Winners Train, Losers Complain"]
+"Winners Train, Losers Complain"
+]
 
 Experience.transaction do
   # categories_array.each do |category|
-    4.times do
+    4.times do |i|
       exp3 = Experience.new(
         title: cat3_title[i],
         description: cat3_des[i],
@@ -232,8 +236,7 @@ Experience.transaction do
         location: place.sample,
         user_id: User.order("RANDOM()").first.id,
         category: category3,
-        photo_urls: ([cat3_url[i]] + cat3_url.shuffle)[0..4]
-        )
+        photo_urls: [cat3_url[i]] + cat3_url.shuffle)
       #exp3.photo_urls = urls[i]
       rand(2..4).times do
         exp3.schedules.build(date: Faker::Date.forward(30))
@@ -251,7 +254,8 @@ cat4_url = ["http://res.cloudinary.com/dqeebh2l0/image/upload/v1509531361/r1_y2v
 "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509584319/r5_vsq5dh.jpg",
 "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509531362/r4_cailc9.jpg",
 "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509531361/r2_sk5ipe.jpg",
-"http://res.cloudinary.com/dqeebh2l0/image/upload/v1509584326/r6_sg4yqk.jpg"]
+"http://res.cloudinary.com/dqeebh2l0/image/upload/v1509584326/r6_sg4yqk.jpg"
+]
 
 cat4_title = ["Onsens Which Accept Tattoos",
   "Decompress in Japan’s Best Spas",
@@ -259,19 +263,21 @@ cat4_title = ["Onsens Which Accept Tattoos",
 "A Short Weekend Spa Trip",
 "Some Good Places for Manicure and Pedicures",
  "Relaxing Walks through the Park",
-"Take Time to Rest After Work",]
+"Take Time to Rest After Work"
+]
 
 cat4_des = ["These onsens are rare because they accept tattoos",
  "Some of the best spas in the area offer great places to relax and decompress",
   "If you want to get a makeover and feel great about yourself then these places are perfect",
   "If you’d like to spend just a quick weekend decompressing from a difficult job then these spots are going to be your favorite soon",
-  "Sometimes you just need to get your fingernails pretty and sparkly", "Sometimes it’s just good to take a relaxing walk in the park among the wildlife and flowers",
+  "Sometimes you just need to get your fingernails pretty and sparkly",
+ "Sometimes it’s just good to take a relaxing walk in the park among the wildlife and flowers",
   "If you just need a place to go and relax after work then these quiet places around town are great"
 ]
 
 Experience.transaction do
   # categories_array.each do |category|
-    4.times do
+    4.times do |i|
       exp4 = Experience.new(
         title: cat4_title.sample,
         description: cat4_des.sample,
@@ -279,8 +285,7 @@ Experience.transaction do
         location: place.sample,
         user_id: User.order("RANDOM()").first.id,
         category: category4,
-        photo_urls: ([cat4_url[i]] + cat4_url.shuffle)[0..4]
-        )
+        photo_urls: [cat4_url[i]] + cat4_url.shuffle)
       #exp4.photo_urls = urls[i]
       rand(2..4).times do
         exp4.schedules.build(date: Faker::Date.forward(30))
@@ -310,7 +315,8 @@ cat5_des = [
 "Japan is a country of rich history, full of shrines and memorials, beauty and wonder. Some historical sites are incredibly old but still preserved wonderfully, from the buildings to forests and more.",
 "Wartime memorials are a place of sorrow, but rebuilding. They are beautifully made tributes to times not too far in the past. Take a quiet moment here to reflect.",
 ]
-cat5_title =["Best Ramen in the City",
+cat5_title =[
+  "Best Ramen in the City",
   "Largest Shrine in the Prefecture",
 "Electric Town",
 "Beaches Great for Photos",
@@ -321,7 +327,7 @@ cat5_title =["Best Ramen in the City",
 
 Experience.transaction do
   # categories_array.each do |category|
-    4.times do
+    4.times do |i|
       exp5 = Experience.new(
         title: cat5_title.sample,
         description: cat5_des.sample,
@@ -329,11 +335,11 @@ Experience.transaction do
         location: place.sample,
         user_id: User.order("RANDOM()").first.id,
         category: category5,
-        photo_urls: cat5_url.shuffle
+        photo_urls: ([cat5_url[i]] + cat5_url.shuffle)[0..4]
         )
       #exp5.photo_urls = urls[i]
       rand(2..4).times do
-        photo_urls: ([cat5_url[i]] + cat5_url.shuffle)[0..4]
+        exp5.schedules.build(date: Faker::Date.forward(30))
       end
       exp5.save!
 
