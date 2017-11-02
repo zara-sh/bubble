@@ -145,9 +145,8 @@ Enjoy!", "howa Memorial Park is a 165 hectare National Government Park about a 4
 
 puts 'Created categories'
 
-cat1_title =["Best Cafe Ever"
-  ,"Delicious Lattes",
-  "Try Cold Brew Coffee", 
+cat1_title =["Best Cafe Ever","Delicious Lattes",
+  "Try Cold Brew Coffee",
   "Secret Little Cafes",
 "Perfect Aeropress",
   "Fresh Roasted","Green Caffeine"]
