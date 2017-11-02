@@ -144,7 +144,8 @@ Experience.transaction do
         location: place.sample,
         user_id: User.order("RANDOM()").first.id,
         category: category1,
-        photo_urls: cat1_url.shuffle
+        # photo_urls: cat1_url.shuffle
+        photo_urls: ([cat1_url[i]] + cat1_url.shuffle)[0..4]
         )
       #exp1.photo_urls = cat1_url[i]
       rand(2..4).times do
