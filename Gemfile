@@ -12,6 +12,7 @@ gem "geocoder"
 gem "gmaps4rails"
 gem 'bootstrap-datepicker-rails'
 gem 'jquery-ui-rails', '~> 4.2.1'
+gem 'turbolinks'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
@@ -26,6 +27,9 @@ gem "jquery-slick-rails"
 gem 'multi-dates-picker-rails'
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
+gem 'private_pub'
+gem 'thin'
+gem 'sdoc', '~> 0.4.0',          group: :doc
 
 group :development, :test do
   gem 'pry-byebug'
@@ -54,4 +58,9 @@ gem "pundit"
 
 source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
+end
+
+group :production do
+  gem 'rails_12factor'
+  gem 'pg'
 end

@@ -43,6 +43,15 @@ p {
               <% end %>
             </div>
         <% end %>
+
+<% if @booking.user.id == current_user.id %>
+        <%= link_to "Send Message to #{@booking.experience.user.name}", "#", class: "btn btn-success btn-xs start-conversation", "data-sid" => current_user.id, "data-rip" => @booking.experience.user.id %>
+<% elsif current_user.id == @booking.experience.user.id %>
+    <%= link_to "Send Message to #{@booking.user.name}", "#", class: "btn btn-success btn-xs start-conversation", "data-sid" => current_user.id, "data-rip" => @booking.user.id %>
+
+<% end %>
+
+
   <h4 class="w3-center w3-padding-48">Enjoy this gem together!</h4>
 <!-- Add a background color and large text to the whole page? -->
 <div class="content_c">

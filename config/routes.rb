@@ -18,7 +18,9 @@ Rails.application.routes.draw do
   resources :bookings, only: [:index, :show, :destroy]
   resources :categories, only: [:show]
   # resources :bookings, only: [:show]
-
+  resources :conversations do
+    resources :messages
+  end
   # keeping the comment below just in case my modifications above don't actually work as intended
   # devise_for :users, controllers: { confirmations: 'confirmations' }
 

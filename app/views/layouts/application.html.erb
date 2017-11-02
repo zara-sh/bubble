@@ -7,6 +7,7 @@
     <%= favicon_link_tag 'favicon.ico' %>
     <link href="/assets/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
+<meta content='<%= user_signed_in? ? current_user.id : "" %>' name='user-id'/>
 
 <title>Around The Corner</title>
 <meta name="description" content="<%= meta_description %>">
@@ -27,7 +28,8 @@
 
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
-    <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag '//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css' %>
 <!--     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata"> -->
   </head>
@@ -45,9 +47,10 @@
     <%= javascript_include_tag "https://maps.google.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_API_BROWSER_KEY']}" %>
     <%= javascript_include_tag "https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/markerclusterer/src/markerclusterer_compiled.js" %>
     <%= javascript_include_tag "https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js" %>
-    <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= cloudinary_js_config %>
     <%= yield(:after_js) %>
+<audio id="chatAudio"><source src="/sounds/notification.mp3" type="audio/mpeg"></audio>
 
   </body>
 </html>
