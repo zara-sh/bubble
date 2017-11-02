@@ -296,7 +296,8 @@ Experience.transaction do
     end
 end
 
-cat5_url = ["http://res.cloudinary.com/dqeebh2l0/image/upload/v1509592595/best_ramen_in_the_city_azy2pl.jpg",
+cat5_url = [
+"http://res.cloudinary.com/dqeebh2l0/image/upload/v1509592595/best_ramen_in_the_city_azy2pl.jpg",
 "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509592597/largest_shrine_in_prefecture_oo66e4.jpg",
 "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509592595/electric_town_yadxjc.webp",
 "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509592595/beaches_great_for_photos_pfm80s.jpg",
@@ -329,8 +330,8 @@ Experience.transaction do
   # categories_array.each do |category|
     4.times do |i|
       exp5 = Experience.new(
-        title: cat5_title.sample,
-        description: cat5_des.sample,
+        title: cat5_title[i],
+        description: cat5_des[i],
         incentive: incentive.sample,
         location: place.sample,
         user_id: User.order("RANDOM()").first.id,
