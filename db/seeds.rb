@@ -232,9 +232,11 @@ end
 
 cat4_url = ["http://res.cloudinary.com/dqeebh2l0/image/upload/v1509531361/r1_y2vedm.jpg",
 "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509531362/r3_ghjsfw.jpg",
-"http://res.cloudinary.com/dqeebh2l0/image/upload/v1509531362/r3_ghjsfw.jpg",
+"http://res.cloudinary.com/dqeebh2l0/image/upload/v1509584319/r5_vsq5dh.jpg",
 "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509531362/r4_cailc9.jpg",
-"http://res.cloudinary.com/dqeebh2l0/image/upload/v1509531361/r2_sk5ipe.jpg"]
+"http://res.cloudinary.com/dqeebh2l0/image/upload/v1509531361/r2_sk5ipe.jpg",
+"http://res.cloudinary.com/dqeebh2l0/image/upload/v1509584326/r6_sg4yqk.jpg"]
+
 cat4_title = ["Onsens Which Accept Tattoos","Decompress in Japan’s Best Spas",
 "Affordable Makeovers","A Short Weekend Spa Trip",
 "Some Good Places for Manicure and Pedicures",
