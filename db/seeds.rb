@@ -92,7 +92,39 @@ categories_array = [category1, category2, category3, category4, category5]
 incentive = ["Make Friends", "Get To Know The Area","Free Cup of Coffee", "$$$", "For Free!"]
 title = ["Touristy Spots", "Best Cafe Ever", "Where to Workout", "Best Relaxation Spot"]
 
-place = ["Meguro, Tokyo", "Harajuku, Tokyo", "shibuya, Tokyo", "shinjuku, Tokyo","Hikarigaoka, Tokyo", "Ginza, Tokyo", "Koenji, Tokyo", "Eibusu, Tokyo", "Yoyogi, Tokyo", "Shinagawa, Tokyo", "Naka-meguro, Tokyo", "Ueno, Tokyo", "Daikan-yama, Tokyo", "Yutenji, Tokyo", "Gotanda, Tokyo","Senzoku, Tokyo", "Kita-senzoku", "Ookayama, Tokyo", "Fudomea, Tokyo", "Musashi-Koyama, Tokyo"]
+place = ["Meguro, Tokyo",
+  "Harajuku, Tokyo",
+  "shibuya, Tokyo",
+  "shinjuku, Tokyo",
+  "Hikarigaoka, Tokyo",
+  "Ginza, Tokyo",
+  "Koenji, Tokyo",
+  "Eibusu, Tokyo",
+  "Yoyogi, Tokyo",
+  "Shinagawa, Tokyo",
+  "Naka-meguro, Tokyo",
+  "Ueno, Tokyo",
+  "Daikan-yama, Tokyo",
+  "Yutenji, Tokyo",
+  "Gotanda, Tokyo",
+  "Senzoku, Tokyo",
+  "Kita-senzoku, Tokyo",
+  "Ookayama, Tokyo",
+  "Fudomea, Tokyo",
+  "Musashi-Koyama, Tokyo",
+  "〒141-0021 Tokyo, 品川区Kamiosaki, 2 Chome−17−3, 北斗目黒ビル",
+  "〒153-0063 Tōkyō-to, Meguro-ku, Meguro, 3 Chome−9−3, 須田ビルクラスターハイツ 1F",
+  "3 Chome-20-26 Shimomeguro, Meguro-ku, Tōkyō-to 153-0064",
+  "1 Chome-8-5 Shimomeguro, Meguro-ku, Tōkyō-to 153-0064",
+  "1 Chome-8-5 Shimomeguro, Meguro-ku, Tōkyō-to 153-0064",
+  "1 Chome-8-1 Shimomeguro, Meguro-ku, Tōkyō-to 153-0064",
+  "2 Chome-2-4-36 Meguro, Meguro-ku, Tōkyō-to 153-0063",
+  "〒153-0064, 2 Chome-21-28 Shimomeguro, Meguro-ku, Tōkyō-to 153-0064",
+  "〒153-0064 東京都目黒区Shimomeguro, 2 Chome−3, 下目黒２丁目３−２３",
+  "1 Chome-5-21 Shimomeguro, Meguro-ku, Tōkyō-to 153-0064",
+  "1 Chome-4-8 Meguro, Meguro-ku, Tōkyō-to 153-0063",
+  "〒141-0021 Tōkyō-to, Shinagawa-ku, Kamiōsaki, 2 Chome−25−5, 久米ビル 8F"
+      ]
 description = ["Blue Bottle Coffee is on the ground floor and is accessible from the outside of the building.  I got lost trying to find it, but if you go outside and look up the address on Google maps, make your way toward the pin from the outdoors, you should find it.
 I was delighted to see that there’s a Blue Bottle location in Shinjuku.  You can expect the same quality here as you would at any other location.  The staff is friendly and quick.  The craftsmanship is excellent, just what you’d expect from Blue Bottle.  I got a New Orleans drink here, and it tasted just like the one from their New York City shops.  The lines can get long, and there is not much seating available, but there are some benches outside.  The shop indoors across from Blue Bottle has fun culinary accouterments to look at if you’d like to take a small stroll inside.
 Enjoy!", "howa Memorial Park is a 165 hectare National Government Park about a 40 minute train ride from Shinjuku Station. The park is great to visit year round with seasonal flowers adding some colour even through the winter months. Noteworthy is the crisscrossed network of cycling paths and bikes including tandem’s are available for hire. In addition the park includes several playgrounds including a Children’s Forest and rainbow pool, BBQ facilities and for couples looking for something quieter there is always pedal boating on the artificial lake.
@@ -137,7 +169,7 @@ cat1_url = ["http://res.cloudinary.com/dqeebh2l0/image/upload/v1509518978/cof2_a
 
 Experience.transaction do
   # categories_array.each do |category|
-  6.times do |i|
+  8.times do |i|
       exp1 = Experience.new(
         title: cat1_title[i],
         description: cat1_des[i],
@@ -188,7 +220,7 @@ cat2_url = [
 ]
 Experience.transaction do
   # categories_array.each do |category|
-    4.times do |i|
+    7.times do |i|
       exp2 = Experience.new(
         title: cat2_title[i],
         description: cat2_des[i],
@@ -208,27 +240,33 @@ Experience.transaction do
 end
 
 cat3_url = ["http://res.cloudinary.com/dqeebh2l0/image/upload/v1509531829/g2_vvjvyy.jpg",
-"http://res.cloudinary.com/dqeebh2l0/image/upload/v1509531829/g5_lplshn.jpg",
+"http://res.cloudinary.com/dqeebh2l0/image/upload/v1509592596/lift_heavy_nearby_ksygal.jpg",
 "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509531830/gym_fnjzeu.jpg",
 "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509531830/g4_pxfvbb.jpg",
-"http://res.cloudinary.com/dqeebh2l0/image/upload/v1509531830/g1_jhb9hd.jpg"
+"http://res.cloudinary.com/dqeebh2l0/image/upload/v1509531830/g1_jhb9hd.jpg",
+"http://res.cloudinary.com/dqeebh2l0/image/upload/v1509599953/yoga_dhonur.jpg",
+"http://res.cloudinary.com/dqeebh2l0/image/upload/v1509531829/g5_lplshn.jpg"
 ]
 
-cat3_title =["Alternatives to Crossfit","Lift Heavy Nearby",
+cat3_title =["Alternatives to Crossfit",
+"Lift Heavy Nearby",
 #"No Need for Machines at This Gym",
 "Quiet Gym with Great Staff",
 "Personal Training Within 5 Minutes",
-"Work Hard Play Hard","Great Space for Yoga"]
+"Work Hard Play Hard",
+"Great Space for Yoga"]
 
 cat3_des = ["To achieve something you’ve never had before, you must do something you’ve never done before.",
 "You are born weak and die weak, what you are in between those two periods of time is up to you",
 "Hard work beats talent when talent doesn’t work hard",
-"Winners Train, Losers Complain"
+"Winners Train, Losers Complain",
+"Exercise consists of cardiovascular conditioning, strength and resistance training, and flexibility.",
+"Yoga is an ancient art based on a harmonizing system of development for the body, mind, and spirit."
 ]
 
 Experience.transaction do
   # categories_array.each do |category|
-    4.times do |i|
+    5.times do |i|
       exp3 = Experience.new(
         title: cat3_title[i],
         description: cat3_des[i],
@@ -277,7 +315,7 @@ cat4_des = ["These onsens are rare because they accept tattoos",
 
 Experience.transaction do
   # categories_array.each do |category|
-    4.times do |i|
+    6.times do |i|
       exp4 = Experience.new(
         title: cat4_title.sample,
         description: cat4_des.sample,
@@ -328,7 +366,7 @@ cat5_title =[
 
 Experience.transaction do
   # categories_array.each do |category|
-    4.times do |i|
+    7.times do |i|
       exp5 = Experience.new(
         title: cat5_title[i],
         description: cat5_des[i],
