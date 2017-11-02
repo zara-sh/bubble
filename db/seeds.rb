@@ -95,7 +95,7 @@ categories_array = [category1, category2, category3, category4, category5]
 incentive = ["Make Friends", "Get To Know The Area","Free Cup of Coffee", "$$$", "For Free!"]
 title = ["Touristy Spots", "Best Cafe Ever", "Where to Workout", "Best Relaxation Spot"]
 
-place = ["Meguro, Tokyo", "Harajuku, Tokyo", "shibuya, Tokyo", "shinjuku, Tokyo","Hikarigaoka, Tokyo", "Ginza, Tokyo", "Koenji, Tokyo", "Eibusu, Tokyo", "Yoyogi, Tokyo", "Shinagawa, Tokyo", "Naka-meguro, Tokyo", "Ueno, Tokyo" ]
+place = ["Meguro, Tokyo", "Harajuku, Tokyo", "shibuya, Tokyo", "shinjuku, Tokyo","Hikarigaoka, Tokyo", "Ginza, Tokyo", "Koenji, Tokyo", "Eibusu, Tokyo", "Yoyogi, Tokyo", "Shinagawa, Tokyo", "Naka-meguro, Tokyo", "Ueno, Tokyo", "Daikan-yama, Tokyo", "Yutenji, Tokyo", "Gotanda, Tokyo","Senzoku, Tokyo", "Kita-senzoku", "Ookayama, Tokyo", "Fudomea, Tokyo", "Musashi-Koyama, Tokyo"]
 description = ["Blue Bottle Coffee is on the ground floor and is accessible from the outside of the building.  I got lost trying to find it, but if you go outside and look up the address on Google maps, make your way toward the pin from the outdoors, you should find it.
 I was delighted to see that there’s a Blue Bottle location in Shinjuku.  You can expect the same quality here as you would at any other location.  The staff is friendly and quick.  The craftsmanship is excellent, just what you’d expect from Blue Bottle.  I got a New Orleans drink here, and it tasted just like the one from their New York City shops.  The lines can get long, and there is not much seating available, but there are some benches outside.  The shop indoors across from Blue Bottle has fun culinary accouterments to look at if you’d like to take a small stroll inside.
 Enjoy!", "howa Memorial Park is a 165 hectare National Government Park about a 40 minute train ride from Shinjuku Station. The park is great to visit year round with seasonal flowers adding some colour even through the winter months. Noteworthy is the crisscrossed network of cycling paths and bikes including tandem’s are available for hire. In addition the park includes several playgrounds including a Children’s Forest and rainbow pool, BBQ facilities and for couples looking for something quieter there is always pedal boating on the artificial lake.
@@ -115,17 +115,19 @@ puts 'Created categories'
 
 
 cat1_title =["Best Cafe Ever","Delicious Lattes","Try Cold Brew Coffee", "Secret Little Cafes",
-"Where to get Aeropress","Fresh Roasted Beans","Green Caffeine"]
+"Where to get Aeropress","Fresh Roasted Beans","Green Caffeine"
+]
 
-cat1_des = ["A little spot tucked away with great staff",
-" delicious and affordable beverages",
-"These lattes are made perfectly with great art on top of the foam",
-"Cold brew coffee is low in acid and also deliciously smooth",
-"Tiny cafes you’ll probably miss, not even on Google Maps",
+cat1_des = [
+  "A little spot tucked away with great staff",
+  "These lattes are made perfectly with great art on top of the foam",
+  "Cold brew coffee is low in acid and also deliciously smooth",
+  "Tiny cafes you’ll probably miss, not even on Google Maps",
 "Aeropress is a new and handy technique of brewing fresh hot coffee",
 "This awesome places roasts its own amazing coffee beans",
-"Try out some lightly roasted coffee beans for more caffeine"]
-
+"Try out some lightly roasted coffee beans for more caffeine",
+" delicious and affordable beverages"
+]
 cat1_url = ["http://res.cloudinary.com/dqeebh2l0/image/upload/v1509518978/cof2_a04slv.jpg",
 "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509518979/cof5_jcvmgz.jpg",
 "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509518980/cof3_dev9pv.jpg",
@@ -138,16 +140,16 @@ cat1_url = ["http://res.cloudinary.com/dqeebh2l0/image/upload/v1509518978/cof2_a
 
 Experience.transaction do
   # categories_array.each do |category|
-    3.times do
+  6.times do |i|
       exp1 = Experience.new(
-        title: cat1_title.sample,
-        description: cat1_des.sample,
+        title: cat1_title[i],
+        description: cat1_des[i],
         incentive: incentive.sample,
         location: place.sample,
         user_id: User.order("RANDOM()").first.id,
         category: category1,
-        photo_urls: cat1_url.shuffle
-        )
+        # photo_urls: cat1_url.shuffle
+        photo_urls: [cat1_url[i]] + cat1_url.shuffle)
       #exp1.photo_urls = cat1_url[i]
       rand(2..4).times do
         exp1.schedules.build(date: Faker::Date.forward(30))
@@ -160,30 +162,44 @@ end
 
 
 
-cat2_title = ["Appletini or Cosmo?"," Where the best Martinis Live", "Downtown Tokyo Bars""Drinks You’ve Never Heard Of",
-"Affordable Cocktails in the City", "Old-Fashioned Mixologists", "Speakeasy Type Club Downtown"]
-cat2_des = ["Choose between two of the best cocktails", "Find the best spots for good martinis",
-  " Go out on the town and experience nightlife"," Great spots for super creative cocktails",
-  " Experience awesome clubs for great prices", "Great old-fashioned drinks from bygone eras",
-  "Jazz clubs for history buffs"]
+cat2_title = ["Appletini or Cosmo?",
+  " Where the best Martinis Live",
+  "Downtown Tokyo Bars",
+  "Drinks You’ve Never Heard Of",
+  "Affordable Cocktails in the City",
+  "Old-Fashioned Mixologists",
+  "Speakeasy Type Club Downtown"
+]
 
-cat2_url = ["http://res.cloudinary.com/dqeebh2l0/image/upload/v1509519428/bar5_gfs3ap.jpg",
+cat2_des = ["Choose between two of the best cocktails",
+  "Find the best spots for good martinis",
+  " Go out on the town and experience nightlife",
+  " Great spots for super creative cocktails",
+  " Experience awesome clubs for great prices",
+  "Great old-fashioned drinks from bygone eras",
+  "Jazz clubs for history buffs"
+]
+
+cat2_url = [
+"http://res.cloudinary.com/dqeebh2l0/image/upload/v1509519428/bar5_gfs3ap.jpg",
 "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509519429/bar_f5jd4t.jpg",
 "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509519429/bar2_iqloqp.jpg",
 "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509519429/bar4_dtrpfa.jpg",
-"http://res.cloudinary.com/dqeebh2l0/image/upload/v1509519429/bar3_v2adcv.jpg"]
+"http://res.cloudinary.com/dqeebh2l0/image/upload/v1509519429/bar3_v2adcv.jpg",
+"http://res.cloudinary.com/dqeebh2l0/image/upload/v1509592543/c11_bd4vy7.jpg",
+"http://res.cloudinary.com/dqeebh2l0/image/upload/v1509592220/c10_mawcx9.jpg"
+]
 Experience.transaction do
   # categories_array.each do |category|
-    3.times do
+    4.times do |i|
       exp2 = Experience.new(
-        title: cat2_title.sample,
-        description: cat2_des.sample,
+        title: cat2_title[i],
+        description: cat2_des[i],
         incentive: incentive.sample,
         location: place.sample,
         user_id: User.order("RANDOM()").first.id,
         category: category2,
-        photo_urls: cat2_url.shuffle
-        )
+        photo_urls: [cat2_url[i]] + cat2_url.shuffle)
       #exp2.photo_urls = cat2_url[i]
       rand(2..4).times do
         exp2.schedules.build(date: Faker::Date.forward(30))
@@ -198,29 +214,32 @@ cat3_url = ["http://res.cloudinary.com/dqeebh2l0/image/upload/v1509531829/g2_vvj
 "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509531829/g5_lplshn.jpg",
 "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509531830/gym_fnjzeu.jpg",
 "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509531830/g4_pxfvbb.jpg",
-"http://res.cloudinary.com/dqeebh2l0/image/upload/v1509531830/g1_jhb9hd.jpg"]
+"http://res.cloudinary.com/dqeebh2l0/image/upload/v1509531830/g1_jhb9hd.jpg"
+]
+
 cat3_title =["Alternatives to Crossfit","Lift Heavy Nearby",
-"No Need for Machines at This Gym",
+#"No Need for Machines at This Gym",
 "Quiet Gym with Great Staff",
 "Personal Training Within 5 Minutes",
 "Work Hard Play Hard","Great Space for Yoga"]
+
 cat3_des = ["To achieve something you’ve never had before, you must do something you’ve never done before.",
 "You are born weak and die weak, what you are in between those two periods of time is up to you",
 "Hard work beats talent when talent doesn’t work hard",
-"Winners Train, Losers Complain"]
+"Winners Train, Losers Complain"
+]
 
 Experience.transaction do
   # categories_array.each do |category|
-    2.times do
+    4.times do |i|
       exp3 = Experience.new(
-        title: cat3_title.sample,
-        description: cat3_des.sample,
+        title: cat3_title[i],
+        description: cat3_des[i],
         incentive: incentive.sample,
         location: place.sample,
         user_id: User.order("RANDOM()").first.id,
         category: category3,
-        photo_urls: cat3_url.shuffle
-        )
+        photo_urls: [cat3_url[i]] + cat3_url.shuffle)
       #exp3.photo_urls = urls[i]
       rand(2..4).times do
         exp3.schedules.build(date: Faker::Date.forward(30))
@@ -235,23 +254,33 @@ end
 
 cat4_url = ["http://res.cloudinary.com/dqeebh2l0/image/upload/v1509531361/r1_y2vedm.jpg",
 "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509531362/r3_ghjsfw.jpg",
-"http://res.cloudinary.com/dqeebh2l0/image/upload/v1509531362/r3_ghjsfw.jpg",
+"http://res.cloudinary.com/dqeebh2l0/image/upload/v1509584319/r5_vsq5dh.jpg",
 "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509531362/r4_cailc9.jpg",
-"http://res.cloudinary.com/dqeebh2l0/image/upload/v1509531361/r2_sk5ipe.jpg"]
-cat4_title = ["Onsens Which Accept Tattoos","Decompress in Japan’s Best Spas",
-"Affordable Makeovers","A Short Weekend Spa Trip",
+"http://res.cloudinary.com/dqeebh2l0/image/upload/v1509531361/r2_sk5ipe.jpg",
+"http://res.cloudinary.com/dqeebh2l0/image/upload/v1509584326/r6_sg4yqk.jpg"
+]
+
+cat4_title = ["Onsens Which Accept Tattoos",
+  "Decompress in Japan’s Best Spas",
+"Affordable Makeovers",
+"A Short Weekend Spa Trip",
 "Some Good Places for Manicure and Pedicures",
  "Relaxing Walks through the Park",
-"Take Time to Rest After Work",]
-cat4_des = ["These onsens are rare because they accept tattoos", "Some of the best spas in the area offer great places to relax and decompress",
+"Take Time to Rest After Work"
+]
+
+cat4_des = ["These onsens are rare because they accept tattoos",
+ "Some of the best spas in the area offer great places to relax and decompress",
   "If you want to get a makeover and feel great about yourself then these places are perfect",
   "If you’d like to spend just a quick weekend decompressing from a difficult job then these spots are going to be your favorite soon",
-  "Sometimes you just need to get your fingernails pretty and sparkly", "Sometimes it’s just good to take a relaxing walk in the park among the wildlife and flowers",
-  "If you just need a place to go and relax after work then these quiet places around town are great"]
+  "Sometimes you just need to get your fingernails pretty and sparkly",
+ "Sometimes it’s just good to take a relaxing walk in the park among the wildlife and flowers",
+  "If you just need a place to go and relax after work then these quiet places around town are great"
+]
 
 Experience.transaction do
   # categories_array.each do |category|
-    2.times do
+    4.times do |i|
       exp4 = Experience.new(
         title: cat4_title.sample,
         description: cat4_des.sample,
@@ -259,8 +288,7 @@ Experience.transaction do
         location: place.sample,
         user_id: User.order("RANDOM()").first.id,
         category: category4,
-        photo_urls: cat4_url.shuffle
-        )
+        photo_urls: [cat4_url[i]] + cat4_url.shuffle)
       #exp4.photo_urls = urls[i]
       rand(2..4).times do
         exp4.schedules.build(date: Faker::Date.forward(30))
@@ -271,36 +299,47 @@ Experience.transaction do
     end
 end
 
-cat5_url = ["http://res.cloudinary.com/dqeebh2l0/image/upload/v1509530763/t3_y3wznb.jpg",
-"http://res.cloudinary.com/dqeebh2l0/image/upload/v1509530763/t2_g6vllz.jpg",
-"http://res.cloudinary.com/dqeebh2l0/image/upload/v1509530763/t5_zjoqwo.jpg",
-"http://res.cloudinary.com/dqeebh2l0/image/upload/v1509530763/t4_jcq9po.jpg",
-"http://res.cloudinary.com/dqeebh2l0/image/upload/v1509530763/t1_oay6c8.jpg"
+cat5_url = [
+"http://res.cloudinary.com/dqeebh2l0/image/upload/v1509592595/best_ramen_in_the_city_azy2pl.jpg",
+"http://res.cloudinary.com/dqeebh2l0/image/upload/v1509592597/largest_shrine_in_prefecture_oo66e4.jpg",
+"http://res.cloudinary.com/dqeebh2l0/image/upload/v1509592595/electric_town_yadxjc.webp",
+"http://res.cloudinary.com/dqeebh2l0/image/upload/v1509592595/beaches_great_for_photos_pfm80s.jpg",
+"http://res.cloudinary.com/dqeebh2l0/image/upload/v1509592597/japans_spookiest_forests_njsfi1.jpg",
+"http://res.cloudinary.com/dqeebh2l0/image/upload/v1509592595/historical_sites_bimfsl.jpg",
+"http://res.cloudinary.com/dqeebh2l0/image/upload/v1509592597/wartime_memorials_qmwldn.jpg"
 ]
 
-cat5_des = ["Japan's best attractions are the ones no one cares about, like the Imperial Tombs in southern Osaka, the countless hiking trails that pass through abandoned mountain villages, etc.",
-"Jigokudani Monkey Park is a famous hot spring area near Nagano,. The name Jigokudani (meaning “Hell’s Valley”), is due to steam and boiling water that bubbles out the frozen ground, surrounded by steep cliffs and formidably cold forests. It is famous for its large population of wild Snow Monkeys that go to the valley during the winter when snow covers the park. The monkeys descend from the steep cliffs and forest to sit in the warm hot springs, and return to the security of the forests in the evenings.",
-"The Kiyomizu-dera Buddhist temple is located in Eastern Kyoto and can be traced back as far as the year 798. An indoor waterfall fed from the outside river keeps the temple in harmony with nature and not one nail was used in construction. While locals used to jump off the edge to have a wish granted (with a survival rate of 85.4%), modern visitors can enjoy the shrines and talismans and artwork on display without risking life and limb.",
-"The Tokyo Tower is a testament to the advancement of technology and modern life. Inspired by the Eiffel tower design, it is the second tallest man-made structure in Japan and functions as a communications and observation tower. Visitors can climb the tower for unparalleled views of Tokyo and the surrounding areas as well as visit shops and restaurants.",
 
+cat5_des = [
+  "Some of the best ramen in the city can be found in these tiny shops, hard to find but totally worth it when you go in.",
+"Shrines are a beautiful and popular experience here, made many hundreds of years ago and still standing today. Take photos or create a prayer card here along with many other visitors.",
+"High rises and billboards with neon signs and flashing colors are everywhere, a short walk through the city is sure to dazzle you and there is something to see wherever you step.",
+"Japanese beaches are gorgeous but underrated, discover some gorgeous shorelines within minutes of the city, accessible by train or car. Hundreds will flock to the coastline to bathe in the sun and play in the crystal clear water.",
+"There is a lot of dense forest, rich and green but sometimes can be quite spooky! Take a short walk and explore, if you dare, some of the forests and nature areas around.",
+"Japan is a country of rich history, full of shrines and memorials, beauty and wonder. Some historical sites are incredibly old but still preserved wonderfully, from the buildings to forests and more.",
+"Wartime memorials are a place of sorrow, but rebuilding. They are beautifully made tributes to times not too far in the past. Take a quiet moment here to reflect.",
 ]
-cat5_title =["Best Ramen in the City","Largest Shrine in the Prefecture",
-"Electric Town","Beaches Great for Photos",
-"Japan’s Spookiest Forests","Historical Sites",
-"Wartime Memorials","The Great Buddha of Kamakura is a colossal outdoor representation of Amida Buddha, one of Japan’s most celebrated Buddhist figures. Cast in bronze, the Great Buddha stands at over 13 meters (40 feet) high and weighs nearly 93 tons. The statue reportedly dates from 1252. Although it originally was housed in a small wooden temple, the Great Buddha now stands in the open air as the original temple was washed away in a tsunami in the 15th century.",
-""]
+cat5_title =[
+  "Best Ramen in the City",
+  "Largest Shrine in the Prefecture",
+"Electric Town",
+"Beaches Great for Photos",
+"Japan’s Spookiest Forests",
+"Historical Sites",
+"Wartime Memorials"
+]
 
 Experience.transaction do
   # categories_array.each do |category|
-    3.times do
+    4.times do |i|
       exp5 = Experience.new(
-        title: cat5_title.sample,
-        description: cat5_des.sample,
+        title: cat5_title[i],
+        description: cat5_des[i],
         incentive: incentive.sample,
         location: place.sample,
         user_id: User.order("RANDOM()").first.id,
         category: category5,
-        photo_urls: cat5_url.shuffle
+        photo_urls: ([cat5_url[i]] + cat5_url.shuffle)[0..4]
         )
       #exp5.photo_urls = urls[i]
       rand(2..4).times do
