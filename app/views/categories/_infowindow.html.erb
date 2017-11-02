@@ -1,13 +1,30 @@
 <%#= link_to "Show", new_experience_booking_path(space) %>
-          <div class="card-container" >
-            <div class="card-slide" ><img class="card-user" src="<%= cl_image_path @experience.user.photo.path %>">
+       <style>
+/*         #map :nth-child(2)> div > div > div >div >div >div >div >div >div {
+          background-color: black;
+         }
+         .gm-style-iw {
+          background-color: red;
+         }
+         .gm-style-iw:parent { background: none; }*/
+         .gm-style :first-child :last-child :last-child:first-child :first-child :last-child {
+          background-color: rgba(134,12,52,0)!important;
+         }
+         .gm-style :first-child :last-child :last-child:first-child :first-child :nth-child(2) {
+          background-color: rgba(134,12,52,0)!important;
+          width: 100%;
+         }
+       </style>
+
+          <div class="card-container" style="min-width: 185px;">
+            <div class="card-slide"><img class="card-user" src="<%= cl_image_path @experience.user.photo.path %>">
               <div class="card-category"><%= @experience.user.name%>
               </div>
             </div>
             <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @experience.photos.first.path %>');"></div>
             <div class="card-footer">
                 <div class="card-description">
-                  <h2><%= @experience.title %></h2>
+                  <h2 style="font-size: 15px !important"><%= @experience.title %></h2>
                   <p>Incentive: <%= @experience.incentive %></p>
                   <p>In: <%= @experience.location %></p>
                 </div>

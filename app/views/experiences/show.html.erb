@@ -7,7 +7,10 @@
       <h5><strong>Category:</strong> <%= @experience.category.name %></h5>
       <hr>
       <p><strong>Place:</strong> <%= @experience.location %></p>
-      <p><strong>Available on most:</strong> <%= @experience.availability %></p>
+          <p><strong>Available on:</strong></p>
+          <% @experience.schedules.each do |schedule| %>
+            <p><%= schedule.date.strftime("%A, %b %d,%Y") %></p>
+          <% end %>
       <p><strong>Tip for this experience:</strong> <%= @experience.incentive %></p>
       <hr>
       <hr>
@@ -22,10 +25,6 @@
         <%= cl_image_tag @experience.user.photo.path, width: 60, height: 60, crop: :fill, style: 'border-radius:50%;', class:'profile_pic_right' %>
         <!-- </div> -->
       </div>
-      <hr>
-      <p><strong>Description:</strong></p>
-      <p> <%= @experience.description %></p>
-      <p><strong>About your neighbor <%= @experience.user.name %>: </strong></p>
       <p> <%= @experience.user.bio %></p>
       <hr>
       <div class="edit-content">
@@ -69,7 +68,7 @@
           <% end %>
         <% else %>
           <% @experience.bookings.each do |booking| %>
-          <% link = "on #{booking.date} by #{booking.user.name}" %>
+          <% link = "on #{booking.date.to_date.strftime("%A, %b %d,%Y")} by #{booking.user.name}" %>
             <p style="margin:15px 0 0 0;"><%= link_to link, booking_path(booking) %></p>
             <%= link_to 'confirm', experience_path(@experience), class:'btn btn-info', style:"width:45%" %>
             <%= link_to 'reject', booking_path(booking), class:'btn btn-danger', style:"width:45%" , method: :delete, data: {confirm: "are you sure you want to reject your neighbor?"} %>
