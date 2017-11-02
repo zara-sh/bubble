@@ -5,7 +5,7 @@ class CategoriesController < ApplicationController
 
   def show
     @category= Category.find(params[:id])
-    @distance = 15
+    @distance = 6
     @experiences = @category.experiences
     authorize @category
     #@experience_in_cat = @category.experiences
@@ -20,14 +20,20 @@ class CategoriesController < ApplicationController
       @all_experiences = @experiences.where.not(latitude: nil, longitude: nil)
       @experiences = @all_experiences.near([current_user.latitude, current_user.longitude], @distance)
       @hash = Gmaps4rails.build_markers(@experiences) do |experience, marker|
+          @experience = experience
           marker.lat experience.latitude
           marker.lng experience.longitude
+          marker.json({:id => experience.id })
+          marker.infowindow render_to_string(:partial => "/categories/infowindow", :locals => { :object=> experience})
         end
     else
       @experiences = @experiences.where.not(latitude: nil, longitude: nil)
       @hash = Gmaps4rails.build_markers(@experiences) do |experience, marker|
+        @experience = experience
         marker.lat experience.latitude
         marker.lng experience.longitude
+        marker.json({:id => experience.id })
+        marker.infowindow render_to_string(:partial => "/categories/infowindow", :locals => { :object=> experience})
       end
     end
   end
