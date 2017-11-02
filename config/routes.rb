@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks'}
   root to: 'pages#home'
   get "search", to: 'pages#search'
-  get 'profile', to: 'pages#profile'
+  get 'calendar', to: 'pages#profile'
   get 'profile/edit', to: 'pages#edit'
   patch "profile/edit", to: "pages#update"
   delete "profile/delete", to: 'pages#destroy'
