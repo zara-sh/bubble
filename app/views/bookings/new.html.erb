@@ -6,7 +6,10 @@
       <hr>
 
           <p><strong>Category:</strong> <%= @experience.category.name %>
-          <p><strong>Available on most:</strong> <%= @experience.availability %></p>
+          <p><strong>Available on:</strong></p>
+          <% @experience.schedules.each do |schedule| %>
+            <p><%= schedule.date.strftime("%A, %b %d,%Y") %></p>
+          <% end %>
           <p><strong>Tip for this experience:</strong> <%= @experience.incentive %></p>
       <hr>
       <p><strong>Description about this tour</strong></p>

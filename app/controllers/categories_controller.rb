@@ -6,7 +6,7 @@ class CategoriesController < ApplicationController
   def show
     @category= Category.find(params[:id])
     @distance = 6
-    @experiences = @category.experiences
+    @experiences = @category.experiences.order(created_at: :asc)
     authorize @category
     #@experience_in_cat = @category.experiences
 
@@ -16,6 +16,8 @@ class CategoriesController < ApplicationController
 
 
     if current_user
+      current_user.latitude = 35.6339
+      current_user.longitude = 139.7081
       #@experiences = Experience.near([current_user.latitude, current_user.longitude], @distance)
       @all_experiences = @experiences.where.not(latitude: nil, longitude: nil)
       @experiences = @all_experiences.near([current_user.latitude, current_user.longitude], @distance)
