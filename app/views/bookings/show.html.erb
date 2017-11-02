@@ -56,7 +56,7 @@ p {
         <p><i></i></p>
         <p><%= @booking.experience.description %></p>
       </div>
-      <p><strong>On:</strong> <%= @booking.date %></p>
+      <p><strong>On: </strong> <%= @booking.date.to_date.strftime("%A, %b %d,%Y") %></p>
       <p><strong>Location:</strong> <%= @booking.experience.location %></p>
       <p><strong>Payment:</strong> <%= @booking.experience.incentive %></p>
     </div>
