@@ -93,7 +93,7 @@ categories_array = [category1, category2, category3, category4, category5]
 
 #weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
 incentive = ["Make Friends", "Get To Know The Area","Free Cup of Coffee", "$$$", "For Free!"]
-title = ["Touristy Spots", "Best Cafe Ever", "Where to Workout", "Best Relaxation Spot"]
+title = ["Touristy Spots", "Best Cafe Ever", "Where to Workout", "Super Relaxing"]
 
 place = ["Meguro, Tokyo", "Harajuku, Tokyo", "shibuya, Tokyo", "shinjuku, Tokyo","Hikarigaoka, Tokyo", "Ginza, Tokyo", "Koenji, Tokyo", "Eibusu, Tokyo", "Yoyogi, Tokyo", "Shinagawa, Tokyo", "Naka-meguro, Tokyo", "Ueno, Tokyo" ]
 description = ["Blue Bottle Coffee is on the ground floor and is accessible from the outside of the building.  I got lost trying to find it, but if you go outside and look up the address on Google maps, make your way toward the pin from the outdoors, you should find it.
@@ -115,7 +115,7 @@ puts 'Created categories'
 
 
 cat1_title =["Best Cafe Ever","Delicious Lattes","Try Cold Brew Coffee", "Secret Little Cafes",
-"Where to get Aeropress","Fresh Roasted Beans","Green Caffeine"]
+"Perfect Aeropress","Fresh Roasted","Green Caffeine"]
 
 cat1_des = ["A little spot tucked away with great staff",
 " delicious and affordable beverages",
@@ -160,8 +160,8 @@ end
 
 
 
-cat2_title = ["Appletini or Cosmo?"," Where the best Martinis Live", "Downtown Tokyo Bars""Drinks You’ve Never Heard Of",
-"Affordable Cocktails in the City", "Old-Fashioned Mixologists", "Speakeasy Type Club Downtown"]
+cat2_title = ["Appletini or Cosmo?"," Best Martinis", "Downtown Bars", "Unique Drinks",
+"Affordable Cocktails", "Old-fashioned Drinks", "Speakeasy Downtown"]
 cat2_des = ["Choose between two of the best cocktails", "Find the best spots for good martinis",
   " Go out on the town and experience nightlife"," Great spots for super creative cocktails",
   " Experience awesome clubs for great prices", "Great old-fashioned drinks from bygone eras",
@@ -199,11 +199,11 @@ cat3_url = ["http://res.cloudinary.com/dqeebh2l0/image/upload/v1509531829/g2_vvj
 "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509531830/gym_fnjzeu.jpg",
 "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509531830/g4_pxfvbb.jpg",
 "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509531830/g1_jhb9hd.jpg"]
-cat3_title =["Alternatives to Crossfit","Lift Heavy Nearby",
-"No Need for Machines at This Gym",
-"Quiet Gym with Great Staff",
-"Personal Training Within 5 Minutes",
-"Work Hard Play Hard","Great Space for Yoga"]
+cat3_title =["Alt Crossfit","Lift Heavy Nearby",
+"No Machines Here",
+"Quiet Gym",
+"Personal Training",
+"Olympic Lifting","Great Yoga"]
 cat3_des = ["To achieve something you’ve never had before, you must do something you’ve never done before.",
 "You are born weak and die weak, what you are in between those two periods of time is up to you",
 "Hard work beats talent when talent doesn’t work hard",
@@ -238,11 +238,11 @@ cat4_url = ["http://res.cloudinary.com/dqeebh2l0/image/upload/v1509531361/r1_y2v
 "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509531362/r3_ghjsfw.jpg",
 "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509531362/r4_cailc9.jpg",
 "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509531361/r2_sk5ipe.jpg"]
-cat4_title = ["Onsens Which Accept Tattoos","Decompress in Japan’s Best Spas",
-"Affordable Makeovers","A Short Weekend Spa Trip",
-"Some Good Places for Manicure and Pedicures",
- "Relaxing Walks through the Park",
-"Take Time to Rest After Work",]
+cat4_title = ["Peaceful Onsen","Decompress Here",
+"Affordable Makeovers","Weekend Spa",
+"Best Mani-Pedi",
+ "Relaxing Park",
+"After Work Rest",]
 cat4_des = ["These onsens are rare because they accept tattoos", "Some of the best spas in the area offer great places to relax and decompress",
   "If you want to get a makeover and feel great about yourself then these places are perfect",
   "If you’d like to spend just a quick weekend decompressing from a difficult job then these spots are going to be your favorite soon",
@@ -284,11 +284,10 @@ cat5_des = ["Japan's best attractions are the ones no one cares about, like the 
 "The Tokyo Tower is a testament to the advancement of technology and modern life. Inspired by the Eiffel tower design, it is the second tallest man-made structure in Japan and functions as a communications and observation tower. Visitors can climb the tower for unparalleled views of Tokyo and the surrounding areas as well as visit shops and restaurants.",
 
 ]
-cat5_title =["Best Ramen in the City","Largest Shrine in the Prefecture",
-"Electric Town","Beaches Great for Photos",
-"Japan’s Spookiest Forests","Historical Sites",
-"Wartime Memorials","The Great Buddha of Kamakura is a colossal outdoor representation of Amida Buddha, one of Japan’s most celebrated Buddhist figures. Cast in bronze, the Great Buddha stands at over 13 meters (40 feet) high and weighs nearly 93 tons. The statue reportedly dates from 1252. Although it originally was housed in a small wooden temple, the Great Buddha now stands in the open air as the original temple was washed away in a tsunami in the 15th century.",
-""]
+cat5_title =["Best Ramen","Largest Shrine",
+"Electric Town","Sun and Sand",
+"Spookiest Forests","Historical Sites",
+"Wartime Memorials"]
 
 Experience.transaction do
   # categories_array.each do |category|
