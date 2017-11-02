@@ -220,10 +220,10 @@ cat2_des = ["Choose between two of the best cocktails",
 ]
 
 cat2_url = [
-"http://res.cloudinary.com/dqeebh2l0/image/upload/v1509519428/bar5_gfs3ap.jpg",
-"http://res.cloudinary.com/dqeebh2l0/image/upload/v1509519429/bar_f5jd4t.jpg",
+"http://res.cloudinary.com/dqeebh2l0/image/upload/v1509612066/bar1_yje2ke.jpg",
+"http://res.cloudinary.com/dqeebh2l0/image/upload/v1509611890/barme_fnf1ji.jpg",
 "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509519429/bar2_iqloqp.jpg",
-"http://res.cloudinary.com/dqeebh2l0/image/upload/v1509519429/bar4_dtrpfa.jpg",
+"http://res.cloudinary.com/dqeebh2l0/image/upload/v1509611725/bar4_y67epz.jpg",
 "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509519429/bar3_v2adcv.jpg",
 "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509592543/c11_bd4vy7.jpg",
 "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509592220/c10_mawcx9.jpg"
@@ -250,13 +250,13 @@ Experience.transaction do
     end
 end
 
-cat3_url = ["http://res.cloudinary.com/dqeebh2l0/image/upload/v1509531829/g2_vvjvyy.jpg",
+cat3_url = ["http://res.cloudinary.com/dqeebh2l0/image/upload/v1509611537/g2_l94tlo.jpg",
 "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509592596/lift_heavy_nearby_ksygal.jpg",
 "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509531830/gym_fnjzeu.jpg",
 "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509531830/g4_pxfvbb.jpg",
 "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509531830/g1_jhb9hd.jpg",
 "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509599953/yoga_dhonur.jpg",
-"http://res.cloudinary.com/dqeebh2l0/image/upload/v1509531829/g5_lplshn.jpg"
+"http://res.cloudinary.com/dqeebh2l0/image/upload/v1509611296/g5_txfglh.jpg"
 ]
 
 cat3_title =["Alternatives to Crossfit",
@@ -299,7 +299,7 @@ end
 
 
 
-cat4_url = ["http://res.cloudinary.com/dqeebh2l0/image/upload/v1509531361/r1_y2vedm.jpg",
+cat4_url = ["http://res.cloudinary.com/dqeebh2l0/image/upload/v1509610735/r1_ex802b.jpg",
 "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509531362/r3_ghjsfw.jpg",
 "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509584319/r5_vsq5dh.jpg",
 "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509531362/r4_cailc9.jpg",
