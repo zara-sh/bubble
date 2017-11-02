@@ -51,7 +51,7 @@ $category-icon-color-hover: lighten($category-icon-color, 20%);
   white-space: normal;
   justify-content: left;
   margin-left: -20px;
-  margin-top: 100px;
+  margin-top: 70px;
 
   .home-icon {
     text-align: center;
@@ -66,7 +66,6 @@ $category-icon-color-hover: lighten($category-icon-color, 20%);
     display: block;
     width: 150px;
     margin: 20px auto;
-    border-radius: 10px;
     background-color: rgba(99, 38, 74, 0.6);
     transition: all .3s ease;
   }
@@ -85,12 +84,17 @@ $category-icon-color-hover: lighten($category-icon-color, 20%);
   }
 
   p {
-    width: 175px;
+    width: 100%;
     margin: 0 auto;
     padding: 0;
+    font-size: 18px;
   }
 }
 
+.home-text {
+display: inline-block;
+padding: 40px 0 20px 40px;
+}
 
 // @media only screen and (max-width: 770px) {
 //     .banner {

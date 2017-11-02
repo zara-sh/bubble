@@ -20,7 +20,7 @@ p {
               <% @booking.experience.photos.each do |photo| %>
                 <%= cl_image_tag photo.path, crop: :fill, style: 'border-radius:5px;', class:'pic_size' %>
               <% end %>
-        <% elsif @booking.experience.photos.count == 2%>
+        <% elsif @booking.experience.photos.count == 2 %>
             <div class="slider-for-less">
               <% @booking.experience.photos.each do |photo| %>
                 <%= cl_image_tag photo.path, height: 400, crop: :fill, style: 'border-radius:5px;', class:'pic_size' %>
