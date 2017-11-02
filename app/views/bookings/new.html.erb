@@ -2,12 +2,12 @@
   <div class="contain">
     <div class="main_contain">
       <h1><%= @experience.title %></h1>
-      <p><strong>Place:</strong> <%= @experience.location %></p>
+      <h5><strong>Category:</strong> <%= @experience.category.name %></h5>
       <hr>
-
-          <p><strong>Category:</strong> <%= @experience.category.name %>
-          <p><strong>Available on most:</strong> <%= @experience.availability %></p>
-          <p><strong>Tip for this experience:</strong> <%= @experience.incentive %></p>
+      <p><strong>Place:</strong> <%= @experience.location %></p>
+      <p><strong>Available on most:</strong> <%= @experience.availability %></p>
+      <p><strong>Tip for this experience:</strong> <%= @experience.incentive %></p>
+      <hr>
       <hr>
       <p><strong>Description about this tour</strong></p>
       <p> <%= @experience.description %></p>

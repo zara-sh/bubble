@@ -54,7 +54,7 @@ class ExperiencesController < ApplicationController
 
   def edit
     @experience = Experience.find(params[:id])
-    # authorize @experience
+    authorize @experience
   end
 
   def update

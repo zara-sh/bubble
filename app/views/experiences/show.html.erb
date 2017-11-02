@@ -4,18 +4,23 @@
   <div class="contain">
     <div class="main_contain">
       <h1><%= @experience.title %></h1>
-      <p><strong>Neighborhood:</strong> <%= @experience.location %></p>
+      <h5><strong>Category:</strong> <%= @experience.category.name %></h5>
+      <hr>
+      <p><strong>Place:</strong> <%= @experience.location %></p>
+      <p><strong>Available on most:</strong> <%= @experience.availability %></p>
+      <p><strong>Tip for this experience:</strong> <%= @experience.incentive %></p>
+      <hr>
+      <hr>
+      <p><strong>Description about this tour</strong></p>
+      <p> <%= @experience.description %></p>
       <hr>
       <div class="profile_pic_contain">
         <div class="left_info">
-          <p><strong>Category:</strong> <%= @experience.category.name %>
-          <p><strong>Available on:</strong></p>
-          <% @experience.schedules.each do |schedule| %>
-            <p><%= schedule.date.strftime("%A, %m/%d/%Y") %></p>
-          <% end %>
-          <p><strong>I'm interested in "<%= @experience.incentive %>" </strong> as an incentive</p>
+          <p><strong>About your neighbor <%= @experience.user.name %></strong></p>
         </div>
-        <%= cl_image_tag @experience.photos.first.path, width: 60, height: 60, crop: :fill, style: 'border-radius:50%;', class:'profile_pic_right' %>
+        <!-- <div class="profile_pic_right"> -->
+        <%= cl_image_tag @experience.user.photo.path, width: 60, height: 60, crop: :fill, style: 'border-radius:50%;', class:'profile_pic_right' %>
+        <!-- </div> -->
       </div>
       <hr>
       <p><strong>Description:</strong></p>
