@@ -11,7 +11,7 @@ gem 'redis'
 gem "geocoder"
 gem "gmaps4rails"
 gem 'bootstrap-datepicker-rails'
-
+gem 'jquery-ui-rails', '~> 4.2.1'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
@@ -23,6 +23,9 @@ gem 'uglifier'
 gem 'omniauth-facebook'
 gem 'faker'
 gem "jquery-slick-rails"
+gem 'multi-dates-picker-rails'
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'
 
 group :development, :test do
   gem 'pry-byebug'
@@ -47,7 +50,7 @@ gem 'jquery-fileupload-rails'
 gem 'coffee-rails'
 gem "letter_opener", group: :development
 gem 'sendgrid'
-
+gem "pundit"
 
 source 'https://rails-assets.org' do
   gem "rails-assets-underscore"

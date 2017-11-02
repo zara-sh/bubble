@@ -1,22 +1,29 @@
+<!--
 
+  <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"/>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"/>
+    <script src="http://multidatespickr.sourceforge.net/jquery-ui.multidatespicker.js"/> -->
 
 <div class="content">
 <div class="container">
   <div class="row">
     <div class="col-sm-6 col-sm-offset-3">
       <div class= "form_padding">
-        <h2>Share your experience!</h2>
+
+        <h2>Share an experience</h2>
         <%= simple_form_for(@experience) do |f| %>
           <%= f.error_notification %>
-        <%= f.input :title, label:"title for your post!" %>
-        <%= f.input :description, label:"describe the experience you are posting" %>
-        <%= f.input :location, label:"address of meeting location" %>
-        <%= f.input :incentive, label:"what you'd like from your neighbor" %>
 
-        <%= f.association :category, label:"your experience/tour belongs to which category?"  %>
+        <%= f.input :title, label:"Title", maxlength: 25 %>
+        <%= f.input :description, label:"Short description of this experience", maxlength: 200 %>
+        <%= f.input :location, label:"Location" %>
+        <%= f.input :incentive, label:"What incentives will you accept?",maxlength: 25 %>
+        <div class="form-group string optional experience_availability"><label class="control-label string optional" for="experience_availability">Availability</label><input class="form-control date1" type="text" name="experience[availability]" data-date-format="dd/mm/yyyy"></div>
+        <%= f.association :category, label:"What category is your experience"  %>
         <%= f.input :photos, as: :attachinary %>
         <!-- <ul class="list-inline"></ul> -->
-        <%= f.submit 'Post Your Tour!', class: 'btn btn-success', style: 'width:100%' %>
+        <%= f.submit 'Post Your Tour', class: 'btn btn-success', style: 'width:100%' %>
         <% end %>
       </div>
     </div>

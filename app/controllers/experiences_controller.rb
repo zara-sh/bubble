@@ -2,6 +2,8 @@ class ExperiencesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_profile, only: [:new, :create]
 
+  # authorize @experience
+
 
   def show_all
     @experiences = Experience.all
@@ -9,7 +11,7 @@ class ExperiencesController < ApplicationController
 
   def show
     @experience = Experience.find(params[:id])
-
+    authorize @experience
   end
 
 
@@ -23,15 +25,26 @@ class ExperiencesController < ApplicationController
     #   else
     #   $error_message = ""
       @experience = Experience.new
+      authorize @experience
     # end
   end
 
   def create
     @experience = Experience.new(experience_params)
     @experience.user = current_user
+    authorize @experience
     if @experience.save
       if @experience.photos.first.nil?
         @experience.photo_urls = ['https://gaijinpot.scdn3.secure.raxcdn.com/wp-content/uploads/sites/6/2016/05/Meguro-streets.jpg']
+      end
+      if experience_params[:availability]
+        experience_params[:availability].gsub("/", '-').split(",").each do |d|
+          # byebug
+        @experience.schedules.build(date: d.to_date)
+        if @experience.save
+        end
+
+        end
       end
       redirect_to experience_path(@experience)
     else
@@ -41,10 +54,12 @@ class ExperiencesController < ApplicationController
 
   def edit
     @experience = Experience.find(params[:id])
+    # authorize @experience
   end
 
   def update
     @experience = Experience.find(params[:id])
+    authorize @experience
     if @experience.update(experience_params)
       redirect_to experience_path(@experience)
     else
@@ -54,6 +69,7 @@ class ExperiencesController < ApplicationController
 
   def destroy
     @experience = Experience.find(params[:id])
+    authorize @experience
     @experience.delete
     redirect_to root_path
   end

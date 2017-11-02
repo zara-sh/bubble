@@ -1,3 +1,5 @@
+
+
 // Specific CSS for your home-page
 .banner {
   background-color: #f3f9d1;
@@ -8,18 +10,16 @@
 
 }
 .banner-content {
-
   text-align: left;
-  position: absolute;
+  // position: absolute;
   top: 45%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  // transform: translate(-50%, -50%);
   color: #63264A;
-  white-space: nowrap;
+  // white-space: nowrap;
   padding-left: 20px;
 
 }
-
 
 
 .fas {
@@ -51,11 +51,12 @@ $category-icon-color-hover: lighten($category-icon-color, 20%);
   white-space: normal;
   justify-content: left;
   margin-left: -20px;
-  margin-top: 100px;
+  margin-top: 70px;
 
   .home-icon {
     text-align: center;
-    width: 250px;
+    // width: 250px;
+    width: 100%;
     transition: all .3s ease;
   }
 
@@ -65,7 +66,6 @@ $category-icon-color-hover: lighten($category-icon-color, 20%);
     display: block;
     width: 150px;
     margin: 20px auto;
-    border-radius: 10px;
     background-color: rgba(99, 38, 74, 0.6);
     transition: all .3s ease;
   }
@@ -84,9 +84,32 @@ $category-icon-color-hover: lighten($category-icon-color, 20%);
   }
 
   p {
-    width: 175px;
+    width: 100%;
     margin: 0 auto;
     padding: 0;
+    font-size: 18px;
   }
 }
 
+.home-text {
+display: inline-block;
+padding: 40px 0 20px 40px;
+}
+
+// @media only screen and (max-width: 770px) {
+//     .banner {
+//       background-color: blue;
+//     }
+// }
+
+
+.home-row {
+  margin: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.home-icon {
+  padding: 0;
+}

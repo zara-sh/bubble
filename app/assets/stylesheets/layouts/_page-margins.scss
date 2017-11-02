@@ -5,11 +5,9 @@
   background-image: linear-gradient(to bottom,rgba(32, 114, 3, 0), rgba(56, 13, 90, 0));
   position: sticky;
   top: 0;
-  height: 100vh;
-
+  // height: 100vh;
   // height: 15000px;
 }
-
 
 .contain {
   padding: 30px 160px;
@@ -18,4 +16,12 @@
   background-image: linear-gradient(to bottom,rgba(32, 114, 3, 0), rgba(56, 13, 90, 0));
 
   height: auto;
+}
+
+
+@media all and (max-width: 720px) {
+  .contain {
+    padding: 2%;
+      grid-template-columns: 100%;
+  }
 }

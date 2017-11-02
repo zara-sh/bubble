@@ -1,0 +1,42 @@
+.slick-slide {
+    margin: 0 5px;
+}
+// .slide_cntr {
+//    width: 100%;
+//   height: auto;
+// }
+.slider_nav_cntnr {
+  margin: auto;
+  max-width: 300px;
+}
+
+
+.slick-prev:before, .slick-next:before {
+  color: rgb(114, 8, 153) ;
+}
+
+.slick-slide img {
+  // width: auto !important;
+  // min-width: 40px;
+
+}
+
+.slick-list {
+  margin: 30px 0;
+}
+
+.slick-track {
+
+  // width: auto;
+  // margin: auto;
+}
+.slider-for {
+  .slick-list {
+    margin: 0;
+  }
+
+  .slick-slide {
+      margin: 0;
+  }
+}
+

@@ -1,88 +1,111 @@
-<div class="contain">
-      <div class="main_contain">
-        <h1><%= @experience.title %></h1>
-        <p><strong>Place:</strong> <%= @experience.location %></p>
-        <hr>
-        <div class="profile_pic_contain">
-          <div class="left_info">
-            <p><strong>Category:</strong> <%= @experience.category.name %>
-            <p><strong>Available on most:</strong> <%= @experience.availability %></p>
-            <p><strong>Tip for this experience:</strong> <%= @experience.incentive %></p>
-          </div>
-          <!-- <div class="profile_pic_right"> -->
-          <%= cl_image_tag @experience.photos.first.path, width: 60, height: 60, crop: :fill, style: 'border-radius:50%;', class:'profile_pic_right' %>
-          <!-- </div> -->
-        </div>
-        <hr>
-        <p><strong>Description about this tour</strong></p>
-        <p> <%= @experience.description %></p>
-        <p><strong>About your neighbor <%= @experience.user.name %></strong></p>
-        <p> <%= @experience.user.bio %></p>
-        <hr>
-        <p><%= link_to "See my bookings", bookings_path %></p>
-        <h4>Join your neighbor in other experiences!</h4>
+<div class="content_c">
+  <div class="contain">
+    <div class="main_contain">
+      <h1><%= @experience.title %></h1>
+      <p><strong>Place:</strong> <%= @experience.location %></p>
+      <hr>
 
-      </div>
-      <div class="side_contain">
-        <div class="side_contain_s">
-          <div class="slider-for">
-            <% @experience.photos.each do |photo| %>
-              <%= cl_image_tag photo.path, height: 400, crop: :fill, style: 'border-radius:5px;', class:'pic_contain' %>
-            <% end %>
-          </div>
-          <div class="slider-nav pic_slider_container" >
-            <% @experience.photos.each do |photo| %>
-              <%= cl_image_tag photo.path, height: 60, width: 50, crop: :fill,style: 'padding: 10px; border-radius:5px;' %>
-            <% end %>
-          </div>
-          <%= simple_form_for([@experience, @booking]) do |f| %>
+          <p><strong>Category:</strong> <%= @experience.category.name %>
+          <p><strong>Available on:</strong></p>
+          <% @experience.schedules.each do |schedule| %>
+            <p><%= schedule.date.strftime("%A, %b %d,%Y") %></p>
 
-            <%= f.hidden_field :user_id, value: current_user.id %>
-            <%= f.hidden_field :experience_id, value: @experience.id %>
-            <%= f.submit "book", style: "width: 100%", class: "btn btn-success" %>
           <% end %>
+          <p><strong>Tip for this experience:</strong> <%= @experience.incentive %></p>
+      <hr>
+      <p><strong>Description about this tour</strong></p>
+      <p> <%= @experience.description %></p>
+      <hr>
+      <div class="profile_pic_contain">
+        <div class="left_info">
+          <p><strong>About your neighbor <%= @experience.user.name %></strong></p>
         </div>
+        <!-- <div class="profile_pic_right"> -->
+        <%= cl_image_tag @experience.user.photo.path, width: 60, height: 60, crop: :fill, style: 'border-radius:50%;', class:'profile_pic_right' %>
+        <!-- </div> -->
       </div>
+      <p> <%= @experience.user.bio %></p>
+      <hr>
+      <p><%= link_to "See my bookings", bookings_path %></p>
+      <h4>Join your neighbor in other experiences!</h4>
+    </div>
+    <div class="side_contain">
+      <div class="side_contain_s">
+        <% if @experience.photos.count == 1 %>
+              <% @experience.photos.each do |photo| %>
+                <%= cl_image_tag photo.path, height: 400, crop: :fill, style: 'border-radius:5px;', class:'pic_contain' %>
+              <% end %>
+        <% elsif @experience.photos.count == 2%>
+            <div class="slider-for-less">
+              <% @experience.photos.each do |photo| %>
+                <%= cl_image_tag photo.path, height: 400, crop: :fill, style: 'border-radius:5px;', class:'pic_contain' %>
+              <% end %>
+            </div>
+            <div class="slider-nav-less pic_slider_container" >
+              <% @experience.photos.each do |photo| %>
+                <%= cl_image_tag photo.path, height: 40, width: 40, crop: :fill,style: 'padding: 10px; border-radius:5px;' %>
+              <% end %>
+            </div>
+          <% else %>
+            <div class="slider-for">
+              <% @experience.photos.each do |photo| %>
+                <%= cl_image_tag photo.path, height: 400, crop: :fill, style: 'border-radius:5px;', class:'pic_contain' %>
+              <% end %>
+            </div>
+            <div class="slider-nav pic_slider_container" >
+              <% @experience.photos.each do |photo| %>
+                <%= cl_image_tag photo.path, height: 40, width: 40, crop: :fill,style: 'padding: 10px; border-radius:5px;' %>
+              <% end %>
+            </div>
+        <% end %>
+        <%= simple_form_for([@experience, @booking]) do |f| %>
+          <%#= f.input :date, collection: @experience_schedules %>
+          <%= f.input :date, collection: @experience_schedules %>
+          <%= f.hidden_field :user_id, value: current_user.id %>
+          <%= f.hidden_field :experience_id, value: @experience.id %>
+          <%= f.submit "book", style: "width: 100%", class: "btn btn-success" %>
+        <% end %>
+      </div>
+    </div>
     <div>
       <% if @experience.user.experiences.count < 3 %>
-            <div style="display: flex" >
-              <% @experience.user.experiences.each do |experience| %>
-                <div class="nsj_card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path experience.photos.last.path %>');">
+          <div style="display: flex" >
+            <% @experience.user.experiences.each do |experience| %>
+              <div class="nsj_card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path experience.photos.last.path %>');">
+                <div class="card-category"><%= experience.user.name%>
+                </div>
+                    <div class="card-description">
+                      <h2><%= experience.title %></h2>
+                      <p>Payment: <%= experience.incentive %></p>
+                      <p>At: <%= experience.location %></p>
+                    </div>
+                  <img class="njs-card-user" src="<%= cl_image_path experience.user.photo.path %>">
+                <a class="card-link" href="<%= new_experience_booking_path(experience_id: experience.id) %>" ></a>
+              </div>
+            <% end %>
+          </div>
+        <% else %>
+          <div class="center slide_cntr" >
+            <% @experience.user.experiences.each do |experience| %>
+              <% unless experience.photos.first.nil? %>
+                <div class="nsj_card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path experience.photos.first.path %>');">
                   <div class="card-category"><%= experience.user.name%>
-                  </div>
+                    </div>
                       <div class="card-description">
                         <h2><%= experience.title %></h2>
-                        <p>Payment: <%= experience.incentive %></p>
-                        <p>At: <%= experience.location %></p>
+                        <p><%= experience.incentive %></p>
+                        <p><%= experience.location %></p>
                       </div>
                     <img class="njs-card-user" src="<%= cl_image_path experience.user.photo.path %>">
                   <a class="card-link" href="<%= new_experience_booking_path(experience_id: experience.id) %>" ></a>
                 </div>
               <% end %>
-            </div>
-          <% else %>
-            <div class="center slide_cntr" >
-              <% @experience.user.experiences.each do |experience| %>
-                <% unless experience.photos.first.nil? %>
-                  <div class="nsj_card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path experience.photos.first.path %>');">
-                    <div class="card-category"><%= experience.user.name%>
-                      </div>
-                        <div class="card-description">
-                          <h2><%= experience.title %></h2>
-                          <p><%= experience.incentive %></p>
-                          <p><%= experience.location %></p>
-                        </div>
-                      <img class="njs-card-user" src="<%= cl_image_path experience.user.photo.path %>">
-                    <a class="card-link" href="<%= new_experience_booking_path(experience_id: experience.id) %>" ></a>
-                  </div>
-                <% end %>
-              <% end %>
-            </div>
-        <% end %>
+            <% end %>
+          </div>
+      <% end %>
     </div>
-
+  </div>
 </div>
-
 
 
   <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>

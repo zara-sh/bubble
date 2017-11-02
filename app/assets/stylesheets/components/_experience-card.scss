@@ -1,4 +1,4 @@
-.card-container{
+.card-container {
   width: 100%;
   max-width: 100%;
   max-height: 100%;
@@ -7,10 +7,16 @@
   // color: white;
   position: relative;
   margin-bottom: 50px;
+
+  p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 }
 
 .card-slide{
-    position: absolute;
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
@@ -118,7 +124,7 @@ font-size: 20px;
   position: absolute;
   bottom: 10px;
   left: 10px;
-  width: 100%;
+  max-width: 100%;
 }
 .card-description h2 {
   font-size: 24px;
