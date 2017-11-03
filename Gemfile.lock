@@ -158,7 +158,6 @@ GEM
       ruby-progressbar
     momentjs-rails (2.17.1)
       railties (>= 3.1)
-    multi-dates-picker-rails (0.1.1)
     multi_json (1.12.2)
     multi_xml (0.6.0)
     multipart-post (2.0.0)
@@ -317,7 +316,6 @@ DEPENDENCIES
   listen (~> 3.0.5)
   minitest-reporters
   momentjs-rails
-  multi-dates-picker-rails
   omniauth-facebook
   pg
   poltergeist

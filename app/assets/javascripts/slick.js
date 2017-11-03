@@ -5,7 +5,7 @@
   arrows: false,
   fade: true,
   asNavFor: '.slider-nav'
-});
+  });
 
 $('.slider-nav').slick({
   slidesToShow: 3,
@@ -15,7 +15,7 @@ $('.slider-nav').slick({
   centerMode: true,
   focusOnSelect: true,
     arrows: true
-});
+  });
 
  $('.slider-for-less').slick({
   slidesToShow: 1,
@@ -23,7 +23,7 @@ $('.slider-nav').slick({
   arrows: false,
   fade: true,
   asNavFor: '.slider-nav-less'
-});
+  });
 
 $('.slider-nav-less').slick({
   slidesToShow: 2,
@@ -33,9 +33,9 @@ $('.slider-nav-less').slick({
   centerMode: true,
   focusOnSelect: true,
     arrows: true
-});
+  });
 
-    });
+});
 
 
 
@@ -68,33 +68,31 @@ $('.slider-nav-less').slick({
 });
     } else {
           $('.center').slick({
-  centerMode: true,
-  centerPadding: '60px',
-  slidesToShow: 2,
-  responsive: [
-    {
-      breakpoint: 768,
-      settings: {
-        arrows: false,
-        centerMode: true,
-        centerPadding: '40px',
-        slidesToShow: 2
-      }
-    },
-    {
-      breakpoint: 480,
-      settings: {
-        arrows: false,
-        centerMode: true,
-        centerPadding: '40px',
-        slidesToShow: 1
-      }
-    }
-  ]
+      centerMode: true,
+      centerPadding: '60px',
+      slidesToShow: 2,
+      responsive: [
+        {
+          breakpoint: 768,
+          settings: {
+            arrows: false,
+            centerMode: true,
+            centerPadding: '40px',
+            slidesToShow: 2
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            arrows: false,
+            centerMode: true,
+            centerPadding: '40px',
+            slidesToShow: 1
+          }
+        }
+      ]
+    });
+  }
 });
-      }
-
-
-   });
 
 

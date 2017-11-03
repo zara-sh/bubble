@@ -1,0 +1,10 @@
+<% if @message.errors.any? %>
+  // Render new review form with errors
+  document.querySelector('#new_message').html("<%= j render 'messages/form', conversation: @conversation, message: @message %>");
+   console.log($("<%= @message.errors.first %>"))
+<% else %>
+  var new_message = $("<%= j render 'messages/show', message: @message %>").hide();
+  document.querySelector('#messages').append(new_message);
+  new_message.slideDown();
+  document.querySelector('#new_message').html("<%= j render 'messages/form', conversation: @conversation, message: Message.new %>");
+<% end %>

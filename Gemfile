@@ -23,7 +23,7 @@ gem 'uglifier'
 gem 'omniauth-facebook'
 gem 'faker'
 gem "jquery-slick-rails"
-gem 'multi-dates-picker-rails'
+# gem 'multi-dates-picker-rails'
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 
