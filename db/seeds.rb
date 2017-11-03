@@ -18,9 +18,9 @@ puts "Deleted Stuff"
 
 phone = ["(251) 546-9442", "(125) 546-4478","(949) 569-4371", "(630) 446-8851", "(226) 906-2721","(671) 925-1352"]
 
-name = ["Ebony Mullin","Sheron Huertas","Rochelle Woolridge","Karyl Quiroz","Lashawn Votaw","Marcy Raglin","Omar Fluitt","Carmelo Kline","Otis Schon","Jean Crumbley","Lucie Langenfeld", "Kris Kiss", "Anabel Ahmad","Fran Farley","Sabra Sayler"]
+name = ["Ebony Mullin","Sheron Huertas","Rochelle Woolridge","Karyl Quiroz","Lashawn Votaw","Marcy Raglin","Omar Fluitt","Carmelo Kline","Otis Schon","Jean Crumbley","Lucie Langenfeld", "Kris Kiss", "Anabel Ahmad","Fran Farley","Sabra Sayler","Joesph Josey","Bobby Burges"]
 
-hobby =["Yoga", "Pets", "Dance", "Video games", "Sports", "Flying", "Swimming", "Book collecting","Joesph Josey","Bobby Burges"]
+hobby =["Yoga", "Pets", "Dance", "Video games", "Sports", "Flying", "Swimming", "Book collecting"]
 
 bio = ["I am a survivor.  For weeks I daydreamed of my family’s vacation to Thailand.  That vacation was a much needed time away from my hectic hours as a lawyer in a medium-sized firm in Chicago.  But as it turned out my time there was not relaxing at all, life had a different plan.  While on that vacation, our hotel received word of a devastating tsunami set to hit land, we were to evacuate quickly.  Lucky for my family we were further uphill hiking that day when we heard the news. We left to find an even safer location just before the water came on shore. We survived the tsunami. It was an act of God. When we returned many days later we found our resort was no more.
  ", "A senior at Cuyahoga State University, originally from Los Angeles, California. This spring she will receive her B.A in English with a minor in Creative Writing. During her time at Cuyahoga State she worked closely with WriteYouth, a non-profit organization dedicated to promoting childhood literacy. With WriteYouth Kate has led creative writing workshops at over 20 elementary schools throughout the greater Chicago Area. As a writer Kate’s short stories and essays have appeared in numerous online publications, including most notably the Los Angeles Times this past winter. When Kate is not writing or leading workshops, she enjoys running, singing, and playing the piano.",
