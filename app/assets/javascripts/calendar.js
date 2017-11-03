@@ -1,7 +1,7 @@
 
 
 $('#calendar').fullCalendar({
-    events: '/profile',
+    events: '/calendar',
 
    eventClick: function(event) {
         if ( event.url ) {

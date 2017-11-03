@@ -13,7 +13,6 @@
           <% end %>
       <p><strong>Tip for this experience:</strong> <%= @experience.incentive %></p>
       <hr>
-      <hr>
       <p><strong>Description about this tour</strong></p>
       <p> <%= @experience.description %></p>
       <hr>
@@ -39,7 +38,7 @@
               <% @experience.photos.each do |photo| %>
                 <%= cl_image_tag photo.path, height: 400, crop: :fill, style: 'border-radius:5px;', class:'pic_contain' %>
               <% end %>
-        <% elsif @experience.photos.count == 2%>
+        <% elsif @experience.photos.count == 2 %>
             <div class="slider-for-less">
               <% @experience.photos.each do |photo| %>
                 <%= cl_image_tag photo.path, height: 400, crop: :fill, style: 'border-radius:5px;', class:'pic_contain' %>
@@ -78,7 +77,7 @@
     <div>
       <h4>Thanks for sharing these experiences</h4>
       <% if @experience.user.experiences.count < 3 %>
-          <div style="display: flex" >
+          <div class="slick_flex" >
             <% @experience.user.experiences.each do |experience| %>
               <div class="nsj_card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path experience.photos.last.path %>');">
                 <div class="card-category"><%= experience.user.name%>
