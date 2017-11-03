@@ -68,7 +68,7 @@ class BookingsController < ApplicationController
   def test(test)
     @booking = test
     authorize @booking
-    if @booking.confirmed = true
+    if @booking.confirmed == true
       return "Confirmed!"
     else
       return "Awaiting confirmation..."
