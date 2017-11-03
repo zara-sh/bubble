@@ -12,7 +12,6 @@
           <% end %>
       <p><strong>Tip for this experience:</strong> <%= @experience.incentive %></p>
       <hr>
-      <hr>
       <p><strong>Description about this tour</strong></p>
       <p> <%= @experience.description %></p>
       <hr>
@@ -33,28 +32,28 @@
       <div class="side_contain_s">
         <% if @experience.photos.count == 1 %>
               <% @experience.photos.each do |photo| %>
-                <%= cl_image_tag photo.path, height: 400, crop: :fill, style: 'border-radius:5px;', class:'pic_contain' %>
+                <%= cl_image_tag photo.path, height: 400, crop: :fill, class:'pic_contain' %>
               <% end %>
         <% elsif @experience.photos.count == 2%>
             <div class="slider-for-less">
               <% @experience.photos.each do |photo| %>
-                <%= cl_image_tag photo.path, height: 400, crop: :fill, style: 'border-radius:5px;', class:'pic_contain' %>
+                <%= cl_image_tag photo.path, height: 400, crop: :fill, class:'pic_contain' %>
               <% end %>
             </div>
             <div class="slider-nav-less pic_slider_container" >
               <% @experience.photos.each do |photo| %>
-                <%= cl_image_tag photo.path, height: 40, width: 40, crop: :fill,style: 'padding: 10px; border-radius:5px;' %>
+                <%= cl_image_tag photo.path, height: 40, width: 40, crop: :fill,style: 'padding: 10px' %>
               <% end %>
             </div>
           <% else %>
             <div class="slider-for">
               <% @experience.photos.each do |photo| %>
-                <%= cl_image_tag photo.path, height: 400, crop: :fill, style: 'border-radius:5px;', class:'pic_contain' %>
+                <%= cl_image_tag photo.path, height: 400, crop: :fill, class:'pic_contain' %>
               <% end %>
             </div>
             <div class="slider-nav pic_slider_container" >
               <% @experience.photos.each do |photo| %>
-                <%= cl_image_tag photo.path, height: 40, width: 40, crop: :fill,style: 'padding: 10px; border-radius:5px;' %>
+                <%= cl_image_tag photo.path, height: 40, width: 40, crop: :fill,style: 'padding: 10px' %>
               <% end %>
             </div>
         <% end %>
@@ -63,13 +62,13 @@
           <%= f.input :date, collection: @experience_schedules, default: '1' %>
           <%= f.hidden_field :user_id, value: current_user.id %>
           <%= f.hidden_field :experience_id, value: @experience.id %>
-          <%= f.submit "book", style: "width: 100%", class: "btn btn-success" %>
+          <%= f.submit "Book", style: "width: 100%", class: "btn btn-success" %>
         <% end %>
       </div>
     </div>
     <div>
       <% if @experience.user.experiences.count < 3 %>
-          <div style="display: flex" >
+          <div class="slick_flex" >
             <% @experience.user.experiences.each do |experience| %>
               <div class="nsj_card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path experience.photos.last.path %>');">
                 <div class="card-category"><%= experience.user.name%>

@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Event.delete_all
 Booking.delete_all
 Schedule.delete_all
 Experience.delete_all
@@ -145,11 +146,14 @@ Enjoy!", "howa Memorial Park is a 165 hectare National Government Park about a 4
 
 puts 'Created categories'
 
-cat1_title =["Best Cafe Ever","Delicious Lattes",
+cat1_title =[
+  "Best Cafe Ever",
+  "Delicious Lattes",
   "Try Cold Brew Coffee",
   "Secret Little Cafes",
-"Perfect Aeropress",
-  "Fresh Roasted","Green Caffeine"]
+  "Perfect Aeropress",
+  "Fresh Roasted",
+  "Green Caffeine"]
 
 cat1_des = [
   "A little spot tucked away with great staff",
@@ -198,8 +202,15 @@ end
 
 
 
-cat2_title = ["Appletini or Cosmo?"," Best Martinis", "Downtown Bars", "Unique Drinks",
-"Affordable Cocktails", "Old-fashioned Drinks", "Speakeasy Downtown"]
+cat2_title = [
+"Appletini or Cosmo?",
+" Best Martinis",
+"Downtown Bars",
+ "Unique Drinks",
+"Affordable Cocktails",
+"Old-fashioned Drinks",
+"Speakeasy Downtown"
+]
 # cat2_des = ["Choose between two of the best cocktails", "Find the best spots for good martinis",
 #   " Go out on the town and experience nightlife"," Great spots for super creative cocktails",
 #   " Experience awesome clubs for great prices", "Great old-fashioned drinks from bygone eras",
@@ -263,12 +274,15 @@ cat3_url = ["http://res.cloudinary.com/dqeebh2l0/image/upload/v1509611537/g2_l94
 "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509599953/yoga_dhonur.jpg",
 "http://res.cloudinary.com/dqeebh2l0/image/upload/v1509611296/g5_txfglh.jpg"
 ]
-cat3_title =["Alt Crossfit","Lift Heavy Nearby",
+cat3_title =[
+"Alt Crossfit",
+"Lift Heavy Nearby",
 #"No Machines Here",
 "Quiet Gym",
 "Personal Training",
 "Olympic Lifting",
-  "Great Yoga"]
+"Great Yoga"
+]
 
 cat3_des = ["To achieve something you’ve never had before, you must do something you’ve never done before.",
 "You are born weak and die weak, what you are in between those two periods of time is up to you",
@@ -311,11 +325,15 @@ cat4_url = ["http://res.cloudinary.com/dqeebh2l0/image/upload/v1509610735/r1_ex8
 ]
 
 
-cat4_title = ["Peaceful Onsen","Decompress Here",
-"Affordable Makeovers","Weekend Spa",
+cat4_title = [
+"Peaceful Onsen",
+"Decompress Here",
+"Affordable Makeovers",
+"Weekend Spa",
 "Best Mani-Pedi",
- "Relaxing Park",
-"After Work Rest",]
+"Relaxing Park",
+"After Work Rest"
+]
 
 cat4_des = ["These onsens are rare because they accept tattoos",
  "Some of the best spas in the area offer great places to relax and decompress",
@@ -327,7 +345,6 @@ cat4_des = ["These onsens are rare because they accept tattoos",
 ]
 
 Experience.transaction do
-  # categories_array.each do |category|
     6.times do |i|
       exp4 = Experience.new(
         title: cat4_title.sample,
@@ -338,7 +355,6 @@ Experience.transaction do
         category: category4,
         photo_urls: [cat4_url[i]] + cat4_url.shuffle
         )
-      #exp4.photo_urls = urls[i]
       rand(2..4).times do
         exp4.schedules.build(date: Faker::Date.forward(30))
       end
@@ -370,16 +386,17 @@ cat5_des = [
 ]
 
 
-cat5_title =["Best Ramen",
+cat5_title =[
+  "Best Ramen",
   "Largest Shrine",
-"Electric Town",
+  "Electric Town",
   "Sun and Sand",
-"Spookiest Forests",
+  "Spookiest Forests",
   "Historical Sites",
-"Wartime Memorials"]
+  "Wartime Memorials"
+]
 
 Experience.transaction do
-  # categories_array.each do |category|
     7.times do |i|
       exp5 = Experience.new(
         title: cat5_title[i],
@@ -390,7 +407,6 @@ Experience.transaction do
         category: category5,
         photo_urls: [cat5_url[i]] + cat5_url.shuffle
         )
-      #exp5.photo_urls = urls[i]
       rand(2..4).times do
         exp5.schedules.build(date: Faker::Date.forward(30))
       end

@@ -31,8 +31,9 @@ class BookingsController < ApplicationController
     @booking.schedule = @schedule
     authorize @booking
     if @booking.save
-        Event.create(title: @booking.experience.title, start: @schedule.date, url: booking_path(@booking), user_id: current_user.id, booking_id: @booking.id)
-        Event.create(title: @booking.experience.title, start: @schedule.date, url: booking_path(@booking), user_id: @booking.experience.user.id, booking_id: @booking.id)
+         Event.create(title: @booking.experience.title, start: @schedule.date, url: booking_path(@booking), user_id: current_user.id, booking_id: @booking.id)
+         Event.create(title: @booking.experience.title, start: @schedule.date, url: booking_path(@booking), user_id: @booking.experience.user.id, booking_id: @booking.id)
+        # byebug
       redirect_to  booking_path(@booking)
       # (experience_id: @booking.experience_id, id: @booking.id)
     else

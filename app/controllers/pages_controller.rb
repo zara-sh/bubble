@@ -16,8 +16,8 @@ class PagesController < ApplicationController
 
   respond_to :json
   def profile
-    @events = Event.where(user_id: current_user.id)
-    # @events = Event.all
+    # @events = Event.where(user_id: current_user.id)
+    @events = Event.all
     render :text => @events.to_json
   end
 
