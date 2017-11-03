@@ -12,7 +12,6 @@
           <% end %>
       <p><strong>Tip for this experience:</strong> <%= @experience.incentive %></p>
       <hr>
-      <hr>
       <p><strong>Description about this tour</strong></p>
       <p> <%= @experience.description %></p>
       <hr>
@@ -63,13 +62,13 @@
           <%= f.input :date, collection: @experience_schedules, default: '1' %>
           <%= f.hidden_field :user_id, value: current_user.id %>
           <%= f.hidden_field :experience_id, value: @experience.id %>
-          <%= f.submit "book", style: "width: 100%", class: "btn btn-success" %>
+          <%= f.submit "Book", style: "width: 100%", class: "btn btn-success" %>
         <% end %>
       </div>
     </div>
     <div>
       <% if @experience.user.experiences.count < 3 %>
-          <div style="display: flex" >
+          <div class="slick_flex" >
             <% @experience.user.experiences.each do |experience| %>
               <div class="nsj_card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path experience.photos.last.path %>');">
                 <div class="card-category"><%= experience.user.name%>
